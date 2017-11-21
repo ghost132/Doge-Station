@@ -1,0 +1,5 @@
+<h1>Bem vindo a Estação HUE 13!</h1>
+
+-<i>Estamos trabalhando na tradução, uma modificação de </strong>Kartos132</i>
+<br><br>
+<strong>GitHub:</strong> <a>Ainda nao temos</a>

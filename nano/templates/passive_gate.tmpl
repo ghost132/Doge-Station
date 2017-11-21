@@ -1,0 +1,20 @@
+<div class='itemLabel'>
+Power: 
+</div>
+
+<div class='itemContent'>
+{{:helper.link('On', 'power-off', {'power' : 1}, data.on ? 'selected' : null)}}{{:helper.link('Off', 'close', {'power' : 1}, data.on ? null : 'selected')}}
+</div>
+
+<div class='itemLabel'>
+Desirable output pressure:<br>
+</div>
+
+{{:helper.displayBar(data.target_pressure, 0, 4500, (data.target_pressure >= 2250) ? 'good' : (data.target_pressure >= 1125) ? 'average' : 'bad')}}
+<div class='itemContent' style="width: 60px">
+	{{:helper.smoothRound(data.target_pressure, 1)}}kPa
+</div><br>
+
+<div class='itemContent'>
+{{:helper.link('Change', 'wrench', {'set_press' : 1})}}
+</div>

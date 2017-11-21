@@ -1,0 +1,1 @@
+from beat.bot import BotBeat

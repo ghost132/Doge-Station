@@ -1,0 +1,52 @@
+<!-- 
+Title: Particle Accelerator UI
+Used In File(s): \code\modules\power\singularity\particle_accelerator\particle_control.dm
+
+-->
+{{if data.assembled}}
+	<div class='item'>
+	  <h2>PA Menu</h2>
+	</div>
+	<div class="item">
+		{{if data.active}}
+			<div class='itemLabel'>
+				Power: ON
+			</div> 
+		{{else}}
+			<div class='itemLabel'>
+				Power: OFF
+			</div> 
+		{{/if}}
+		<div class='itemContent'>
+			{{:helper.link('Toggle Power', 'gear', {'toggle' : 1})}}
+		</div>
+	</div>
+	<div class="item">
+		<div class='itemLabel'>
+			Power Strength: {{:data.power}}
+		</div> 
+		<div class='itemContent'>
+			{{:helper.link(' ', 'minus', {'strengthdown' : 1})}}{{:helper.link(' ', 'plus', {'strengthup' : 1})}}
+		</div>
+	</div>
+{{else}}
+	<div class='item'>
+		<h2>Scan Parts</h2>
+	</div>
+	<div class='item'>
+		<div class='itemLabel'>
+			Scan parts:
+		</div>
+		<div class='itemContent'>
+			{{:helper.link('Scan', 'wrench', {'scan' : 1})}}
+		</div>
+	</div>
+	<div class="item">
+		<div class='itemLabel'>
+			Status:
+		</div> 
+		<div class='itemContent'>
+			{{:data.connection}}
+		</div>
+	</div>
+{{/if}}

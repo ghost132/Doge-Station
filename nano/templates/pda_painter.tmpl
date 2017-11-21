@@ -1,0 +1,10 @@
+{{if data.storedpda}}
+	<h3>{{:data.pda_name}}</h3>
+{{/if}}
+{{if data.storedpda}}
+	<div class='line'>{{:helper.link(data.storedpda ? 'Eject PDA' : '-----', 'eject', {'choice' : data.storedpda ? 'eject_pda' : 'insert_pda'})}}{{:helper.link('Paint PDA', 'paint-brush', {'choice' : 'paint_pda'})}}</div><br>
+{{else}}
+	<div class="wholeScreen">
+        <br>No PDA found, please insert a PDA
+    </div>
+{{/if}}

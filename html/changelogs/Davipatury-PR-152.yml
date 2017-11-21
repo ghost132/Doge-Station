@@ -1,0 +1,4 @@
+author: davipatury
+delete-after: True
+changes: 
+  - rscadd: "A bunch of UIs now use /datum/browser"

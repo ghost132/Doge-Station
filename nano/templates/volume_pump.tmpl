@@ -1,0 +1,20 @@
+<div class='itemLabel'>
+Power: 
+</div>
+
+<div class='itemContent'>
+{{:helper.link('On', 'power-off', {'power' : 1}, data.on ? 'selected' : null)}}{{:helper.link('Off', 'close', {'power' : 1}, data.on ? null : 'selected')}}
+</div>
+
+<div class='itemLabel'>
+Desirable output flow:<br>
+</div>
+
+{{:helper.displayBar(data.transfer_rate, 0, 200, (data.transfer_rate >= 100) ? 'good' : (data.transfer_rate >= 50) ? 'average' : 'bad')}}
+<div class='itemContent' style="width: 60px">
+	{{:helper.smoothRound(data.transfer_rate, 1)}}l/s
+</div><br>
+
+<div class='itemContent'>
+{{:helper.link('Change', 'wrench', {'set_transfer_rate' : 1})}}
+</div>
