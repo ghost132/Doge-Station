@@ -314,7 +314,7 @@
 //Large chem grenades accept slime cores and use the appropriately.
 /obj/item/weapon/grenade/chem_grenade/large
 	name = "large grenade casing"
-	desc = "Uma granada vazia bem grande. Ela afeta uma area maior."
+	desc = "Uma granada vazia bem grande, Ela afeta uma area maior."
 	icon_state = "large_grenade"
 	bomb_state = "largebomb"
 	allowed_containers = list(/obj/item/weapon/reagent_containers/glass,/obj/item/weapon/reagent_containers/food/condiment,
@@ -361,14 +361,14 @@
 
 /obj/item/weapon/grenade/chem_grenade/cryo // Intended for rare cryogenic mixes. Cools the area moderately upon detonation.
 	name = "granada cryogenica"
-	desc = "Uma granada cryogenica. Ela rapidamente esfria quaisquer conteudos na detonaçao."
+	desc = "Uma granada cryogenica, Ela rapidamente esfria quaisquer conteudos na detonaçao."
 	icon_state = "cryog"
 	affected_area = 2
 	ignition_temp = -100
 
 /obj/item/weapon/grenade/chem_grenade/pyro // Intended for pyrotechnical mixes. Produces a small fire upon detonation, igniting potentially flammable mixtures.
 	name = "granada pyrotechnica"
-	desc = "Uma granada pyrotechnica. Ela aquece e ativa quaisquer conteudos na detonaçao."
+	desc = "Uma granada pyrotechnica, Ela aquece e ativa quaisquer conteudos na detonaçao."
 	icon_state = "pyrog"
 	origin_tech = "combat=4;engineering=4"
 	affected_area = 3
