@@ -163,7 +163,7 @@
 	name = "Alternar Pédais"
 
 /datum/action/item_action/set_internals
-	name = "Abrir/Fexar Cilindro"
+	name = "Abrir/Fechar Valvula"
 
 /datum/action/item_action/set_internals/UpdateButtonIcon()
 	if(..()) //button available
@@ -176,7 +176,7 @@
 	name = "Alternar Senhor"
 
 /datum/action/item_action/toggle_headphones
-	name = "TColocar Fone"
+	name = "Colocar Fone"
 
 /datum/action/item_action/toggle_helmet_light
 	name = "Alternar Luz do Capacete"

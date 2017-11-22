@@ -118,7 +118,7 @@
 
 	if(href_list["observe"])
 
-		if(alert(src,"Tem certeza que eur so observar? Você nao poderá voltar a partidade depois que fizer isso!","Configuração do Jogador","Sim","Não") == "Sim")
+		if(alert(src,"Tem certeza quer so observar? Você nao poderá voltar a partidade depois que fizer isso!","Configuração do Jogador","Sim","Não") == "Sim")
 			if(!client)	return 1
 			var/mob/dead/observer/observer = new()
 			src << browse(null, "window=playersetup")

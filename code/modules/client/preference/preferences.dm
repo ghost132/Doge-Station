@@ -241,8 +241,8 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 
 	var/dat = ""
 	dat += "<center>"
-	dat += "<a href='?_src_=prefs;preference=tab;tab=[TAB_CHAR]' [current_tab == TAB_CHAR ? "class='linkOn'" : ""]>Character Settings</a>"
-	dat += "<a href='?_src_=prefs;preference=tab;tab=[TAB_GAME]' [current_tab == TAB_GAME ? "class='linkOn'" : ""]>Game Preferences</a>"
+	dat += "<a href='?_src_=prefs;preference=tab;tab=[TAB_CHAR]' [current_tab == TAB_CHAR ? "class='linkOn'" : ""]>Edição do Personagem</a>"
+	dat += "<a href='?_src_=prefs;preference=tab;tab=[TAB_GAME]' [current_tab == TAB_GAME ? "class='linkOn'" : ""]>Preferencias do Jogo</a>"
 	dat += "<a href='?_src_=prefs;preference=tab;tab=[TAB_GEAR]' [current_tab == TAB_GEAR ? "class='linkOn'" : ""]>Loadout</a>"
 	dat += "</center>"
 	dat += "<HR>"
@@ -259,69 +259,69 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 			dat += "<table width='100%'><tr><td width='405px' height='25px' valign='top'>"
 			dat += "<b>Name: </b>"
 			dat += "<a href='?_src_=prefs;preference=name;task=input'><b>[real_name]</b></a>"
-			dat += "<a href='?_src_=prefs;preference=name;task=random'>(Randomize)</a>"
-			dat += "<a href='?_src_=prefs;preference=name'><span class='[be_random_name ? "good" : "bad"]'>(Always Randomize)</span></a><br>"
+			dat += "<a href='?_src_=prefs;preference=name;task=random'>(Randomizar)</a>"
+			dat += "<a href='?_src_=prefs;preference=name'><span class='[be_random_name ? "good" : "bad"]'>(Sempre Randomizar)</span></a><br>"
 			dat += "</td><td width='405px' height='25px' valign='left'>"
 			dat += "<center>"
 			dat += "Slot <b>[slot_name]</b> - "
-			dat += "<a href=\"byond://?_src_=prefs;preference=open_load_dialog\">Load slot</a> - "
-			dat += "<a href=\"byond://?_src_=prefs;preference=save\">Save slot</a> - "
-			dat += "<a href=\"byond://?_src_=prefs;preference=reload\">Reload slot</a>"
+			dat += "<a href=\"byond://?_src_=prefs;preference=open_load_dialog\">Carregar slot</a> - "
+			dat += "<a href=\"byond://?_src_=prefs;preference=save\">Salvar slot</a> - "
+			dat += "<a href=\"byond://?_src_=prefs;preference=reload\">Recarregar slot</a>"
 			dat += "</center>"
 			dat += "</td></tr></table>"
 			dat += "<table width='100%'><tr><td width='405px' height='200px' valign='top'>"
 			dat += "<h2>Identity</h2>"
 			if(appearance_isbanned(user))
-				dat += "<b>You are banned from using custom names and appearances. \
-				You can continue to adjust your characters, but you will be randomised once you join the game.\
+				dat += "<b>Você está banido por usar nomes e aparências personalizadas. \
+				Você pode continuar a ajustar seus personagens, mas você será randomizado quando você se juntar ao jogo.\
 				</b><br>"
-			dat += "<b>Gender:</b> <a href='?_src_=prefs;preference=gender'>[gender == MALE ? "Male" : (gender == FEMALE ? "Female" : "Genderless")]</a>"
+			dat += "<b>Sexo:</b> <a href='?_src_=prefs;preference=gender'>[gender == MALE ? "Male" : (gender == FEMALE ? "Female" : "Genderless")]</a>"
 			dat += "<br>"
-			dat += "<b>Age:</b> <a href='?_src_=prefs;preference=age;task=input'>[age]</a><br>"
-			dat += "<b>Body:</b> <a href='?_src_=prefs;preference=all;task=random'>(&reg;)</a><br>"
-			dat += "<b>Species:</b> <a href='?_src_=prefs;preference=species;task=input'>[species]</a><br>"
+			dat += "<b>Idade:</b> <a href='?_src_=prefs;preference=age;task=input'>[age]</a><br>"
+			dat += "<b>Corpo:</b> <a href='?_src_=prefs;preference=all;task=random'>(&reg;)</a><br>"
+			dat += "<b>Especie:</b> <a href='?_src_=prefs;preference=species;task=input'>[species]</a><br>"
 			if(species == "Vox")
-				dat += "<b>N2 Tank:</b> <a href='?_src_=prefs;preference=speciesprefs;task=input'>[speciesprefs ? "Large N2 Tank" : "Specialized N2 Tank"]</a><br>"
+				dat += "<b>Tanque de N2:</b> <a href='?_src_=prefs;preference=speciesprefs;task=input'>[speciesprefs ? "Large N2 Tank" : "Specialized N2 Tank"]</a><br>"
 			if(species == "Grey")
-				dat += "<b>Voice:</b> <a href ='?_src_=prefs;preference=speciesprefs;task=input'>[speciesprefs ? "Wingdings" : "Normal"]</a><BR>"
-			dat += "<b>Secondary Language:</b> <a href='?_src_=prefs;preference=language;task=input'>[language]</a><br>"
+				dat += "<b>Voz:</b> <a href ='?_src_=prefs;preference=speciesprefs;task=input'>[speciesprefs ? "Wingdings" : "Normal"]</a><BR>"
+			dat += "<b>Idioma Secundario:</b> <a href='?_src_=prefs;preference=language;task=input'>[language]</a><br>"
 			if(S.autohiss_basic_map)
 				dat += "<b>Auto-accent:</b> <a href='?_src_=prefs;preference=autohiss_mode;task=input'>[autohiss_mode == AUTOHISS_FULL ? "Full" : (autohiss_mode == AUTOHISS_BASIC ? "Basic" : "Off")]</a><br>"
-			dat += "<b>Blood Type:</b> <a href='?_src_=prefs;preference=b_type;task=input'>[b_type]</a><br>"
+			dat += "<b>Tipo Sanguineo:</b> <a href='?_src_=prefs;preference=b_type;task=input'>[b_type]</a><br>"
 			if(S.bodyflags & (HAS_SKIN_TONE|HAS_ICON_SKIN_TONE))
 				dat += "<b>Skin Tone:</b> <a href='?_src_=prefs;preference=s_tone;task=input'>[S.bodyflags & HAS_ICON_SKIN_TONE ? "[s_tone]" : "[-s_tone + 35]/220"]</a><br>"
-			dat += "<b>Disabilities:</b> <a href='?_src_=prefs;preference=disabilities'>\[Set\]</a><br>"
-			dat += "<b>Nanotrasen Relation:</b> <a href ='?_src_=prefs;preference=nt_relation;task=input'>[nanotrasen_relation]</a><br>"
+			dat += "<b>Deficiencais:</b> <a href='?_src_=prefs;preference=disabilities'>\[Set\]</a><br>"
+			dat += "<b>Relações com a Nanotrasen:</b> <a href ='?_src_=prefs;preference=nt_relation;task=input'>[nanotrasen_relation]</a><br>"
 			dat += "<a href='byond://?_src_=prefs;preference=flavor_text;task=input'>Set Flavor Text</a><br>"
 			if(lentext(flavor_text) <= 40)
 				if(!lentext(flavor_text))	dat += "\[...\]<br>"
 				else						dat += "[flavor_text]<br>"
 			else dat += "[TextPreview(flavor_text)]...<br>"
 
-			dat += "<h2>Hair & Accessories</h2>"
+			dat += "<h2>Cabelo & Acessorios</h2>"
 
 			if(S.bodyflags & HAS_HEAD_ACCESSORY) //Species that have head accessories.
-				var/headaccessoryname = "Head Accessory: "
+				var/headaccessoryname = "Acessotio de Cabeça: "
 				if(species == "Unathi")
-					headaccessoryname = "Horns: "
+					headaccessoryname = "Chifres: "
 				dat += "<b>[headaccessoryname]</b>"
 				dat += "<a href='?_src_=prefs;preference=ha_style;task=input'>[ha_style]</a> "
 				dat += "<a href='?_src_=prefs;preference=headaccessory;task=input'>Color</a> [color_square(hacc_colour)]<br>"
 
 			if(S.bodyflags & HAS_HEAD_MARKINGS) //Species with head markings.
-				dat += "<b>Head Markings:</b> "
+				dat += "<b>Marcas na Cabeça:</b> "
 				dat += "<a href='?_src_=prefs;preference=m_style_head;task=input'>[m_styles["head"]]</a>"
 				dat += "<a href='?_src_=prefs;preference=m_head_colour;task=input'>Color</a> [color_square(m_colours["head"])]<br>"
 			if(S.bodyflags & HAS_BODY_MARKINGS) //Species with body markings/tattoos.
-				dat += "<b>Body Markings:</b> "
+				dat += "<b>Marcas Corporais:</b> "
 				dat += "<a href='?_src_=prefs;preference=m_style_body;task=input'>[m_styles["body"]]</a>"
 				dat += "<a href='?_src_=prefs;preference=m_body_colour;task=input'>Color</a> [color_square(m_colours["body"])]<br>"
 			if(S.bodyflags & HAS_TAIL_MARKINGS) //Species with tail markings.
-				dat += "<b>Tail Markings:</b> "
+				dat += "<b>Marcas na Calda:</b> "
 				dat += "<a href='?_src_=prefs;preference=m_style_tail;task=input'>[m_styles["tail"]]</a>"
 				dat += "<a href='?_src_=prefs;preference=m_tail_colour;task=input'>Color</a> [color_square(m_colours["tail"])]<br>"
 
-			dat += "<b>Hair:</b> "
+			dat += "<b>Cabelo:</b> "
 			dat += "<a href='?_src_=prefs;preference=h_style;task=input'>[h_style]</a>"
 			dat += "<a href='?_src_=prefs;preference=hair;task=input'>Color</a> [color_square(h_colour)]"
 			var/datum/sprite_accessory/temp_hair_style = hair_styles_list[h_style]
@@ -329,7 +329,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 				dat += " <a href='?_src_=prefs;preference=secondary_hair;task=input'>Color #2</a> [color_square(h_sec_colour)]"
 			dat += "<br>"
 
-			dat += "<b>Facial Hair:</b> "
+			dat += "<b>Barba:</b> "
 			dat += "<a href='?_src_=prefs;preference=f_style;task=input'>[f_style ? "[f_style]" : "Shaved"]</a>"
 			dat += "<a href='?_src_=prefs;preference=facial;task=input'>Color</a> [color_square(f_colour)]"
 			var/datum/sprite_accessory/temp_facial_hair_style = facial_hair_styles_list[f_style]
@@ -339,32 +339,32 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 
 
 			if(!(S.bodyflags & ALL_RPARTS))
-				dat += "<b>Eyes:</b> "
+				dat += "<b>Olhos:</b> "
 				dat += "<a href='?_src_=prefs;preference=eyes;task=input'>Color</a> [color_square(e_colour)]<br>"
 
 			if((S.bodyflags & HAS_SKIN_COLOR) || body_accessory_by_species[species] || check_rights(R_ADMIN, 0, user)) //admins can always fuck with this, because they are admins
-				dat += "<b>Body Color:</b> "
+				dat += "<b>Cor do Corpo:</b> "
 				dat += "<a href='?_src_=prefs;preference=skin;task=input'>Color</a> [color_square(s_colour)]<br>"
 
 			if(body_accessory_by_species[species] || check_rights(R_ADMIN, 0, user))
-				dat += "<b>Body Accessory:</b> "
+				dat += "<b>Acessorios de corpo:</b> "
 				dat += "<a href='?_src_=prefs;preference=body_accessory;task=input'>[body_accessory ? "[body_accessory]" : "None"]</a><br>"
 
 			dat += "</td><td width='405px' height='200px' valign='top'>"
-			dat += "<h2>Occupation Choices</h2>"
-			dat += "<a href='?_src_=prefs;preference=job;task=menu'>Set Occupation Preferences</a><br>"
+			dat += "<h2>OEscolhas de Profissão</h2>"
+			dat += "<a href='?_src_=prefs;preference=job;task=menu'>Colocar preferencia de profissão</a><br>"
 			if(jobban_isbanned(user, "Records"))
 				dat += "<b>You are banned from using character records.</b><br>"
 			else
-				dat += "<a href=\"byond://?_src_=prefs;preference=records;record=1\">Character Records</a><br>"
+				dat += "<a href=\"byond://?_src_=prefs;preference=records;record=1\">Registros do Personagem</a><br>"
 
 			dat += "<h2>Limbs</h2>"
 			if(S.bodyflags & HAS_ALT_HEADS) //Species with alt heads.
-				dat += "<b>Alternate Head:</b> "
+				dat += "<b>Cabeça Alternativa:</b> "
 				dat += "<a href='?_src_=prefs;preference=alt_head;task=input'>[alt_head]</a><br>"
-			dat += "<b>Limbs and Parts:</b> <a href='?_src_=prefs;preference=limbs;task=input'>Adjust</a><br>"
-			if(species != "Slime People" && species != "Machine")
-				dat += "<b>Internal Organs:</b> <a href='?_src_=prefs;preference=organs;task=input'>Adjust</a><br>"
+			dat += "<b>Membros:</b> <a href='?_src_=prefs;preference=limbs;task=input'>Adjust</a><br>"
+			if(species != "Pessoa Slime" && species != "Machine")
+				dat += "<b>Orgãos interno:</b> <a href='?_src_=prefs;preference=organs;task=input'>Adjust</a><br>"
 
 			//display limbs below
 			var/ind = 0
@@ -409,57 +409,57 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 			if(!ind)	dat += "\[...\]<br>"
 			else		dat += "<br>"
 
-			dat += "<h2>Clothing</h2>"
+			dat += "<h2>Roupas</h2>"
 			if(S.clothing_flags & HAS_UNDERWEAR)
-				dat += "<b>Underwear:</b> <a href ='?_src_=prefs;preference=underwear;task=input'>[underwear]</a><BR>"
+				dat += "<b>Roupa Intima:</b> <a href ='?_src_=prefs;preference=underwear;task=input'>[underwear]</a><BR>"
 			if(S.clothing_flags & HAS_UNDERSHIRT)
-				dat += "<b>Undershirt:</b> <a href ='?_src_=prefs;preference=undershirt;task=input'>[undershirt]</a><BR>"
+				dat += "<b>Roupa de Baixo:</b> <a href ='?_src_=prefs;preference=undershirt;task=input'>[undershirt]</a><BR>"
 			if(S.clothing_flags & HAS_SOCKS)
-				dat += "<b>Socks:</b> <a href ='?_src_=prefs;preference=socks;task=input'>[socks]</a><BR>"
-			dat += "<b>Backpack Type:</b> <a href ='?_src_=prefs;preference=bag;task=input'>[backbag]</a><br>"
+				dat += "<b>Meias:</b> <a href ='?_src_=prefs;preference=socks;task=input'>[socks]</a><BR>"
+			dat += "<b>Tipo de mochila:</b> <a href ='?_src_=prefs;preference=bag;task=input'>[backbag]</a><br>"
 
-			dat += "<h2>Forbidden fruits</h2>"
-			dat += "<b>Virgin:</b> <a href ='?_src_=prefs;preference=virgin;task=normal'>[virgin ? "Yes" : "No"]</a><BR>"
-			dat += "<b>Anal Virgin:</b> <a href ='?_src_=prefs;preference=virgin;task=anal'>[anal_virgin ? "Yes" : "No"]</a><BR>"
+			dat += "<h2>Frutas proibida</h2>"
+			dat += "<b>Virgem:</b> <a href ='?_src_=prefs;preference=virgin;task=normal'>[virgin ? "Yes" : "No"]</a><BR>"
+			dat += "<b>Virgem do CÚ:</b> <a href ='?_src_=prefs;preference=virgin;task=anal'>[anal_virgin ? "Yes" : "No"]</a><BR>"
 
 			dat += "</td></tr></table>"
 
 		if(TAB_GAME) // General Preferences
 			dat += "<table><tr><td width='340px' height='300px' valign='top'>"
-			dat += "<h2>General Settings</h2>"
-			dat += "<b>Fancy NanoUI:</b> <a href='?_src_=prefs;preference=nanoui'>[(nanoui_fancy) ? "Yes" : "No"]</a><br>"
-			dat += "<b>Ghost-Item Attack Animation:</b> <a href='?_src_=prefs;preference=ghost_att_anim'>[(show_ghostitem_attack) ? "Yes" : "No"]</a><br>"
-			dat += "<b>Window Flashing:</b> <a href='?_src_=prefs;preference=winflash'>[(windowflashing) ? "Yes" : "No"]</a><br>"
-			dat += "<b>Custom UI settings:</b><br>"
+			dat += "<h2>Configuações Gerais</h2>"
+			dat += "<b>NanoUI Divertido:</b> <a href='?_src_=prefs;preference=nanoui'>[(nanoui_fancy) ? "Yes" : "No"]</a><br>"
+			dat += "<b>Animação do Ataque Fantasma:</b> <a href='?_src_=prefs;preference=ghost_att_anim'>[(show_ghostitem_attack) ? "Yes" : "No"]</a><br>"
+			dat += "<b>Janela piscante:</b> <a href='?_src_=prefs;preference=winflash'>[(windowflashing) ? "Yes" : "No"]</a><br>"
+			dat += "<b>Configuração dos UI customizado:</b><br>"
 			dat += " - <b>UI Style:</b> <a href='?_src_=prefs;preference=ui'><b>[UI_style]</b></a><br>"
-			dat += " - <b>Color:</b> <a href='?_src_=prefs;preference=UIcolor'><b>[UI_style_color]</b></a> <table style='display:inline;' bgcolor='[UI_style_color]'<tr><td>__</td></tr></table><br>"
+			dat += " - <b>Cor:</b> <a href='?_src_=prefs;preference=UIcolor'><b>[UI_style_color]</b></a> <table style='display:inline;' bgcolor='[UI_style_color]'<tr><td>__</td></tr></table><br>"
 			dat += " - <b>Alpha (transparency):</b> <a href='?_src_=prefs;preference=UIalpha'><b>[UI_style_alpha]</b></a><br>"
 			dat += "<br>"
-			dat += "<b>Play admin midis:</b> <a href='?_src_=prefs;preference=hear_midis'><b>[(sound & SOUND_MIDI) ? "Yes" : "No"]</b></a><br>"
-			dat += "<b>Play lobby music:</b> <a href='?_src_=prefs;preference=lobby_music'><b>[(sound & SOUND_LOBBY) ? "Yes" : "No"]</b></a><br>"
+			dat += "<b>Tocar midis do admin:</b> <a href='?_src_=prefs;preference=hear_midis'><b>[(sound & SOUND_MIDI) ? "Yes" : "No"]</b></a><br>"
+			dat += "<b>Tocar musica no lobby:</b> <a href='?_src_=prefs;preference=lobby_music'><b>[(sound & SOUND_LOBBY) ? "Yes" : "No"]</b></a><br>"
 			if(user.client.holder)
-				dat += "<b>Adminhelp sound:</b> "
+				dat += "<b>Som do Adminhelp:</b> "
 				dat += "<a href='?_src_=prefs;preference=hear_adminhelps'><b>[(sound & SOUND_ADMINHELP)?"On":"Off"]</b></a><br>"
 
 			if(check_rights(R_ADMIN,0))
-				dat += "<b>OOC:</b> <span style='border: 1px solid #161616; background-color: [ooccolor ? ooccolor : normal_ooc_colour];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=ooccolor;task=input'><b>Change</b></a><br>"
+				dat += "<b>OOC:</b> <span style='border: 1px solid #161616; background-color: [ooccolor ? ooccolor : normal_ooc_colour];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=ooccolor;task=input'><b>Mudar</b></a><br>"
 			if(config.allow_Metadata)
-				dat += "<b>OOC notes:</b> <a href='?_src_=prefs;preference=metadata;task=input'><b>Edit</b></a><br>"
+				dat += "<b>Notas do OOC:</b> <a href='?_src_=prefs;preference=metadata;task=input'><b>Edit</b></a><br>"
 			if(unlock_content)
-				dat += "<b>BYOND Membership Publicity:</b> <a href='?_src_=prefs;preference=publicity'><b>[(toggles & MEMBER_PUBLIC) ? "Public" : "Hidden"]</b></a><br>"
+				dat += "<b>Publicidade do membro BYOND:</b> <a href='?_src_=prefs;preference=publicity'><b>[(toggles & MEMBER_PUBLIC) ? "Public" : "Hidden"]</b></a><br>"
 			if(user.client.donator_level >= DONATOR_LEVEL_ONE)
 				dat += "<b>Donator Publicity:</b> <a href='?_src_=prefs;preference=donor_public'><b>[(toggles & DONATOR_PUBLIC) ? "Public" : "Hidden"]</b></a><br>"
 
-			dat += "<b>Randomized character slot:</b> <a href='?_src_=prefs;preference=randomslot'><b>[randomslot ? "Yes" : "No"]</b></a><br>"
-			dat += "<b>Ghost ears:</b> <a href='?_src_=prefs;preference=ghost_ears'><b>[(toggles & CHAT_GHOSTEARS) ? "Nearest Creatures" : "All Speech"]</b></a><br>"
-			dat += "<b>Ghost sight:</b> <a href='?_src_=prefs;preference=ghost_sight'><b>[(toggles & CHAT_GHOSTSIGHT) ? "Nearest Creatures" : "All Emotes"]</b></a><br>"
-			dat += "<b>Ghost radio:</b> <a href='?_src_=prefs;preference=ghost_radio'><b>[(toggles & CHAT_GHOSTRADIO) ? "Nearest Speakers" : "All Chatter"]</b></a><br>"
-			dat += "<b>Deadchat anonymity:</b> <a href='?_src_=prefs;preference=ghost_anonsay'><b>[ghost_anonsay ? "Anonymous" : "Not Anonymous"]</b></a><br>"
+			dat += "<b>Slot de personagem aleatorio:</b> <a href='?_src_=prefs;preference=randomslot'><b>[randomslot ? "Yes" : "No"]</b></a><br>"
+			dat += "<b>Ouvir fantasmas:</b> <a href='?_src_=prefs;preference=ghost_ears'><b>[(toggles & CHAT_GHOSTEARS) ? "Nearest Creatures" : "All Speech"]</b></a><br>"
+			dat += "<b>Escutar fantasmas:</b> <a href='?_src_=prefs;preference=ghost_sight'><b>[(toggles & CHAT_GHOSTSIGHT) ? "Nearest Creatures" : "All Emotes"]</b></a><br>"
+			dat += "<b>Radio fantasma:</b> <a href='?_src_=prefs;preference=ghost_radio'><b>[(toggles & CHAT_GHOSTRADIO) ? "Nearest Speakers" : "All Chatter"]</b></a><br>"
+			dat += "<b>Deadchat anonimo:</b> <a href='?_src_=prefs;preference=ghost_anonsay'><b>[ghost_anonsay ? "Anonymous" : "Not Anonymous"]</b></a><br>"
 
 			dat += "</td><td width='300px' height='300px' valign='top'>"
-			dat += "<h2>Special Role Settings</h2>"
+			dat += "<h2>Editar profissão especial</h2>"
 			if(jobban_isbanned(user, "Syndicate"))
-				dat += "<b>You are banned from special roles.</b>"
+				dat += "<b>Você foi banido de profissões especiais.</b>"
 				be_special = list()
 			else
 				for(var/i in special_roles)
@@ -495,7 +495,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 			if(total_cost < max_gear_slots)
 				fcolor = "#E67300"
 			dat += "<table align='center' width='100%'>"
-			dat += "<tr><td colspan=4><center><b><font color='[fcolor]'>[total_cost]/[max_gear_slots]</font> loadout points spent.</b> \[<a href='?_src_=prefs;preference=gear;clear_loadout=1'>Clear Loadout</a>\]</center></td></tr>"
+			dat += "<tr><td colspan=4><center><b><font color='[fcolor]'>[total_cost]/[max_gear_slots]</font> pontos de lodout gastos.</b> \[<a href='?_src_=prefs;preference=gear;clear_loadout=1'>Clear Loadout</a>\]</center></td></tr>"
 			dat += "<tr><td colspan=4><center><b>"
 
 			var/firstcat = 1
@@ -538,13 +538,13 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 
 	dat += "<hr><center>"
 	if(!IsGuestKey(user.key))
-		dat += "<a href='?_src_=prefs;preference=load'>Undo</a> - "
-		dat += "<a href='?_src_=prefs;preference=save'>Save Setup</a> - "
+		dat += "<a href='?_src_=prefs;preference=load'>Desfazer</a> - "
+		dat += "<a href='?_src_=prefs;preference=save'>Salvar Edição</a> - "
 
-	dat += "<a href='?_src_=prefs;preference=reset_all'>Reset Setup</a>"
+	dat += "<a href='?_src_=prefs;preference=reset_all'>Resetar Edição</a>"
 	dat += "</center>"
 
-	var/datum/browser/popup = new(user, "preferences", "<div align='center'>Character Setup</div>", 820, 640)
+	var/datum/browser/popup = new(user, "preferencias", "<div align='center'>Edição do Personagem</div>", 820, 640)
 	popup.set_content(dat)
 	popup.open(0)
 
@@ -579,9 +579,9 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 
 	var/HTML = "<body>"
 	HTML += "<tt><center>"
-	HTML += "<b>Choose occupation chances</b><br>Unavailable occupations are crossed out.<br><br>"
-	HTML += "<center><a href='?_src_=prefs;preference=job;task=close'>\[Done\]</a></center><br>" // Easier to press up here.
-	HTML += "<div align='center'>Left-click to raise an occupation preference, right-click to lower it.<br></div>"
+	HTML += "<b>Escolha as chances de ocupar a porfissão</b><br>Profissão indisponivel.<br><br>"
+	HTML += "<center><a href='?_src_=prefs;preference=job;task=close'>\[Feito\]</a></center><br>" // Easier to press up here.
+	HTML += "<div align='center'>Click com o esquerdo para aumentar, click com o direito para diminuir.<br></div>"
 	HTML += "<script type='text/javascript'>function setJobPrefRedirect(level, rank) { window.location.href='?_src_=prefs;preference=job;task=setJobLevel;level=' + level + ';text=' + encodeURIComponent(rank); return false; }</script>"
 	HTML += "<table width='100%' cellpadding='1' cellspacing='0'><tr><td width='20%'>" // Table within a table for alignment, also allows you to easily add more colomns.
 	HTML += "<table width='100%' cellpadding='1' cellspacing='0'>"
@@ -699,18 +699,18 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 
 	switch(alternate_option)
 		if(GET_RANDOM_JOB)
-			HTML += "<center><br><u><a href='?_src_=prefs;preference=job;task=random'><font color=white>Get random job if preferences unavailable</font></a></u></center><br>"
+			HTML += "<center><br><u><a href='?_src_=prefs;preference=job;task=random'><font color=white>Obter trabalho aleatório se as preferências não estiverem disponíveis</font></a></u></center><br>"
 		if(BE_CIVILIAN)
-			HTML += "<center><br><u><a href='?_src_=prefs;preference=job;task=random'><font color=white>Be a civilian if preferences unavailable</font></a></u></center><br>"
+			HTML += "<center><br><u><a href='?_src_=prefs;preference=job;task=random'><font color=white>Seja civil se as preferências não estiverem disponíveis</font></a></u></center><br>"
 		if(RETURN_TO_LOBBY)
-			HTML += "<center><br><u><a href='?_src_=prefs;preference=job;task=random'><font color=white>Return to lobby if preferences unavailable</font></a></u></center><br>"
+			HTML += "<center><br><u><a href='?_src_=prefs;preference=job;task=random'><font color=white>Retornar ao lobby se as preferências não estiverem disponíveis</font></a></u></center><br>"
 
 	HTML += "<center><a href='?_src_=prefs;preference=job;task=reset'>\[Reset\]</a></center>"
 	HTML += "</tt>"
 
 	user << browse(null, "window=preferences")
 //		user << browse(HTML, "window=mob_occupation;size=[width]x[height]")
-	var/datum/browser/popup = new(user, "mob_occupation", "<div align='center'>Occupation Preferences</div>", width, height)
+	var/datum/browser/popup = new(user, "mob_occupation", "<div align='center'>Preferencia de profissão</div>", width, height)
 	popup.set_window_options("can_close=0")
 	popup.set_content(HTML)
 	popup.open(0)
@@ -819,34 +819,34 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 /datum/preferences/proc/ShowDisabilityState(mob/user,flag,label)
 	var/datum/species/S = all_species[species]
 	if(flag==DISABILITY_FLAG_FAT && !(CAN_BE_FAT in S.species_traits))
-		return "<li><i>[species] cannot be fat.</i></li>"
+		return "<li><i>[species] não pode ser gordo.</i></li>"
 	return "<li><b>[label]:</b> <a href=\"?_src_=prefs;task=input;preference=disabilities;disability=[flag]\">[disabilities & flag ? "Yes" : "No"]</a></li>"
 
 /datum/preferences/proc/SetDisabilities(mob/user)
 	var/HTML = "<body>"
 	HTML += "<tt><center>"
 
-	HTML += ShowDisabilityState(user,DISABILITY_FLAG_NEARSIGHTED,"Needs glasses")
-	HTML += ShowDisabilityState(user,DISABILITY_FLAG_FAT,"Obese")
-	HTML += ShowDisabilityState(user,DISABILITY_FLAG_EPILEPTIC,"Seizures")
-	HTML += ShowDisabilityState(user,DISABILITY_FLAG_DEAF,"Deaf")
-	HTML += ShowDisabilityState(user,DISABILITY_FLAG_BLIND,"Blind")
-	HTML += ShowDisabilityState(user,DISABILITY_FLAG_COLOURBLIND,"Colourblind")
-	HTML += ShowDisabilityState(user,DISABILITY_FLAG_MUTE,"Mute")
-	HTML += ShowDisabilityState(user,DISABILITY_FLAG_TOURETTES,"Tourettes syndrome") // this will / can not be abused. It also SEVERELY stuns. It's just for fun.
-	HTML += ShowDisabilityState(user,DISABILITY_FLAG_NERVOUS,"Stutter")
-	HTML += ShowDisabilityState(user,DISABILITY_FLAG_SWEDISH,"Swedish accent")
+	HTML += ShowDisabilityState(user,DISABILITY_FLAG_NEARSIGHTED,"Precisa de oculos")
+	HTML += ShowDisabilityState(user,DISABILITY_FLAG_FAT,"Obeso")
+	HTML += ShowDisabilityState(user,DISABILITY_FLAG_EPILEPTIC,"Convulsões")
+	HTML += ShowDisabilityState(user,DISABILITY_FLAG_DEAF,"Surdo")
+	HTML += ShowDisabilityState(user,DISABILITY_FLAG_BLIND,"Cego")
+	HTML += ShowDisabilityState(user,DISABILITY_FLAG_COLOURBLIND,"Daltonico")
+	HTML += ShowDisabilityState(user,DISABILITY_FLAG_MUTE,"Mudo")
+	HTML += ShowDisabilityState(user,DISABILITY_FLAG_TOURETTES,"Sindrome de tourette") // this will / can not be abused. It also SEVERELY stuns. It's just for fun.
+	HTML += ShowDisabilityState(user,DISABILITY_FLAG_NERVOUS,"Gago")
+	HTML += ShowDisabilityState(user,DISABILITY_FLAG_SWEDISH,"Meio sueco")
 	HTML += ShowDisabilityState(user,DISABILITY_FLAG_LISP,"Lisp")
-	HTML += ShowDisabilityState(user,DISABILITY_FLAG_DIZZY,"Dizziness")
-	HTML += ShowDisabilityState(user,DISABILITY_FLAG_SCRAMBLED,"Can't speak properly")
+	HTML += ShowDisabilityState(user,DISABILITY_FLAG_DIZZY,"Tonturas")
+	HTML += ShowDisabilityState(user,DISABILITY_FLAG_SCRAMBLED,"Não consegue falar direito")
 
 
 	HTML += {"</ul>
-		<a href=\"?_src_=prefs;task=close;preference=disabilities\">\[Done\]</a>
-		<a href=\"?_src_=prefs;task=reset;preference=disabilities\">\[Reset\]</a>
+		<a href=\"?_src_=prefs;task=close;preference=disabilities\">\[Feito\]</a>
+		<a href=\"?_src_=prefs;task=reset;preference=disabilities\">\[Resetar\]</a>
 		</center></tt>"}
 
-	var/datum/browser/popup = new(user, "disabil", "<div align='center'>Choose Disabilities</div>", 350, 300)
+	var/datum/browser/popup = new(user, "disabil", "<div align='center'>Escolher Deficiencias</div>", 350, 300)
 	popup.set_content(HTML)
 	popup.open(0)
 
@@ -854,21 +854,21 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 	var/HTML = "<body>"
 	HTML += "<tt><center>"
 
-	HTML += "<a href=\"byond://?_src_=prefs;preference=records;task=med_record\">Medical Records</a><br>"
+	HTML += "<a href=\"byond://?_src_=prefs;preference=records;task=med_record\">Registros Medico</a><br>"
 
 	if(lentext(med_record) <= 40)
 		HTML += "[med_record]"
 	else
 		HTML += "[copytext(med_record, 1, 37)]..."
 
-	HTML += "<br><a href=\"byond://?_src_=prefs;preference=records;task=gen_record\">Employment Records</a><br>"
+	HTML += "<br><a href=\"byond://?_src_=prefs;preference=records;task=gen_record\">Registros do Emprego</a><br>"
 
 	if(lentext(gen_record) <= 40)
 		HTML += "[gen_record]"
 	else
 		HTML += "[copytext(gen_record, 1, 37)]..."
 
-	HTML += "<br><a href=\"byond://?_src_=prefs;preference=records;task=sec_record\">Security Records</a><br>"
+	HTML += "<br><a href=\"byond://?_src_=prefs;preference=records;task=sec_record\">Registros de segurança</a><br>"
 
 	if(lentext(sec_record) <= 40)
 		HTML += "[sec_record]<br>"
@@ -878,7 +878,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 	HTML += "<a href=\"byond://?_src_=prefs;preference=records;records=-1\">\[Done\]</a>"
 	HTML += "</center></tt>"
 
-	var/datum/browser/popup = new(user, "records", "<div align='center'>Character Records</div>", 350, 300)
+	var/datum/browser/popup = new(user, "records", "<div align='center'>Registros do Personagem</div>", 350, 300)
 	popup.set_content(HTML)
 	popup.open(0)
 
@@ -1063,7 +1063,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 				var/datum/job/job = locate(href_list["job"])
 				if(job)
 					var/choices = list(job.title) + job.alt_titles
-					var/choice = input("Pick a title for [job.title].", "Character Generation", GetPlayerAltTitle(job)) as anything in choices | null
+					var/choice = input("Escolha um cargo para [job.title].", "Geração de personagem", GetPlayerAltTitle(job)) as anything in choices | null
 					if(choice)
 						SetPlayerAltTitle(job, choice)
 						SetChoices(user)
@@ -1100,7 +1100,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 		else
 			user << browse(null, "window=records")
 		if(href_list["task"] == "med_record")
-			var/medmsg = input(usr,"Set your medical notes here.","Medical Records",html_decode(med_record)) as message
+			var/medmsg = input(usr,"Coloque suas notas medicas aqui.","Registros Medico",html_decode(med_record)) as message
 
 			if(medmsg != null)
 				medmsg = copytext(medmsg, 1, MAX_PAPER_MESSAGE_LEN)
@@ -1110,7 +1110,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 				SetRecords(user)
 
 		if(href_list["task"] == "sec_record")
-			var/secmsg = input(usr,"Set your security notes here.","Security Records",html_decode(sec_record)) as message
+			var/secmsg = input(usr,"Coloque suas notas de segurança aqui.","Registros de segurança",html_decode(sec_record)) as message
 
 			if(secmsg != null)
 				secmsg = copytext(secmsg, 1, MAX_PAPER_MESSAGE_LEN)
@@ -1119,7 +1119,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 				sec_record = secmsg
 				SetRecords(user)
 		if(href_list["task"] == "gen_record")
-			var/genmsg = input(usr,"Set your employment notes here.","Employment Records",html_decode(gen_record)) as message
+			var/genmsg = input(usr,"Coloque suas notas de emprego aqui.","Registros de Emprego",html_decode(gen_record)) as message
 
 			if(genmsg != null)
 				genmsg = copytext(genmsg, 1, MAX_PAPER_MESSAGE_LEN)
@@ -1255,7 +1255,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 		if("input")
 			switch(href_list["preference"])
 				if("name")
-					var/raw_name = input(user, "Choose your character's name:", "Character Preference") as text|null
+					var/raw_name = input(user, "Escolha o nome do personagem:", "Edição do personagem") as text|null
 					if(!isnull(raw_name)) // Check to ensure that the user entered text (rather than cancel.)
 						var/new_name = reject_bad_name(raw_name, 1)
 						if(new_name)
@@ -1264,10 +1264,10 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 								var/mob/new_player/N = user
 								N.new_player_panel_proc()
 						else
-							to_chat(user, "<font color='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</font>")
+							to_chat(user, "<font color='red'>Nome invalido. Você deve ter pelo menos um nome e um sobrenome [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</font>")
 
 				if("age")
-					var/new_age = input(user, "Choose your character's age:\n([AGE_MIN]-[AGE_MAX])", "Character Preference") as num|null
+					var/new_age = input(user, "Escolha a idade do personagem:\n([AGE_MIN]-[AGE_MAX])", "Edição do peronagem") as num|null
 					if(new_age)
 						age = max(min(round(text2num(new_age)), AGE_MAX),AGE_MIN)
 				if("species")
@@ -1289,7 +1289,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 					var/datum/species/NS = all_species[species]
 					if(!istype(NS)) //The species was invalid. Notify the user and fail out.
 						species = prev_species
-						to_chat(user, "<span class='warning'>Invalid species, please pick something else.</span>")
+						to_chat(user, "<span class='warning'>Especie invalida, por favor escolha alguma coisa.</span>")
 						return
 					if(prev_species != species)
 						if(NS.has_gender && gender == PLURAL)
