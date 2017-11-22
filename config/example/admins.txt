@@ -5,4 +5,15 @@
 # Ranks can be anything defined in admin_ranks.txt           	     #
 ######################################################################
 
-# example - Hosting Provider
+Joao Do Pastel - Head Admin
+TheChosenOneIsHere - Maintainers
+Demetreo - Trial Admin
+GustinokiBR - Senior Admin
+Sereia900 - Mentor
+Everything1 - Senior Admin
+Ragnarus Holy - Head Admin
+Kratos123 - Host
+Itus - Mentor
+Avvhovhk - Trial Admin
+Concorado - Senior Admin
+Leonister - Coder
