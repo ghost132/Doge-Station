@@ -28,8 +28,8 @@ var/global/list/map_transition_config = MAP_TRANSITION_CONFIG
 	href_logfile = file("data/logs/[date_string] hrefs.htm")
 	diary = file("data/logs/[date_string].log")
 	diaryofmeanpeople = file("data/logs/[date_string] Attack.log")
-	diary << "\n\nComeçando. [time2text(world.timeofday, "hh:mm.ss")]\n---------------------"
-	diaryofmeanpeople << "\n\nComeçando. [time2text(world.timeofday, "hh:mm.ss")]\n---------------------"
+	diary << "\n\nComeÃ§ando. [time2text(world.timeofday, "hh:mm.ss")]\n---------------------"
+	diaryofmeanpeople << "\n\nComeÃ§ando. [time2text(world.timeofday, "hh:mm.ss")]\n---------------------"
 
 	if(byond_version < RECOMMENDED_VERSION)
 		log_to_dd("Your server's byond version does not meet the recommended requirements for this code. Please update BYOND")
@@ -112,7 +112,7 @@ var/world_topic_spam_protect_time = world.timeofday
 	else if("status" in input)
 		var/list/s = list()
 		var/list/admins = list()
-		s["Versão"] = game_version
+		s["VersÃ£o"] = game_version
 		s["modo"] = master_mode
 		s["respawn"] = config ? abandon_allowed : 0
 		s["entrar"] = enter_allowed
@@ -120,7 +120,7 @@ var/world_topic_spam_protect_time = world.timeofday
 		s["ai"] = config.allow_ai
 		s["host"] = host ? host : null
 		s["jogadores"] = list()
-		s["horario da estação"] = worldtime2text()
+		s["horario da estaÃ§Ã£o"] = worldtime2text()
 		var/player_count = 0
 		var/admin_count = 0
 
@@ -207,7 +207,7 @@ var/world_topic_spam_protect_time = world.timeofday
 				C = K
 				break
 		if(!C)
-			return "Não há nenhum cliente com esse nome"
+			return "NÃ£o hÃ¡ nenhum cliente com esse nome"
 
 		var/message =	"<font color='red'>IRC-Admin PM from <b><a href='?irc_msg=1'>[C.holder ? "IRC-" + input["sender"] : "Administrator"]</a></b>: [input["msg"]]</font>"
 		var/amessage =  "<font color='blue'>IRC-Admin PM from <a href='?irc_msg=1'>IRC-[input["sender"]]</a> to <b>[key_name(C)]</b> : [input["msg"]]</font>"
@@ -259,7 +259,7 @@ var/world_topic_spam_protect_time = world.timeofday
 				C = K
 				break
 		if(!C)
-			return "Não há nenhum cliente com esse nome no jogo"
+			return "NÃ£o hÃ¡ nenhum cliente com esse nome no jogo"
 
 		del(C)
 
@@ -276,6 +276,23 @@ var/world_topic_spam_protect_time = world.timeofday
 	return "Bad Key"
 
 /world/Reboot(var/reason, var/feedback_c, var/feedback_r, var/time)
+
+	spawn(0)
+		roundabout()
+
+	spawn (100)
+	
+#define COLOR_LIGHT_SEPIA "#D4C6B8"
+/world/proc/roundabout() // yes i know this is dumb - kachnov
+	world << sound('sound/misc/roundabout.ogg')
+	spawn (40)
+		for (var/client/client in clients)
+			client.color = COLOR_LIGHT_SEPIA
+			client.screen += yaryar
+			client.canmove = 0
+#undef COLOR_SEPIA
+	
+
 	if(reason == 1) //special reboot, do none of the normal stuff
 		if(usr)
 			message_admins("[key_name_admin(usr)] has requested an immediate world restart via client side debugging tools")
@@ -348,7 +365,7 @@ var/world_topic_spam_protect_time = world.timeofday
 			if(C.is_afk(INACTIVITY_KICK))
 				if(!istype(C.mob, /mob/dead))
 					log_access("AFK: [key_name(C)]")
-					to_chat(C, "<span class='warning'>Você ficou inatico por mais de 10 minutos, você será desconectado.</span>")
+					to_chat(C, "<span class='warning'>VocÃª ficou inatico por mais de 10 minutos, vocÃª serÃ¡ desconectado.</span>")
 					del(C)
 		if( ((world.timeofday - sleep_check) > work_length) || ((world.timeofday - sleep_check) < 0) )
 			sleep(sleep_length)
