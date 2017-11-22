@@ -116,14 +116,14 @@
 	
 /datum/reagent/chaca
 	name = "Chaca"
-	description = "An illegal chemical compound used as drug."
+	description = "A REALLY illegal chemical compound used as drug."
 	reagent_state = LIQUID
 	color = "#9087A2"
 	metabolization_rate = 1.5
 	addiction_chance = 100
 	heart_rate_decrease = 3
 
-/datum/reagent/space_drugs/on_mob_life(mob/living/M)
+/datum/reagent/chaca/on_mob_life(mob/living/M)
 	M.druggy = max(M.druggy, 999)
 	if(isturf(M.loc) && !istype(M.loc, /turf/space))
 		if(M.canmove && !M.restrained())
