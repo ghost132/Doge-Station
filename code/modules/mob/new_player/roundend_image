@@ -1,4 +1,4 @@
-var/obj/effect/roundend_image/yaryar/yaryar = new/obj/effect/roundend_image/yaryar()
+var /obj/effect/roundend_image/yaryar/yaryar = new /obj/effect/roundend_image/yaryar()
 
 /obj/effect/roundend_image
 	name = "Baystation12"
