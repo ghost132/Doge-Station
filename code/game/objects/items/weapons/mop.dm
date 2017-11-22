@@ -1,6 +1,6 @@
 /obj/item/weapon/mop
-	desc = "The world of janitalia wouldn't be complete without a mop."
-	name = "mop"
+	desc = "O mundo de zelandia nao seria completo sem um esfregao."
+	name = "esfregao"
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "mop"
 	force = 3
@@ -8,7 +8,7 @@
 	throw_speed = 3
 	throw_range = 7
 	w_class = WEIGHT_CLASS_NORMAL
-	attack_verb = list("mopped", "bashed", "bludgeoned", "whacked")
+	attack_verb = list("esfregou", "golpeou", "bludgeoned", "whacked")
 	burn_state = FLAMMABLE
 	var/mopping = 0
 	var/mopcount = 0
@@ -47,10 +47,10 @@
 		return
 
 	if(istype(T))
-		user.visible_message("[user] begins to clean [T] with [src].", "<span class='notice'>You begin to clean [T] with [src]...</span>")
+		user.visible_message("[user] começou a limpar [T] com [src].", "<span class='notice'>Voce começa a limpar [T] Com [src]...</span>")
 
 		if(do_after(user, src.mopspeed, target = T))
-			to_chat(user, "<span class='notice'>You finish mopping.</span>")
+			to_chat(user, "<span class='notice'>Voce acaba de esfregar.</span>")
 			clean(T)
 
 
@@ -68,13 +68,13 @@
 
 /obj/item/weapon/mop/wash(mob/user, atom/source)
 	reagents.add_reagent("water", 5)
-	to_chat(user, "<span class='notice'>You wet [src] in [source].</span>")
+	to_chat(user, "<span class='notice'>Voce molha o/a [src] em [source].</span>")
 	playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 	return 1
 
 /obj/item/weapon/mop/advanced
-	desc = "The most advanced tool in a custodian's arsenal. Just think of all the viscera you will clean up with this!"
-	name = "advanced mop"
+	desc = "A coisa mais avançada no arsenal de um zelador. Apenas pense em toda a sujeira que voce poderia limpar com isso!"
+	name = "esfregao avançado"
 	mopcap = 10
 	icon_state = "advmop"
 	item_state = "mop"
@@ -97,7 +97,7 @@
 		processing_objects.Add(src)
 	else
 		processing_objects.Remove(src)
-	to_chat(user, "<span class='notice'>You set the condenser switch to the '[refill_enabled ? "ON" : "OFF"]' position.</span>")
+	to_chat(user, "<span class='notice'>Voce coloca o interruptor do condensador para '[refill_enabled ? "ON" : "OFF"]' position.</span>")
 	playsound(user, 'sound/machines/click.ogg', 30, 1)
 
 /obj/item/weapon/mop/advanced/process()
@@ -107,7 +107,7 @@
 
 /obj/item/weapon/mop/advanced/examine(mob/user)
 	..()
-	to_chat(user, "<span class='notice'>The condenser switch is set to <b>[refill_enabled ? "ON" : "OFF"]</b>.</span>")
+	to_chat(user, "<span class='notice'>O interruptor do condensador esta em <b>[refill_enabled ? "ON" : "OFF"]</b>.</span>")
 
 /obj/item/weapon/mop/advanced/Destroy()
 	if(refill_enabled)
