@@ -85,7 +85,7 @@ var/global/list/forbidden_actions = list()	// stores /datum/forbidden/action ind
 	PHole = "floor"
 
 /datum/forbidden/action/oral/cunnilingus/actionButton(mob/living/carbon/human/H, mob/living/carbon/human/P)
-	return "Lick her vagina"
+	return "Lamba a vagina"
 
 /datum/forbidden/action/oral/cunnilingus/conditions(mob/living/carbon/human/H, mob/living/carbon/human/P)
 	. = ..(H, P)
@@ -97,9 +97,9 @@ var/global/list/forbidden_actions = list()	// stores /datum/forbidden/action ind
 
 /datum/forbidden/action/oral/cunnilingus/fuckText(mob/living/carbon/human/H, mob/living/carbon/human/P, begins = 0)
 	if(begins)
-		H.visible_message("<span class='erp'><b>[H]</b> begins to lick <b>[P]</b>.</span>")
+		H.visible_message("<span class='erp'><b>[H]</b> começa a lamber <b>[P]</b>.</span>")
 	else
-		H.visible_message("<span class='erp'><b>[H]</b> licks <b>[P]</b>.</span>")
+		H.visible_message("<span class='erp'><b>[H]</b> lambe <b>[P]</b>.</span>")
 
 /datum/forbidden/action/oral/cunnilingus/logAction(mob/living/carbon/human/H, mob/living/carbon/human/P)
 	..(H, P, "cunnilinged")
@@ -119,7 +119,7 @@ var/global/list/forbidden_actions = list()	// stores /datum/forbidden/action ind
 	PHole = "mouth"
 
 /datum/forbidden/action/oral/blowjob/actionButton(mob/living/carbon/human/H, mob/living/carbon/human/P)
-	return "Give him a blowjob"
+	return "Chupar seu penis"
 
 /datum/forbidden/action/oral/blowjob/conditions(mob/living/carbon/human/H, mob/living/carbon/human/P)
 	. = ..(H, P)
@@ -135,9 +135,9 @@ var/global/list/forbidden_actions = list()	// stores /datum/forbidden/action ind
 
 /datum/forbidden/action/oral/blowjob/fuckText(mob/living/carbon/human/H, mob/living/carbon/human/P, begins = 0)
 	if(begins)
-		H.visible_message("<span class='erp'><b>[H]</b> begins to suck [P]'s cock.</span>")
+		H.visible_message("<span class='erp'><b>[H]</b> começa a chupar o penis de [P].</span>")
 	else
-		H.visible_message("<span class='erp'><b>[H]</b> sucks [P]'s cock.</span>")
+		H.visible_message("<span class='erp'><b>[H]</b> chupa o penis de [P].</span>")
 
 /datum/forbidden/action/oral/blowjob/logAction(mob/living/carbon/human/H, mob/living/carbon/human/P)
 	..(H, P, "blowjobed")
@@ -156,7 +156,7 @@ var/global/list/forbidden_actions = list()	// stores /datum/forbidden/action ind
 	PHole = "floor"
 
 /datum/forbidden/action/oral/titsuck/actionButton(mob/living/carbon/human/H, mob/living/carbon/human/P)
-	return "Suck her tits"
+	return "Chupe suas tetas"
 
 /datum/forbidden/action/oral/titsuck/conditions(mob/living/carbon/human/H, mob/living/carbon/human/P)
 	. = ..(H, P)
@@ -168,9 +168,9 @@ var/global/list/forbidden_actions = list()	// stores /datum/forbidden/action ind
 
 /datum/forbidden/action/oral/titsuck/fuckText(mob/living/carbon/human/H, mob/living/carbon/human/P, begins = 0)
 	if(begins)
-		H.visible_message("<span class='erp'><b>[H]</b> begins to suck [P]'s titties.</span>")
+		H.visible_message("<span class='erp'><b>[H]</b> começa a chupar os peitos de [P]'.</span>")
 	else
-		H.visible_message("<span class='erp'><b>[H]</b> sucks [P]'s titties.</span>")
+		H.visible_message("<span class='erp'><b>[H]</b> chupa os peitos de [P].</span>")
 
 /datum/forbidden/action/oral/titsuck/logAction(mob/living/carbon/human/H, mob/living/carbon/human/P)
 	..(H, P, "tit-sucked")
@@ -215,12 +215,12 @@ var/global/list/forbidden_actions = list()	// stores /datum/forbidden/action ind
 
 /datum/forbidden/action/fuck/anal/fuckText(mob/living/carbon/human/H, mob/living/carbon/human/P, begins = 0)
 	if(begins)
-		H.visible_message("<span class='erp'><b>[H]</b> begins to fuck [P]'s anus.</span>")
+		H.visible_message("<span class='erp'><b>[H]</b> começa a foder o anus de [P].</span>")
 	else
 		if(P.anal_virgin)
-			H.visible_message("<span class='erp'><b>[H]</b> tears [P]'s anus to pieces.</span>")
+			H.visible_message("<span class='erp'><b>[H]</b> rasga o anus de [P] em pedaços.</span>")
 		else
-			H.visible_message("<span class='erp'><b>[H]</b> fucks [P]'s anus.</span>")
+			H.visible_message("<span class='erp'><b>[H]</b> fode o anus de [P].</span>")
 
 /datum/forbidden/action/fuck/anal/logAction(mob/living/carbon/human/H, mob/living/carbon/human/P)
 	..(H, P, "ass fucked")
@@ -259,12 +259,12 @@ var/global/list/forbidden_actions = list()	// stores /datum/forbidden/action ind
 
 /datum/forbidden/action/fuck/vaginal/fuckText(mob/living/carbon/human/H, mob/living/carbon/human/P, begins = 0)
 	if(begins)
-		H.visible_message("<span class='erp'><b>[H]</b> begins to [pick("fuck","penetrate")] <b>[P]</b>.</span>")
+		H.visible_message("<span class='erp'><b>[H]</b> começa a [pick("foder","penetrar")] <b>[P]</b>.</span>")
 	else
 		if(P.virgin)
-			H.visible_message("<span class='erp'><b>[H]</b> mercilessly tears [P]'s hymen!</span>")
+			H.visible_message("<span class='erp'><b>[H]</b> rasga sem piedade o hymen de [P]!</span>")
 		else
-			H.visible_message("<span class='erp'><b>[H]</b> [pick("fucks","penetrates")] <b>[P]</b>.</span>")
+			H.visible_message("<span class='erp'><b>[H]</b> [pick("fode","penetra")] <b>[P]</b>.</span>")
 
 /datum/forbidden/action/fuck/vaginal/logAction(mob/living/carbon/human/H, mob/living/carbon/human/P)
 	..()
@@ -306,9 +306,9 @@ var/global/list/forbidden_actions = list()	// stores /datum/forbidden/action ind
 
 /datum/forbidden/action/fuck/mouth/fuckText(mob/living/carbon/human/H, mob/living/carbon/human/P, begins = 0)
 	if(begins)
-		H.visible_message("<span class='erp'><b>[H]</b> begins to fuck [P]'s mouth.</span>")
+		H.visible_message("<span class='erp'><b>[H]</b> começa a foder a boca de [P].</span>")
 	else
-		H.visible_message("<span class='erp'><b>[H]</b> fucks [P]'s mouth.</span>")
+		H.visible_message("<span class='erp'><b>[H]</b> fode a boca de [P].</span>")
 
 /datum/forbidden/action/fuck/mouth/logAction(mob/living/carbon/human/H, mob/living/carbon/human/P)
 	..(H, P, "mouth fucked")
@@ -400,11 +400,11 @@ var/global/list/forbidden_actions = list()	// stores /datum/forbidden/action ind
 /datum/forbidden/action/fingering/vagina/fuckText(mob/living/carbon/human/H, mob/living/carbon/human/P, begins = 0)
 	if(H != P)
 		if(begins)
-			H.visible_message("<span class='erp'><b>[H]</b> begins to finger <b>[P]</b>.</span>")
+			H.visible_message("<span class='erp'><b>[H]</b> começa a dedar <b>[P]</b>.</span>")
 		else
-			H.visible_message("<span class='erp'><b>[H]</b> fingers <b>[P]</b>.</span>")
+			H.visible_message("<span class='erp'><b>[H]</b> deda <b>[P]</b>.</span>")
 	else
-		H.visible_message("<span class='erp'><b>[H]</b> fingers her vagina.</span>")
+		H.visible_message("<span class='erp'><b>[H]</b> Deda sua vagina.</span>")
 
 /datum/forbidden/action/fingering/vagina/logAction(mob/living/carbon/human/H, mob/living/carbon/human/P)
 	..(H, P, "vagina fingered")
@@ -433,11 +433,11 @@ var/global/list/forbidden_actions = list()	// stores /datum/forbidden/action ind
 /datum/forbidden/action/fingering/anus/fuckText(mob/living/carbon/human/H, mob/living/carbon/human/P, begins = 0)
 	if(H != P)
 		if(begins)
-			H.visible_message("<span class='erp'><b>[H]</b> begins to play with [P]'s anus.</span>")
+			H.visible_message("<span class='erp'><b>[H]</b> começa a brincar com o anus de [P].</span>")
 		else
-			H.visible_message("<span class='erp'><b>[H]</b> plays with [P]'s anus.</span>")
+			H.visible_message("<span class='erp'><b>[H]</b> brinca com o anus de [P].</span>")
 	else
-		H.visible_message("<span class='erp'><b>[H]</b> plays with [H.gender == FEMALE ? "her" : "his"] anus.</span>")
+		H.visible_message("<span class='erp'><b>[H]</b> brinca com seu anus.</span>")
 
 /datum/forbidden/action/fingering/anus/logAction(mob/living/carbon/human/H, mob/living/carbon/human/P)
 	..(H, P, "ass fingered")
@@ -453,7 +453,7 @@ var/global/list/forbidden_actions = list()	// stores /datum/forbidden/action ind
 	PHole = "floor"
 
 /datum/forbidden/action/handjob/actionButton(mob/living/carbon/human/H, mob/living/carbon/human/P)
-	return "[H == P ? "Masturbate your penis" : "Give him a handjob"]"
+	return "[H == P ? "Masturbe seu penis" : "Masturbe-o"]"
 
 /datum/forbidden/action/handjob/conditions(mob/living/carbon/human/H, mob/living/carbon/human/P)
 	. = ..(H, P)
@@ -472,11 +472,11 @@ var/global/list/forbidden_actions = list()	// stores /datum/forbidden/action ind
 /datum/forbidden/action/handjob/fuckText(mob/living/carbon/human/H, mob/living/carbon/human/P, begins = 0)
 	if(H != P)
 		if(begins)
-			H.visible_message("<span class='erp'><b>[H]</b> begins to give <b>[P]</b> a handjob.</span>")
+			H.visible_message("<span class='erp'><b>[H]</b> começa a masturbar o penis de <b>[P]</b>.</span>")
 		else
-			H.visible_message("<span class='erp'><b>[H]</b> gives <b>[P]</b> a handjob.</span>")
+			H.visible_message("<span class='erp'><b>[H]</b> masturba o penis de<b>[P]</b>.</span>")
 	else
-		H.visible_message("<span class='erp'><b>[H]</b> masturbates.</span>")
+		H.visible_message("<span class='erp'><b>[H]</b> se masturba.</span>")
 
 /datum/forbidden/action/handjob/logAction(mob/living/carbon/human/H, mob/living/carbon/human/P)
 	..(H, P, "handjobed")
@@ -512,9 +512,9 @@ var/global/list/forbidden_actions = list()	// stores /datum/forbidden/action ind
 
 /datum/forbidden/action/footjob/fuckText(mob/living/carbon/human/H, mob/living/carbon/human/P, begins = 0)
 	if(begins)
-		H.visible_message("<span class='erp'><b>[H]</b> begins to give <b>[P]</b> a footjob.</span>")
+		H.visible_message("<span class='erp'><b>[H]</b> começa a fazer footjob em <b>[P]</b>.</span>")
 	else
-		H.visible_message("<span class='erp'><b>[H]</b> gives <b>[P]</b> a footjob.</span>")
+		H.visible_message("<span class='erp'><b>[H]</b> faz footjob em<b>[P]</b>.</span>")
 
 /datum/forbidden/action/footjob/logAction(mob/living/carbon/human/H, mob/living/carbon/human/P)
 	..(H, P, "footjobed")
@@ -546,8 +546,8 @@ var/global/list/forbidden_actions = list()	// stores /datum/forbidden/action ind
 
 /datum/forbidden/action/tribbing/fuckText(mob/living/carbon/human/H, mob/living/carbon/human/P, begins = 0)
 	if(begins && !istype(P.lraction, type))
-		H.visible_message("<span class='erp'><b>[H]</b> and <b>[P]</b> scissors their legs and ground their pussies together.</span>")
+		H.visible_message("<span class='erp'><b>[H]</b> e <b>[P]</b> abremsuas pernas e coloca suas vaginas perto.</span>")
 	else
-		H.visible_message("<span class='erp'><b>[H]</b> rubs her pussy against [P]'s pussy.</span>")
+		H.visible_message("<span class='erp'><b>[H]</b> esfrega sua vagina contra a vagina de [P].</span>")
 /datum/forbidden/action/tribbing/logAction(mob/living/carbon/human/H, mob/living/carbon/human/P)
 	..(H, P, "tribbed")
