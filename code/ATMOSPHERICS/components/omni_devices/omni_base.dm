@@ -128,7 +128,7 @@
 
 /obj/machinery/atmospherics/omni/attack_ghost(mob/user)
 	ui_interact(user)
-	
+
 /obj/machinery/atmospherics/omni/proc/build_icons()
 	if(!check_icon_cache())
 		return
