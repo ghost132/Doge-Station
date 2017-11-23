@@ -1,6 +1,6 @@
 /obj/item/weapon/flamethrower
-	name = "flamethrower"
-	desc = "You are a firestarter!"
+	name = "lança chamas"
+	desc = "Nao incendie nada eim!"
 	icon = 'icons/obj/flamethrower.dmi'
 	icon_state = "flamethrowerbase"
 	item_state = "flamethrower_0"
@@ -88,7 +88,7 @@
 
 	if(isscrewdriver(W) && igniter && !lit)
 		status = !status
-		to_chat(user, "<span class='notice'>[igniter] is now [status ? "secured" : "unsecured"]!</span>")
+		to_chat(user, "<span class='notice'>[igniter] esta agora [status ? "secured" : "unsecured"]!</span>")
 		update_icon()
 		return
 
@@ -104,7 +104,7 @@
 
 	if(istype(W,/obj/item/weapon/tank/plasma))
 		if(ptank)
-			to_chat(user, "<span class='notice'>There appears to already be a plasma tank loaded in [src]!</span>")
+			to_chat(user, "<span class='notice'>Parece que ja tem um tanque de plasma em [src]!</span>")
 			return
 		user.drop_item()
 		ptank = W
@@ -122,7 +122,7 @@
 	if(user.stat || user.restrained() || user.lying)	return
 	user.set_machine(src)
 	if(!ptank)
-		to_chat(user, "<span class='notice'>Attach a plasma tank first!</span>")
+		to_chat(user, "<span class='notice'>Coloque um tanque de plasma primeiro!</span>")
 		return
 	var/dat = text("<TT><B>Flamethrower (<A HREF='?src=[UID()];light=1'>[lit ? "<font color='red'>Lit</font>" : "Unlit"]</a>)</B><BR>\n Tank Pressure: [ptank.air_contents.return_pressure()]<BR>\nAmount to throw: <A HREF='?src=[UID()];amount=-100'>-</A> <A HREF='?src=[UID()];amount=-10'>-</A> <A HREF='?src=[UID()];amount=-1'>-</A> [throw_amount] <A HREF='?src=[UID()];amount=1'>+</A> <A HREF='?src=[UID()];amount=10'>+</A> <A HREF='?src=[UID()];amount=100'>+</A><BR>\n<A HREF='?src=[UID()];remove=1'>Remove plasmatank</A> - <A HREF='?src=[UID()];close=1'>Close</A></TT>")
 	user << browse(dat, "window=flamethrower;size=600x300")
