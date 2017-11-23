@@ -4,7 +4,7 @@
 //Current contents:
 /*
 	mouse_drag_pointer
-	Beach Ball
+	Bola de praia, ou Beach Ball
 */
 
 /obj/item/mouse_drag_pointer = MOUSE_ACTIVE_POINTER
@@ -12,7 +12,7 @@
 /obj/item/weapon/beach_ball
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "ball"
-	name = "beach ball"
+	name = "bola de praia"
 	item_state = "beachball"
 	density = 0
 	anchored = 0
