@@ -3,8 +3,8 @@
 #define READY 2
 
 /obj/item/weapon/grenade/chem_grenade
-	name = "grenade casing"
-	desc = "A do it yourself grenade casing!"
+	name = "granada vazia"
+	desc = "Uma granada vazia pra voce mesmo fazer a sua!"
 	icon_state = "chemg"
 	item_state = "flashbang"
 	var/bomb_state = "chembomb"
@@ -77,16 +77,16 @@
 		overlays = list()
 		switch(stage)
 			if(EMPTY)
-				name = "grenade casing[label]"
+				name = "granada vazia[label]"
 			if(WIRED)
 				icon_state += "_ass"
-				name = "grenade casing[label]"
+				name = "granada vazia[label]"
 			if(READY)
 				if(active)
 					icon_state += "_active"
 				else
 					icon_state += "_locked"
-				name = payload_name + "grenade" + label
+				name = payload_name + "granada" + label
 
 
 /obj/item/weapon/grenade/chem_grenade/attack_self(mob/user)
@@ -127,12 +127,12 @@
 			if(label)
 				label = null
 				update_icon()
-				to_chat(user, "You remove the label from [src].")
+				to_chat(user, "Voce remove o rotulo de/da [src].")
 				return 1
 	if(istype(I, /obj/item/weapon/screwdriver))
 		if(stage == WIRED)
 			if(beakers.len)
-				to_chat(user, "<span class='notice'>You lock the assembly.</span>")
+				to_chat(user, "<span class='notice'>Voce bloqueia a montagem.</span>")
 				playsound(loc, prime_sound, 25, -3)
 				stage = READY
 				update_icon()
@@ -151,28 +151,28 @@
 						contained = "\[[contained]\]"
 				var/turf/bombturf = get_turf(loc)
 				var/area/A = bombturf.loc
-				message_admins("[key_name_admin(usr)] has completed [name] at <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[bombturf.x];Y=[bombturf.y];Z=[bombturf.z]'>[A.name] (JMP)</a> [contained].")
-				log_game("[key_name(usr)] has completed [name] at [bombturf.x], [bombturf.y], [bombturf.z]. [contained]")
+				message_admins("[key_name_admin(usr)] completou [name] at <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[bombturf.x];Y=[bombturf.y];Z=[bombturf.z]'>[A.name] (JMP)</a> [contained].")
+				log_game("[key_name(usr)] completou [name] at [bombturf.x], [bombturf.y], [bombturf.z]. [contained]")
 			else
-				to_chat(user, "<span class='notice'>You need to add at least one beaker before locking the assembly.</span>")
+				to_chat(user, "<span class='notice'>Voce precisa adicionar pelo menos um beaker antes de bloquear a montagem.</span>")
 		else if(stage == READY && !nadeassembly)
 			det_time = det_time == 50 ? 30 : 50	//toggle between 30 and 50
-			to_chat(user, "<span class='notice'>You modify the time delay. It's set for [det_time / 10] second\s.</span>")
+			to_chat(user, "<span class='notice'>Voce modifica o delay. Esta na posiçao de detonaçao de [det_time / 10] second\s.</span>")
 		else if(stage == EMPTY)
-			to_chat(user, "<span class='notice'>You need to add an activation mechanism.</span>")
+			to_chat(user, "<span class='notice'>Voce precisa adicionar um mechanismo de detonaçao.</span>")
 
 	else if(stage == WIRED && is_type_in_list(I, allowed_containers))
 		if(beakers.len == 2)
-			to_chat(user, "<span class='notice'>[src] can not hold more containers.</span>")
+			to_chat(user, "<span class='notice'>[src] nao consegue aguentar mais beakers.</span>")
 			return
 		else
 			if(I.reagents.total_volume)
-				to_chat(user, "<span class='notice'>You add [I] to the assembly.</span>")
+				to_chat(user, "<span class='notice'>Voce adiciona [I] para a montagem.</span>")
 				user.drop_item()
 				I.loc = src
 				beakers += I
 			else
-				to_chat(user, "<span class='notice'>[I] is empty.</span>")
+				to_chat(user, "<span class='notice'>[I] esta vazio.</span>")
 
 	else if(stage == EMPTY && istype(I, /obj/item/device/assembly_holder))
 		var/obj/item/device/assembly_holder/A = I
@@ -187,7 +187,7 @@
 		A.loc = src
 		assemblyattacher = user.ckey
 		stage = WIRED
-		to_chat(user, "<span class='notice'>You add [A] to [src]!</span>")
+		to_chat(user, "<span class='notice'>Voce adiciona [A] para [src]!</span>")
 		update_icon()
 
 	else if(stage == EMPTY && istype(I, /obj/item/stack/cable_coil))
@@ -199,12 +199,12 @@
 		update_icon()
 
 	else if(stage == READY && istype(I, /obj/item/weapon/wirecutters))
-		to_chat(user, "<span class='notice'>You unlock the assembly.</span>")
+		to_chat(user, "<span class='notice'>Voce desbloqueia a montagem.</span>")
 		stage = WIRED
 		update_icon()
 
 	else if(stage == WIRED && istype(I, /obj/item/weapon/wrench))
-		to_chat(user, "<span class='notice'>You open the grenade and remove the contents.</span>")
+		to_chat(user, "<span class='notice'>Voce abre a granada e remove os conteudos.</span>")
 		stage = EMPTY
 		payload_name = null
 		label = null
@@ -314,7 +314,7 @@
 //Large chem grenades accept slime cores and use the appropriately.
 /obj/item/weapon/grenade/chem_grenade/large
 	name = "large grenade casing"
-	desc = "A custom made large grenade. It affects a larger area."
+	desc = "Uma granada vazia bem grande, Ela afeta uma area maior."
 	icon_state = "large_grenade"
 	bomb_state = "largebomb"
 	allowed_containers = list(/obj/item/weapon/reagent_containers/glass,/obj/item/weapon/reagent_containers/food/condiment,
@@ -360,15 +360,15 @@
 		return ..()
 
 /obj/item/weapon/grenade/chem_grenade/cryo // Intended for rare cryogenic mixes. Cools the area moderately upon detonation.
-	name = "cryo grenade"
-	desc = "A custom made cryogenic grenade. It rapidly cools its contents upon detonation."
+	name = "granada cryogenica"
+	desc = "Uma granada cryogenica, Ela rapidamente esfria quaisquer conteudos na detonaçao."
 	icon_state = "cryog"
 	affected_area = 2
 	ignition_temp = -100
 
 /obj/item/weapon/grenade/chem_grenade/pyro // Intended for pyrotechnical mixes. Produces a small fire upon detonation, igniting potentially flammable mixtures.
-	name = "pyro grenade"
-	desc = "A custom made pyrotechnical grenade. It heats up and ignites its contents upon detonation."
+	name = "granada pyrotechnica"
+	desc = "Uma granada pyrotechnica, Ela aquece e ativa quaisquer conteudos na detonaçao."
 	icon_state = "pyrog"
 	origin_tech = "combat=4;engineering=4"
 	affected_area = 3
@@ -426,8 +426,8 @@
 	log_game("A grenade detonated at [DA.name] ([DT.x], [DT.y], [DT.z])")
 
 /obj/item/weapon/grenade/chem_grenade/metalfoam
-	payload_name = "metal foam"
-	desc = "Used for emergency sealing of air breaches."
+	payload_name = "granada espumenta"
+	desc = "Usado para selar quaisquer brechas."
 	stage = READY
 
 	New()
@@ -445,8 +445,8 @@
 
 
 /obj/item/weapon/grenade/chem_grenade/incendiary
-	payload_name = "incendiary"
-	desc = "Used for clearing rooms of living things."
+	payload_name = "granada incendiaria"
+	desc = "Limpa tudo que e vivo."
 	stage = READY
 
 	New()
@@ -486,8 +486,8 @@
 
 
 /obj/item/weapon/grenade/chem_grenade/cleaner
-	payload_name = "cleaner"
-	desc = "BLAM!-brand foaming space cleaner. In a special applicator for rapid cleaning of wide areas."
+	payload_name = "granada purificadora"
+	desc = "BLAM!-space cleaner em forma de granada. em um aplicador especial para limpagem rapida em areas grandes."
 	stage = READY
 
 	New()
@@ -505,8 +505,8 @@
 
 
 /obj/item/weapon/grenade/chem_grenade/teargas
-	payload_name = "teargas"
-	desc = "Used for nonlethal riot control. Contents under pressure. Do not directly inhale contents."
+	payload_name = "gas lacrimogenio"
+	desc = "Usado para controle nao letal. Conteudo sobre pressao. Nao inale o conteudo diretamente."
 	stage = READY
 
 	New()
@@ -524,8 +524,8 @@
 		update_icon()
 
 /obj/item/weapon/grenade/chem_grenade/facid
-	name = "acid grenade"
-	desc = "Used for melting armoured opponents."
+	name = "granada acida"
+	desc = "Usado para derreter oponentes armadurados."
 	stage = READY
 
 /obj/item/weapon/grenade/chem_grenade/facid/New()
