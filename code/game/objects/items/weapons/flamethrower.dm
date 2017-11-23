@@ -1,6 +1,6 @@
 /obj/item/weapon/flamethrower
 	name = "lança chamas"
-	desc = "Nao incendie nada eim!"
+	desc = "Nao incendie nada eim!(piromaniaco)"
 	icon = 'icons/obj/flamethrower.dmi'
 	icon_state = "flamethrowerbase"
 	item_state = "flamethrower_0"
