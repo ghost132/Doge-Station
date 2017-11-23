@@ -5,55 +5,55 @@
 	var/datum/action/lung_punch/lungpunch = new/datum/action/lung_punch()
 
 /datum/action/neck_chop
-	name = "Neck Chop - Injures the neck, stopping the victim from speaking for a while."
+	name = "Neck Chop - Machuca o pescoço, fazendo a vitima nao falar por um tempo." //nao achei traduçao pra neck chop
 	button_icon_state = "neckchop"
 
 /datum/action/neck_chop/Trigger()
 	if(owner.incapacitated())
-		to_chat(owner, "<span class='warning'>You can't use Krav Maga while you're incapacitated.</span>")
+		to_chat(owner, "<span class='warning'>Voce nao pode usar krav maga enquanto esta incapacitado.</span>")
 		return
-	to_chat(owner, "<b><i>Your next attack will be a Neck Chop.</i></b>")
-	owner.visible_message("<span class='danger'>[owner] assumes the Neck Chop stance!</span>")
+	to_chat(owner, "<b><i>Seu proximo ataque sera Neck Chop.</i></b>")
+	owner.visible_message("<span class='danger'>[owner] Assume a posiçao de Neck Chop!</span>")
 	var/mob/living/carbon/human/H = owner
 	H.martial_art.streak = "neck_chop"
 
 /datum/action/leg_sweep
-	name = "Leg Sweep - Trips the victim, rendering them prone and unable to move for a short time."
+	name = "Rasteira - Voce passa a perna na vitima, impedindo ela de se mover por um tempo."
 	button_icon_state = "legsweep"
 
 /datum/action/leg_sweep/Trigger()
 	if(owner.incapacitated())
-		to_chat(owner, "<span class='warning'>You can't use Krav Maga while you're incapacitated.</span>")
+		to_chat(owner, "<span class='warning'>Voce nao pode usar krav maga enquanto esta incapacitado.</span>")
 		return
-	to_chat(owner, "<b><i>Your next attack will be a Leg Sweep.</i></b>")
-	owner.visible_message("<span class='danger'>[owner] assumes the Leg Sweep stance!</span>")
+	to_chat(owner, "<b><i>Seu proximo ataque seria uma rasteira.</i></b>")
+	owner.visible_message("<span class='danger'>[owner] Fica pronto pra dar uma rasteira!</span>") //insira meme oxente aqui
 	var/mob/living/carbon/human/H = owner
 	H.martial_art.streak = "leg_sweep"
 
 /datum/action/lung_punch//referred to internally as 'quick choke'
-	name = "Lung Punch - Delivers a strong punch just above the victim's abdomen, constraining the lungs. The victim will be unable to breathe for a short time."
+	name = "Soco No Peito - Voce da um soco fodastico no peito da vitima, contraindo os pulmoes, oque impede a vitima de respirar por um tempo."
 	button_icon_state = "lungpunch"
 
 /datum/action/lung_punch/Trigger()
 	if(owner.incapacitated())
-		to_chat(owner, "<span class='warning'>You can't use Krav Maga while you're incapacitated.</span>")
+		to_chat(owner, "<span class='warning'>Voce nao pode usar krav maga enquanto esta incapacitado.</span>")
 		return
-	to_chat(owner, "<b><i>Your next attack will be a Lung Punch.</i></b>")
-	owner.visible_message("<span class='danger'>[owner] assumes the Lung Punch stance!</span>")
+	to_chat(owner, "<b><i>Seu proximo ataque sera um soco no peito.</i></b>")
+	owner.visible_message("<span class='danger'>[owner] Fica pronto para dar um soco no peito!</span>")
 	var/mob/living/carbon/human/H = owner
 	H.martial_art.streak = "quick_choke"//internal name for lung punch
 
 /datum/martial_art/krav_maga/teach(var/mob/living/carbon/human/H,var/make_temporary=0)
 	..()
-	to_chat(H, "<span class = 'userdanger'>You know the arts of Krav Maga!</span>")
-	to_chat(H, "<span class = 'danger'>Place your cursor over a move at the top of the screen to see what it does.</span>")
+	to_chat(H, "<span class = 'userdanger'>Voce sabe as artes de Krav Maga!</span>")
+	to_chat(H, "<span class = 'danger'>Coloque seu cursor em um dos quadradinhos ali encima pra ver oque faz.</span>")
 	neckchop.Grant(H)
 	legsweep.Grant(H)
 	lungpunch.Grant(H)
 
 /datum/martial_art/krav_maga/remove(var/mob/living/carbon/human/H)
 	..()
-	to_chat(H, "<span class = 'userdanger'>You suddenly forget the arts of Krav Maga...</span>")
+	to_chat(H, "<span class = 'userdanger'>Voce esquece a arte de krav maga derrepente...</span>") //oxente
 	neckchop.Remove(H)
 	legsweep.Remove(H)
 	lungpunch.Remove(H)
@@ -77,16 +77,16 @@
 /datum/martial_art/krav_maga/proc/leg_sweep(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(D.stat || D.weakened)
 		return 0
-	D.visible_message("<span class='warning'>[A] leg sweeps [D]!</span>", \
-					  	"<span class='userdanger'>[A] leg sweeps you!</span>")
+	D.visible_message("<span class='warning'>[A] da uma rasteira em [D]!</span>", \
+					  	"<span class='userdanger'>[A] da uma rasteira em voce!</span>") //ash putasso.mp3
 	playsound(get_turf(A), 'sound/effects/hit_kick.ogg', 50, 1, -1)
 	D.apply_damage(5, BRUTE)
 	D.Weaken(2)
 	return 1
 
 /datum/martial_art/krav_maga/proc/quick_choke(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)//is actually lung punch
-	D.visible_message("<span class='warning'>[A] pounds [D] on the chest!</span>", \
-				  	"<span class='userdanger'>[A] slams your chest! You can't breathe!</span>")
+	D.visible_message("<span class='warning'>[A] soca fodasticamente [D] no peito!</span>", \
+				  	"<span class='userdanger'>[A] Soca fodasticamente seu peito! Voce nao consegue respirar!</span>")
 	playsound(get_turf(A), 'sound/effects/hit_punch.ogg', 50, 1, -1)
 	D.AdjustLoseBreath(5)
 	D.adjustOxyLoss(10)
@@ -94,7 +94,7 @@
 
 /datum/martial_art/krav_maga/proc/neck_chop(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	D.visible_message("<span class='warning'>[A] karate chops [D]'s neck!</span>", \
-				  	"<span class='userdanger'>[A] karate chops your neck, rendering you unable to speak for a short time!</span>")
+				  	"<span class='userdanger'>[A] karate chops seu pescoço, fazendo voce parar de falar por um tempo!</span>")
 	playsound(get_turf(A), 'sound/effects/hit_punch.ogg', 50, 1, -1)
 	D.apply_damage(5, BRUTE)
 	D.AdjustSilence(10)
@@ -110,7 +110,7 @@ datum/martial_art/krav_maga/grab_act(var/mob/living/carbon/human/A, var/mob/livi
 		return 1
 	add_logs(A, D, "punched")
 	A.do_attack_animation(D)
-	var/picked_hit_type = pick("punches", "kicks")
+	var/picked_hit_type = pick("soca", "chuta")
 	var/bonus_damage = 10
 	if(D.weakened || D.resting || D.lying)
 		bonus_damage += 5
@@ -167,7 +167,7 @@ datum/martial_art/krav_maga/grab_act(var/mob/living/carbon/human/A, var/mob/livi
 		style.remove(H)
 
 /obj/item/clothing/gloves/color/black/krav_maga/sec//more obviously named, given to sec
-	name = "krav maga gloves"
-	desc = "These gloves can teach you to perform Krav Maga using nanochips."
+	name = "luvas de krav maga"
+	desc = "Essas luvas te ensinam krav maga usando nanochips."
 	icon_state = "fightgloves"
 	item_state = "fightgloves"
