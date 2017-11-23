@@ -113,3 +113,66 @@
 			M.druggy = max(M.druggy, 40)
 			if(prob(30)) M.emote(pick("twitch","giggle"))
 	..()
+	
+/datum/reagent/chaca
+	name = "Chaca"
+	description = "A REALLY illegal chemical compound used as drug."
+	reagent_state = LIQUID
+	color = "#9087A2"
+	metabolization_rate = 1.5
+	addiction_chance = 100
+	heart_rate_decrease = 3
+
+/datum/reagent/chaca/on_mob_life(mob/living/M)
+	M.druggy = max(M.druggy, 999)
+	if(isturf(M.loc) && !istype(M.loc, /turf/space))
+		if(M.canmove && !M.restrained())
+			step(M, pick(cardinal))
+	if(prob(7)) M.emote(pick("twitch","drool","moan","giggle"))
+		switch(current_cycle)
+		if(1 to 5)
+			if(!M.stuttering) M.stuttering = 1
+			M.Dizzy(5)
+			if(prob(10)) M.emote(pick("twitch","giggle"))
+		if(5 to 10)
+			if(!M.stuttering) M.stuttering = 1
+			M.Jitter(10)
+			M.Dizzy(10)
+			M.druggy = max(M.druggy, 35)
+			if(prob(20)) M.emote(pick("twitch","giggle"))
+		if(10 to INFINITY)
+			if(!M.stuttering) M.stuttering = 1
+			M.Jitter(20)
+			M.Dizzy(20)
+			M.druggy = max(M.druggy, 40)
+			if(prob(30)) M.emote(pick("twitch","giggle"))
+	        M.hallucination += 100
+					if(1 to 5)
+			if(!M.stuttering) M.stuttering = 1
+			M.Dizzy(10)
+			if(prob(10)) M.emote(pick("twitch","giggle"))
+		if(5 to 10)
+			if(!M.stuttering) M.stuttering = 1
+			M.Jitter(20)
+			M.Dizzy(20)
+			M.druggy = max(M.druggy, 45)
+			if(prob(20)) M.emote(pick("twitch","giggle"))
+		if(10 to INFINITY)
+			if(!M.stuttering) M.stuttering = 1
+			M.Jitter(40)
+			M.Dizzy(40)
+			M.druggy = max(M.druggy, 60)
+			if(prob(30)) M.emote(pick("twitch","giggle"))
+				if(ishuman(M))
+		if(prob(7))
+			M.emote(pick("twitch","drool","moan","gasp"))
+			M.adjustToxLoss(5)
+				else if(prob(40))
+		M.adjustBruteLoss(-5*REM)
+			if(FAT in M.mutations)
+		M.gib()
+			if(prob(70))
+		M.adjustBrainLoss(2)
+			M.adjustFireLoss(1)
+			M.confused = 1
+	..()
