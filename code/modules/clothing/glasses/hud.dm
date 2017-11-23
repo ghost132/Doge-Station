@@ -1,6 +1,6 @@
 /obj/item/clothing/glasses/hud
 	name = "\improper HUD"
-	desc = "A heads-up display that provides important info in (almost) real time."
+	desc = "Um display que provide informaçao util (as vezes)."
 	flags = null //doesn't protect eyes because it's a monocle, duh
 	origin_tech = "magnets=3;biotech=2"
 	var/HUDType = null //Hudtype is defined on glasses.dm
@@ -26,8 +26,8 @@
 		desc = desc + " The display flickers slightly."
 
 /obj/item/clothing/glasses/hud/health
-	name = "\improper Health Scanner HUD"
-	desc = "A heads-up display that scans the humans in view and provides accurate data about their health status."
+	name = "\improper Escaneador De Vida HUD"
+	desc = "Um display que diz o status de vida sobre quem voce escaneou."
 	icon_state = "healthhud"
 	origin_tech = "magnets=3;biotech=2"
 	HUDType = DATA_HUD_MEDICAL_ADVANCED
@@ -39,14 +39,14 @@
 		)
 
 /obj/item/clothing/glasses/hud/health/health_advanced
-	name = "\improper Advanced Health Scanner HUD"
-	desc = "A heads-up display that scans the humans in view and provides accurate data about their health status.  Includes anti-flash filter."
+	name = "\improper Escaneador De Vida Avançado HUD"
+	desc = "Um display que diz o status de vida detalhado sobre quem voce escaneou.  Inclui filtro anti-flash."
 	icon_state = "advmedhud"
 	flash_protect = 1
 
 /obj/item/clothing/glasses/hud/health/night
-	name = "\improper Night Vision Health Scanner HUD"
-	desc = "An advanced medical head-up display that allows doctors to find patients in complete darkness."
+	name = "\improper Escaneador De Vida Com Visao Noturna HUD"
+	desc = "Um display que ajuda os medicos a escanear e mostrar a vida de alguem no escuro."
 	icon_state = "healthhudnight"
 	item_state = "glasses"
 	origin_tech = "magnets=4;biotech=4;plasmatech=4;engineering=5"
@@ -55,8 +55,8 @@
 	prescription_upgradable = 0
 
 /obj/item/clothing/glasses/hud/diagnostic
-	name = "Diagnostic HUD"
-	desc = "A heads-up display capable of analyzing the integrity and status of robotics and exosuits."
+	name = "Diagnostico Exo HUD"
+	desc = "Mostra o diagnostico de robos e exoesqueletos."
 	icon_state = "diagnostichud"
 	origin_tech = "magnets=2;engineering=2"
 	HUDType = DATA_HUD_DIAGNOSTIC
@@ -67,8 +67,8 @@
 		)
 
 /obj/item/clothing/glasses/hud/diagnostic/night
-	name = "Night Vision Diagnostic HUD"
-	desc = "A robotics diagnostic HUD fitted with a light amplifier."
+	name = "Diagnostico Com Visao Noturna HUD"
+	desc = "Mostra o diagnostico de robos e exoesqueletos. Inclui visao noturna."
 	icon_state = "diagnostichudnight"
 	item_state = "glasses"
 	origin_tech = "magnets=4;powerstorage=4;plasmatech=4;engineering=5"
