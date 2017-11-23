@@ -10,8 +10,8 @@
  */
 
 /obj/item/weapon/bikehorn
-	name = "bike horn"
-	desc = "A horn off of a bicycle."
+	name = "buzina"
+	desc = "Uma buzina de uma bicicleta"
 	icon = 'icons/obj/items.dmi'
 	icon_state = "bike_horn"
 	item_state = "bike_horn"
@@ -41,16 +41,16 @@
 
 
 /obj/item/weapon/bikehorn/airhorn
-	name = "air horn"
-	desc = "Damn son, where'd you find this?"
+	name = "buzina de ar"
+	desc = "Eita porra, onde tu achou isso filadaputa?"
 	icon_state = "air_horn"
 	honk_sound = 'sound/items/AirHorn2.ogg'
 	cooldowntime = 50
 	origin_tech = "materials=4;engineering=4"
 
 /obj/item/weapon/bikehorn/golden
-	name = "golden bike horn"
-	desc = "Golden? Clearly, its made with bananium! Honk!"
+	name = "buzina de ouro"
+	desc = "Ouro? Claramente e feito de bananium! Honk!"
 	icon_state = "gold_horn"
 	item_state = "gold_horn"
 
