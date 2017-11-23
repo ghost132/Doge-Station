@@ -104,7 +104,7 @@
 
 	if(istype(W,/obj/item/weapon/tank/plasma))
 		if(ptank)
-			to_chat(user, "<span class='notice'>Parece que ja tem um tanque de plasma em [src]!</span>")
+			to_chat(user, "<span class='notice'>Parece que ja tem um tanque de plasma carregado em [src]!</span>")
 			return
 		user.drop_item()
 		ptank = W
