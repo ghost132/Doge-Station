@@ -298,10 +298,10 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 				else						dat += "[flavor_text]<br>"
 			else dat += "[TextPreview(flavor_text)]...<br>"
 
-			dat += "<h2>Cabelo & Acessorios</h2>"
+			dat += "<h2>Cabelo & Acessórios</h2>"
 
 			if(S.bodyflags & HAS_HEAD_ACCESSORY) //Species that have head accessories.
-				var/headaccessoryname = "Acessotio de Cabeça: "
+				var/headaccessoryname = "Acessorio de Cabeça: "
 				if(species == "Unathi")
 					headaccessoryname = "Chifres: "
 				dat += "<b>[headaccessoryname]</b>"
