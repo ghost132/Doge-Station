@@ -41,42 +41,42 @@
 	icon_state = "nude"
 
 /obj/item/clothing/underwear/underpants/male_white
-	name = "Mens White"
+	name = "Cueca Branca"
 	icon_state = "male_white"
 	item_state = "lgloves"
 
 /obj/item/clothing/underwear/underpants/male_grey
-	name = "Mens Grey"
+	name = "Cueca Cinza"
 	icon_state = "male_grey"
 	item_state = "bgloves"
 
 /obj/item/clothing/underwear/underpants/male_grey
-	name = "Mens Grey Alt"
+	name = "Cueca Cinza Alt"
 	icon_state = "male_greyalt"
 	item_state = "bgloves"
 
 /obj/item/clothing/underwear/underpants/male_green
-	name = "Mens Green"
+	name = "Cueca verde"
 	icon_state = "male_green"
 	item_state = "bgloves"
 
 /obj/item/clothing/underwear/underpants/male_blue
-	name = "Mens Blue"
+	name = "Cueca Azul"
 	icon_state = "male_blue"
 	item_state = "bgloves"
 
 /obj/item/clothing/underwear/underpants/male_red
-	name = "Mens Red"
+	name = "Cueca Vermelha"
 	icon_state = "male_red"
 	item_state = "r_shoes"
 
 /obj/item/clothing/underwear/underpants/male_black
-	name = "Mens Black"
+	name = "Cueca Preta"
 	icon_state = "male_black"
 	item_state = "bgloves"
 
 /obj/item/clothing/underwear/underpants/male_black_alt
-	name = "Mens Black Alt"
+	name = "Cueca Preta Alt"
 	icon_state = "male_blackalt"
 	item_state = "bgloves"
 
@@ -86,7 +86,7 @@
 	item_state = "bl_shoes"
 
 /obj/item/clothing/underwear/underpants/male_heart
-	name = "Mens Hearts"
+	name = "Boxer de Coraçao"
 	icon_state = "male_hearts"
 	item_state = "r_shoes"
 
@@ -101,35 +101,35 @@
 	item_state = "bgloves"
 
 /obj/item/clothing/underwear/underpants/female_red
-	name = "Ladies Red"
+	name = "Calcinha Vermelha"
 	icon_state = "female_red"
 	item_state = "r_shoes"
 	adjustable = 1
 	flags_inv = HIDEBREASTS
 
 /obj/item/clothing/underwear/underpants/female_green
-	name = "Ladies Green"
+	name = "Calcinha Verde"
 	icon_state = "female_green"
 	item_state = "bgloves"
 	adjustable = 1
 	flags_inv = HIDEBREASTS
 
 /obj/item/clothing/underwear/underpants/female_white
-	name = "Ladies White"
+	name = "Calcinha Branca"
 	icon_state = "female_white"
 	item_state = "lgloves"
 	adjustable = 1
 	flags_inv = HIDEBREASTS
 
 /obj/item/clothing/underwear/underpants/female_whiter
-	name = "Ladies Whiter"
+	name = "Calcinha Brancar" //o R ta no nome original
 	icon_state = "female_whiter"
 	item_state = "lgloves"
 	adjustable = 1
 	flags_inv = HIDEBREASTS
 
 /obj/item/clothing/underwear/underpants/female_whitealt
-	name = "Ladies White Alt"
+	name = "Calcinha Branca Alt"
 	icon_state = "female_whitealt"
 	item_state = "lgloves"
 	flags_inv = HIDEBREASTS
@@ -141,33 +141,33 @@
 	flags_inv = HIDEBREASTS
 
 /obj/item/clothing/underwear/underpants/female_blue
-	name = "Ladies Blue"
+	name = "Calcinha Azul"
 	icon_state = "female_blue"
 	item_state = "bgloves"
 	adjustable = 1
 	flags_inv = HIDEBREASTS
 
 /obj/item/clothing/underwear/underpants/female_babyblue
-	name = "Ladies Baby Blue"
+	name = "Calcinha Azul Bebe"
 	icon_state = "female_babyblue"
 	item_state = "bgloves"
 	flags_inv = HIDEBREASTS
 
 /obj/item/clothing/underwear/underpants/female_black
-	name = "Ladies Black"
+	name = "Calcinha Preta" //Soo hot
 	icon_state = "female_black"
 	item_state = "bgloves"
 	adjustable = 1
 	flags_inv = HIDEBREASTS
 
 /obj/item/clothing/underwear/underpants/female_blacker
-	name = "Ladies Blacker"
+	name = "Calcinha Negra"
 	icon_state = "female_blacker"
 	adjustable = 1
 	flags_inv = HIDEBREASTS
 
 /obj/item/clothing/underwear/underpants/female_blackalt
-	name = "Ladies Black Alt"
+	name = "Calcinha Preta Alt"
 	icon_state = "female_blackalt"
 	item_state = "bgloves"
 	flags_inv = HIDEBREASTS
@@ -180,14 +180,14 @@
 	flags_inv = HIDEBREASTS
 
 /obj/item/clothing/underwear/underpants/female_babydoll
-	name = "Ladies Full Grey"
+	name = "Calcinha Cinza Cheio"
 	icon_state = "female_babydoll"
 	item_state = "bgloves"
 	adjustable = 1
 	flags_inv = HIDEBREASTS
 
 /obj/item/clothing/underwear/underpants/female_pink
-	name = "Ladies Pink"
+	name = "Calcinha Rosa"
 	icon_state = "female_pink"
 	item_state = "r_shoes"
 	flags_inv = HIDEBREASTS
