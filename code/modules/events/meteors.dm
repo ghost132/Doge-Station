@@ -10,9 +10,9 @@
 /datum/event/meteor_wave/announce()
 	switch(severity)
 		if(EVENT_LEVEL_MAJOR)
-			event_announcement.Announce("Meteors have been detected on collision course with the station.", "Meteor Alert", new_sound = 'sound/AI/meteors.ogg')
+			event_announcement.Announce("Meteoros foram detectados em rota de colisão com a estação.", "Alerta de Meteoro.", new_sound = 'sound/AI/meteors.ogg')
 		else
-			event_announcement.Announce("The station is now in a meteor shower.", "Meteor Alert")
+			event_announcement.Announce("A estação está agora em uma chuva de meteoros.", "Alerta de Meteoro.")
 
 //meteor showers are lighter and more common,
 /datum/event/meteor_wave/tick()
@@ -25,9 +25,9 @@
 /datum/event/meteor_wave/end()
 	switch(severity)
 		if(EVENT_LEVEL_MAJOR)
-			event_announcement.Announce("The station has cleared the meteor storm.", "Meteor Alert")
+			event_announcement.Announce("A estação limpou a tempestade de meteoros.", "Alerta de Meteoro.")
 		else
-			event_announcement.Announce("The station has cleared the meteor shower", "Meteor Alert")
+			event_announcement.Announce("A estação limpou a chuva de meteoros", "Alerta de Meteoro.")
 
 /datum/event/meteor_wave/proc/get_meteors()
 	switch(severity)
