@@ -3,7 +3,7 @@
 	var/lightsoutRange	= 25
 
 /datum/event/electrical_storm/announce()
-	event_announcement.Announce("An electrical storm has been detected in your area, please repair potential electronic overloads.", "Electrical Storm Alert")
+	event_announcement.Announce("Uma tempestade elétrica foi detectada em sua área, repare possíveis sobrecargas eletrônicas.", "Alerta de Tempestade Elétrica")
 	
 /datum/event/electrical_storm/start()
 	var/list/epicentreList = list()
