@@ -5,7 +5,7 @@
 	var/obj/effect/tear/TE
 
 /datum/event/tear/announce()
-	event_announcement.Announce("A tear in the fabric of space and time has opened. Expected location: [impact_area.name].", "Anomaly Alert")
+	event_announcement.Announce("Um rasgo no tecido do espaço e do tempo abriu. Local esperado: [impact_area.name].", "Alerta de Anomalias")
 
 /datum/event/tear/start()
 	var/turf/T = pick(get_area_turfs(impact_area))
@@ -20,8 +20,8 @@
 		qdel(TE)
 
 /obj/effect/tear
-	name="Dimensional Tear"
-	desc="A tear in the dimensional fabric of space and time."
+	name="Rasgo Dimensional"
+	desc="Um rasgo no tecido dimensional do espaço e do tempo."
 	icon='icons/effects/tear.dmi'
 	icon_state="tear"
 	unacidable = 1

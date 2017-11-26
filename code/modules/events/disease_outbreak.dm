@@ -7,7 +7,7 @@
 	announceWhen = rand(15, 30)
 
 /datum/event/disease_outbreak/announce()
-	event_announcement.Announce("Surto confirmado do risco biológico viral principal do nível 7 a bordo [station_name()]. Todo o pessoal deve conter o surto.", "Alerta de Risco Biológico", new_sound = 'sound/AI/outbreak7.ogg')
+	event_announcement.Announce("Surto confirmado do risco biológico viral principal do nível 7 a bordo da [station_name()]. Todo o pessoal deve conter o surto.", "Alerta de Risco Biológico", new_sound = 'sound/AI/outbreak7.ogg')
 
 /datum/event/disease_outbreak/start()
 	if(!virus_type)

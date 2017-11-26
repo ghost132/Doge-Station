@@ -3,7 +3,7 @@
 
 /datum/event/spawn_slaughter/proc/get_slaughter(var/end_if_fail = 0)
 	spawn()
-		var/list/candidates = pollCandidates("Do you want to play as a slaughter demon?", ROLE_DEMON, 1)
+		var/list/candidates = pollCandidates("Você quer jogar como um DEMÔNIO de MATANÇA?", ROLE_DEMON, 1)
 		if(!candidates.len)
 			key_of_slaughter = null
 			return kill()
@@ -37,8 +37,8 @@
 		player_mind.transfer_to(S)
 		player_mind.assigned_role = "Slaughter Demon"
 		player_mind.special_role = SPECIAL_ROLE_SLAUGHTER_DEMON
-		message_admins("[key_name_admin(S)] has been made into a Slaughter Demon by an event.")
-		log_game("[key_name_admin(S)] was spawned as a Slaughter Demon by an event.")
+		message_admins("[key_name_admin(S)] foi transformado em Demônio de Matança por um evento.")
+		log_game("[key_name_admin(S)] foi gerado como Demônio do Matança por um evento.")
 		return 1
 
 /datum/event/spawn_slaughter/start()

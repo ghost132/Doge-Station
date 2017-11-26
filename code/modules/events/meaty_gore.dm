@@ -14,4 +14,4 @@
 
 
 /datum/event/meteor_wave/gore/end()
-	event_announcement.Announce("The station has cleared the debris.", "Debris Alert")
+	event_announcement.Announce("A estação limpou os detritos.", "Alerta de Detritos")

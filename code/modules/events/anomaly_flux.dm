@@ -4,7 +4,7 @@
 	endWhen = 180
 
 /datum/event/anomaly/anomaly_flux/announce()
-	event_announcement.Announce("Onda de fluxo hiper-energÃ©tico detectado em scanners de longo alcance. Local esperado: [impact_area.name].", "Alerta de Anomalias")
+	event_announcement.Announce("Onda de fluxo hiper-energético detectado em scanners de longo alcance. Local esperado: [impact_area.name].", "Alerta de Anomalias")
 
 /datum/event/anomaly/anomaly_flux/start()
 	var/turf/T = pick(get_area_turfs(impact_area))

@@ -27,10 +27,9 @@
 	newMsg.author = "Nanotrasen Editor"
 	newMsg.is_admin_message = 1
 
-	newMsg.body = "Nyx Daily wishes to congratulate <b>[winner_name]</b> for recieving the Nyx Stellar Slam Lottery, and receiving the out of this world sum of [winner_sum] credits!"
+	newMsg.body = "Nyx Daily deseja felicitar <b>[winner_name]</b> para receber a Loteria Nyx Stellar Slam, e receber a soma de [winner_sum] em créditos!"
 	if(!deposit_success)
-		newMsg.body += "<br>Unfortunately, we were unable to verify the account details provided, so we were unable to transfer the money. Send a cheque containing the sum of $500 to ND 'Stellar Slam' office on the Nyx gateway containing updated details, and your winnings'll be re-sent within the month."
-
+		newMsg.body += "<br>Infelizmente, não conseguimos verificar os detalhes da conta, por isso não conseguimos transferir o dinheiro. Envie um cheque contendo a soma de US $ 500 para o escritório ND 'Stellar Slam' na gateway Nyx contendo detalhes atualizados e seus ganhos serão reenviados dentro do mês."
 	for(var/datum/feed_channel/FC in news_network.network_channels)
 		if(FC.channel_name == "Nyx Daily")
 			FC.messages += newMsg

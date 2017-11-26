@@ -25,12 +25,12 @@
 /datum/event/rogue_drone/announce()
 	var/msg
 	if(prob(33))
-		msg = "A combat drone wing operating out of the NSV Icarus has failed to return from a sweep of this sector, if any are sighted approach with caution."
+		msg = "Uma ala de drone de combate que opera fora do NSV Icarus não conseguiu retornar de uma varredura deste setor, se houver alguma abordagem avistada com cautela."
 	else if(prob(50))
-		msg = "Contact has been lost with a combat drone wing operating out of the NSV Icarus. If any are sighted in the area, approach with caution."
+		msg = "O contato foi perdido com uma ala de drone de combate que opera fora do NSV Icarus. Se alguém estiver avistado na área, se aproximar com cautela."
 	else
-		msg = "Unidentified hackers have targetted a combat drone wing deployed from the NSV Icarus. If any are sighted in the area, approach with caution."
-	event_announcement.Announce(msg, "Rogue drone alert")
+		msg = "Os hackers não identificados visaram uma ala de drone de combate implantada do NSV Icarus. Se alguém estiver avistado na área, se aproximar com cautela."
+	event_announcement.Announce(msg, "Alerta de Drone Rogue")
 
 /datum/event/rogue_drone/tick()
 	return
@@ -48,6 +48,6 @@
 		num_recovered++
 
 	if(num_recovered > drones_list.len * 0.75)
-		event_announcement.Announce("Icarus drone control reports the malfunctioning wing has been recovered safely.", "Rogue drone alert")
+		event_announcement.Announce("O controle do drone Icarus informa que a asa incorreta foi recuperada com segurança.", "Alerta de Drone Rogue")
 	else
-		event_announcement.Announce("Icarus drone control registers disappointment at the loss of the drones, but the survivors have been recovered.", "Rogue drone alert")
+		event_announcement.Announce("O controle do drone de Ícaro decepciona a perda dos drones, mas os sobreviventes foram recuperados.", "Alerta de Drone Rogue")

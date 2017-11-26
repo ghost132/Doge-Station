@@ -7,6 +7,6 @@
 	var/datum/event_container/container = event_manager.event_containers[weight]
 	var/datum/event/E = container.acquire_event()
 	var/datum/event/Event = new E
-	message_admins("False Alarm: [Event]")
+	message_admins("Alarme Falso: [Event]")
 	Event.announce() 	//just announce it like it's happening
 	Event.kill() 		//do not process this event - no starts, no ticks, no ends

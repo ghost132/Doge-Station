@@ -10,7 +10,7 @@
 	sent_spiders_to_station = 1
 
 /datum/event/spider_infestation/announce()
-	event_announcement.Announce("Unidentified lifesigns detected coming aboard [station_name()]. Secure any exterior access, including ducting and ventilation.", "Lifesign Alert", new_sound = 'sound/AI/aliens.ogg')
+	event_announcement.Announce("Valores de vida não identificados detectados a bordo da [station_name()]. Proteja qualquer acesso externo, incluindo ducto e ventilação.", "Alerta de Sinais de Vida", new_sound = 'sound/AI/aliens.ogg')
 
 /datum/event/spider_infestation/start()
 

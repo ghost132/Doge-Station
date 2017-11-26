@@ -5,16 +5,16 @@
 	var/list/obj/machinery/vending/vendingMachines = list()
 	var/list/obj/machinery/vending/infectedMachines = list()
 	var/obj/machinery/vending/originMachine
-	var/list/rampant_speeches = list("Try our aggressive new marketing strategies!", \
-									 "You should buy products to feed your lifestyle obession!", \
-									 "Consume!", \
-									 "Your money can buy happiness!", \
-									 "Engage direct marketing!", \
-									 "Advertising is legalized lying! But don't let that put you off our great deals!", \
-									 "You don't want to buy anything? Yeah, well I didn't want to buy your mom either.")
+	var/list/rampant_speeches = list("Experimente nossas estratégias agressivas de marketing!", \
+									 "Você deve comprar produtos para alimentar sua obsessão de estilo de vida!", \
+									 "Consuma!", \
+									 "Seu dinheiro pode comprar a felicidade!", \
+									 "Engage marketing direto!", \
+									 "A publicidade é legalizada mentindo! Mas não permita que isso o faça com nossas ótimas promoções!", \
+									 "Você não quer comprar nada? Sim, bem, eu também não queria comprar sua mãe.")
 
 /datum/event/brand_intelligence/announce()
-	event_announcement.Announce("Rampant brand intelligence has been detected aboard [station_name()], please stand-by. The origin is believed to be \a [originMachine.name].", "Machine Learning Alert")
+	event_announcement.Announce("A inteligência da marca desenfreada foi detectada a bordo da [station_name()], por favor espere. Acredita-se que a origem seja \ a [originMachine.name].", "Alerta de Aprendizado de Máquinas")
 
 /datum/event/brand_intelligence/start()
 	for(var/obj/machinery/vending/V in machines)
@@ -36,8 +36,8 @@
 		for(var/obj/machinery/vending/saved in infectedMachines)
 			saved.shoot_inventory = 0
 		if(originMachine)
-			originMachine.speak("I am... vanquished. My people will remem...ber...meeee.")
-			originMachine.visible_message("[originMachine] beeps and seems lifeless.")
+			originMachine.speak("Estou......vencido. Meu povo lembrará de... mim")
+			originMachine.visible_message("[originMachine] emite um sinal sonoro e parece sem vida.")
 		kill()
 		return
 

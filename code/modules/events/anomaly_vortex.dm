@@ -4,7 +4,7 @@
 	endWhen = 80
 
 /datum/event/anomaly/anomaly_vortex/announce()
-	event_announcement.Announce("Localized high-intensity vortex anomaly detected on long range scanners. Expected location: [impact_area.name]", "Anomaly Alert")
+	event_announcement.Announce("Anomalia de vórtice de alta intensidade localizada detectada em scanners de longo alcance. Local esperado: [impact_area.name]", "Alerta de Anomalias")
 
 /datum/event/anomaly/anomaly_vortex/start()
 	var/turf/T = pick(get_area_turfs(impact_area))
