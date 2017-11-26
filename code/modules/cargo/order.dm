@@ -1,7 +1,7 @@
 #define MANIFEST_ERROR_CHANCE 5
 
 /obj/item/weapon/paper/manifest
-	name = "supply manifest"
+	name = "manifesto do suprimento"
 	var/errors = 0
 	var/points = 0
 	var/ordernumber = 0
@@ -45,19 +45,19 @@
 
 	playsound(T, 'sound/goonstation/machines/printer_thermal.ogg', 50, 1)
 
-	P.name = "Requisition Form - [crates] '[pack.name]' for [orderer]"
-	P.info += "<h3>[station_name] Supply Requisition Form</h3><hr>"
-	P.info += "INDEX: #[shuttle_master.ordernum]<br>"
-	P.info += "REQUESTED BY: [orderer]<br>"
-	P.info += "RANK: [orderer_rank]<br>"
-	P.info += "REASON: [comment]<br>"
-	P.info += "SUPPLY CRATE TYPE: [pack.name]<br>"
-	P.info += "NUMBER OF CRATES: [crates]<br>"
-	P.info += "ACCESS RESTRICTION: [pack.access ? get_access_desc(pack.access) : "None"]<br>"
-	P.info += "CONTENTS:<br>"
+	P.name = "Formulário de requisição - [crates] '[pack.name]' para [orderer]"
+	P.info += "<h3>[station_name] Formulário de Requisição de Fornecimento</h3><hr>"
+	P.info += "ÍNDICE: #[shuttle_master.ordernum]<br>"
+	P.info += "REQUERIDO POR: [orderer]<br>"
+	P.info += "CATEGORIA: [orderer_rank]<br>"
+	P.info += "MOTIVO:: [comment]<br>"
+	P.info += "TIPO DE SUPRIMENTO DA CAIXA: [pack.name]<br>"
+	P.info += "NÚMEROS DE CAIXA: [crates]<br>"
+	P.info += "RESTRIÇÃO DE ACESSO: [pack.access ? get_access_desc(pack.access) : "None"]<br>"
+	P.info += "CONTEÚDO:<br>"
 	P.info += pack.printout()
 	P.info += "<hr>"
-	P.info += "STAMP BELOW TO APPROVE THIS REQUISITION:<br>"
+	P.info += "SELO ABAIXO PARA APROVAR ESTA EXIGÊNCIA:<br>"
 
 	P.update_icon()
 	return P
@@ -68,17 +68,17 @@
 	var/station_name = (P.errors & MANIFEST_ERROR_NAME) ? new_station_name() : station_name()
 	var/packages_amount = shuttle_master.shoppinglist.len + ((P.errors & MANIFEST_ERROR_COUNT) ? rand(1,2) : 0)
 
-	P.name = "Shipping Manifest - '[pack.name]' for [orderer]"
-	P.info = "<h3>[command_name()] Shipping Manifest</h3><hr><br>"
-	P.info += "Order: #[ordernum]<br>"
-	P.info += "Destination: [station_name]<br>"
-	P.info += "Requested By: [orderer]<br>"
-	P.info += "Rank: [orderer_rank]<br>"
-	P.info += "Reason: [comment]<br>"
-	P.info += "Supply Crate Type: [pack.name]<br>"
-	P.info += "Access Restriction: [pack.access ? get_access_desc(pack.access) : "None"]<br>"
-	P.info += "[packages_amount] PACKAGES IN THIS SHIPMENT<br>"
-	P.info += "CONTENTS:<br><ul>"
+	P.name = "Manifesto de Envio - '[pack.name]' for [orderer]"
+	P.info = "<h3>[command_name()] Manifesto de Envio</h3><hr><br>"
+	P.info += "Ordem: #[ordernum]<br>"
+	P.info += "DestinoÇ [station_name]<br>"
+	P.info += "Requerido por: [orderer]<br>"
+	P.info += "Categoria: [orderer_rank]<br>"
+	P.info += "Motivo: [comment]<br>"
+	P.info += "Tipo de Caixa de Suprimento: [pack.name]<br>"
+	P.info += "Restrição de Acesso: [pack.access ? get_access_desc(pack.access) : "None"]<br>"
+	P.info += "[packages_amount] PACOTES NESTA REMESSA<br>"
+	P.info += "CONTEÚDO:<br><ul>"
 	for(var/atom/movable/AM in C.contents - P)
 		if((P.errors & MANIFEST_ERROR_ITEM))
 			if(prob(50))
@@ -88,7 +88,7 @@
 		P.info += "<li>[AM.name]</li>"
 	//manifest finalisation
 	P.info += "</ul><br>"
-	P.info += "CHECK CONTENTS AND STAMP BELOW THE LINE TO CONFIRM RECEIPT OF GOODS<hr>" // And now this is actually meaningful.
+	P.info += "VERIFIQUE O ÍNDICE E O SELO ABAIXO DA LINHA PARA CONFIRMAR O RECEBIMENTO D0S PRODUTOS<hr>" // And now this is actually meaningful.
 	P.loc = C
 
 	C.manifest = P

@@ -32,7 +32,7 @@ var/global/list/map_transition_config = MAP_TRANSITION_CONFIG
 	diaryofmeanpeople << "\n\nComeçando. [time2text(world.timeofday, "hh:mm.ss")]\n---------------------"
 
 	if(byond_version < RECOMMENDED_VERSION)
-		log_to_dd("Your server's byond version does not meet the recommended requirements for this code. Please update BYOND")
+		log_to_dd("A versão do byond do seu servidor não atende aos requisitos recomendados para este código. Atualize BYOND")
 
 	if(config && config.log_runtimes)
 		log = file("data/logs/runtime/[time2text(world.realtime,"YYYY-MM-DD-(hh-mm-ss)")]-runtime.log")

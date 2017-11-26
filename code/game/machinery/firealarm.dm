@@ -2,8 +2,8 @@
 FIRE ALARM
 */
 /obj/machinery/firealarm
-	name = "fire alarm"
-	desc = "<i>\"Pull this in case of emergency\"</i>. Thus, keep pulling it forever."
+	name = "alarme de incêndio"
+	desc = "<i>\"Puxe isto em caso de emergência\"</i>. Portanto, continue puxando para sempre."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "fire0"
 	var/detecting = 1.0
@@ -46,8 +46,8 @@ FIRE ALARM
 	if(!emagged)
 		emagged = 1
 		if(user)
-			user.visible_message("<span class='warning'>Sparks fly out of the [src]!</span>",
-								"<span class='notice'>You emag [src], disabling its thermal sensors.</span>")
+			user.visible_message("<span class='warning'>Faíscas voam para fora do [src]!</span>",
+								"<span class='notice'>Você emag [src], desativando seus sensores térmicos.</span>")
 		playsound(loc, 'sound/effects/sparks4.ogg', 50, 1)
 
 /obj/machinery/firealarm/temperature_expose(datum/gas_mixture/air, temperature, volume)
@@ -100,16 +100,16 @@ FIRE ALARM
 				if(istype(W, /obj/item/stack/cable_coil))
 					var/obj/item/stack/cable_coil/coil = W
 					if(!coil.use(5))
-						to_chat(user, "<span class='warning'>You cut the wires!</span>")
+						to_chat(user, "<span class='warning'>^Você corta os fios!</span>")
 						return
 
 					buildstage = 2
 					playsound(get_turf(src), W.usesound, 50, 1)
-					to_chat(user, "<span class='notice'>You wire \the [src]!</span>")
+					to_chat(user, "<span class='notice'>Você corta \o [src]!</span>")
 					update_icon()
 
 				else if(istype(W, /obj/item/weapon/crowbar))
-					to_chat(user, "<span class='warning'>You pry out the circuit!</span>")
+					to_chat(user, "<span class='warning'>Você puxa o circuito!</span>")
 					playsound(get_turf(src), W.usesound, 50, 1)
 					if(do_after(user, 20 * W.toolspeed, target = src))
 						if(buildstage != 1)
@@ -120,13 +120,13 @@ FIRE ALARM
 						update_icon()
 			if(0)
 				if(istype(W, /obj/item/weapon/firealarm_electronics))
-					to_chat(user, "<span class='notice'>You insert the circuit!</span>")
+					to_chat(user, "<span class='notice'>Você insere o circuito!</span>")
 					qdel(W)
 					buildstage = 1
 					update_icon()
 
 				else if(istype(W, /obj/item/weapon/wrench))
-					to_chat(user, "<span class='warning'>You remove the fire alarm assembly from the wall!</span>")
+					to_chat(user, "<span class='warning'>Você remove o conjunto de alarme de incêndio da parede!</span>")
 					new /obj/item/mounted/frame/firealarm(get_turf(user))
 					playsound(get_turf(src), W.usesound, 50, 1)
 					qdel(src)
@@ -263,10 +263,10 @@ FIRE ALARM CIRCUIT
 Just a object used in constructing fire alarms
 */
 /obj/item/weapon/firealarm_electronics
-	name = "fire alarm electronics"
+	name = "eletrônicos de alarme de incêndio"
 	icon = 'icons/obj/doors/door_assembly.dmi'
 	icon_state = "door_electronics"
-	desc = "A circuit. It has a label on it, it says \"Can handle heat levels up to 40 degrees celsius!\""
+	desc = "Um circuito. Tem um rótulo sobre isso, diz \"Pode lidar com níveis de calor até 40 graus Celsius!\""
 	w_class = WEIGHT_CLASS_SMALL
 	materials = list(MAT_METAL=50, MAT_GLASS=50)
 	origin_tech = "engineering=2;programming=1"
@@ -300,13 +300,13 @@ Just a object used in constructing fire alarms
 	if(istype(user, /mob/living/carbon/human) || istype(user, /mob/living/silicon/ai))
 
 		if(A.party)
-			d1 = "<A href='?src=[UID()];reset=1'>No Party :(</A>"
+			d1 = "<A href='?src=[UID()];reset=1'>Nenhuma festa :(</A>"
 		else
-			d1 = "<A href='?src=[UID()];alarm=1'>PARTY!!!</A>"
+			d1 = "<A href='?src=[UID()];alarm=1'>FESTA!!!</A>"
 		if(timing)
-			d2 = "<A href='?src=[UID()];time=0'>Stop Time Lock</A>"
+			d2 = "<A href='?src=[UID()];time=0'>Parar Trava de Tempo/A>"
 		else
-			d2 = "<A href='?src=[UID()];time=1'>Initiate Time Lock</A>"
+			d2 = "<A href='?src=[UID()];time=1'>Iniciar Trava de Tempo</A>"
 		var/second = time % 60
 		var/minute = (time - second) / 60
 		var/dat = text("<HTML><HEAD></HEAD><BODY><TT><B>Party Button</B> []\n<HR>\nTimer System: []<BR>\nTime Left: [][] <A href='?src=[UID()];tp=-30'>-</A> <A href='?src=[UID()];tp=-1'>-</A> <A href='?src=[UID()];tp=1'>+</A> <A href='?src=[UID()];tp=30'>+</A>\n</TT></BODY></HTML>", d1, d2, (minute ? text("[]:", minute) : null), second)
@@ -314,13 +314,13 @@ Just a object used in constructing fire alarms
 		onclose(user, "partyalarm")
 	else
 		if(A.fire)
-			d1 = text("<A href='?src=[UID()];reset=1'>[]</A>", stars("No Party :("))
+			d1 = text("<A href='?src=[UID()];reset=1'>[]</A>", stars("Sem Festa :("))
 		else
-			d1 = text("<A href='?src=[UID()];alarm=1'>[]</A>", stars("PARTY!!!"))
+			d1 = text("<A href='?src=[UID()];alarm=1'>[]</A>", stars("FESTA!!!"))
 		if(timing)
-			d2 = text("<A href='?src=[UID()];time=0'>[]</A>", stars("Stop Time Lock"))
+			d2 = text("<A href='?src=[UID()];time=0'>[]</A>", stars("Parar Trava de Tempo"))
 		else
-			d2 = text("<A href='?src=[UID()];time=1'>[]</A>", stars("Initiate Time Lock"))
+			d2 = text("<A href='?src=[UID()];time=1'>[]</A>", stars("Iniciar Trava de Tempo"))
 		var/second = time % 60
 		var/minute = (time - second) / 60
 		var/dat = text("<HTML><HEAD></HEAD><BODY><TT><B>[]</B> []\n<HR>\nTimer System: []<BR>\nTime Left: [][] <A href='?src=[UID()];tp=-30'>-</A> <A href='?src=[UID()];tp=-1'>-</A> <A href='?src=[UID()];tp=1'>+</A> <A href='?src=[UID()];tp=30'>+</A>\n</TT></BODY></HTML>", stars("Party Button"), d1, d2, (minute ? text("[]:", minute) : null), second)

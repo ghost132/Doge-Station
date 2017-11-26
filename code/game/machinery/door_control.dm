@@ -35,7 +35,7 @@
 	if(wires & 2)
 		return attack_hand(user)
 	else
-		to_chat(user, "Error, no route to host.")
+		to_chat(user, "Erro, nenhuma rota para hospedar.")
 
 /obj/machinery/door_control/attackby(obj/item/weapon/W, mob/user as mob, params)
 	/* For later implementation
@@ -62,7 +62,7 @@
 		req_access = list()
 		req_one_access = list()
 		playsound(loc, "sparks", 100, 1)
-		
+
 /obj/machinery/door_control/attack_ghost(mob/user)
 	if(user.can_advanced_admin_interact())
 		return attack_hand(user)
@@ -73,7 +73,7 @@
 		return
 
 	if(!allowed(user) && (wires & 1) && !user.can_advanced_admin_interact())
-		to_chat(user, "<span class='warning'>Access Denied.</span>")
+		to_chat(user, "<span class='warning'>Acesso Negado.</span>")
 		flick("doorctrl-denied",src)
 		return
 

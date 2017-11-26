@@ -4,8 +4,8 @@
 #define SUPPLY_SCREEN_HEIGHT 620 //height of supply computer interaction window
 
 /obj/machinery/computer/supplycomp
-	name = "Supply Shuttle Console"
-	desc = "Used to order supplies."
+	name = "Console da Shuttle de Fornecimento"
+	desc = "Usado para solicitar suprimentos."
 	icon_screen = "supply"
 	req_access = list(access_cargo)
 	circuit = /obj/item/weapon/circuitboard/supplycomp
@@ -16,8 +16,8 @@
 	var/datum/supply_pack/content_pack
 
 /obj/machinery/computer/ordercomp
-	name = "Supply Ordering Console"
-	desc = "Used to order supplies from cargo staff."
+	name = "Console de Pedidos de Suprimentos"
+	desc = "Usado para solicitar suprimentos da equipe de carga."
 	icon = 'icons/obj/computer.dmi'
 	icon_screen = "request"
 	circuit = /obj/item/weapon/circuitboard/ordercomp
@@ -108,13 +108,13 @@
 			return 1
 		var/crates = 1
 		if(multi)
-			var/num_input = input(usr, "Amount:", "How many crates?") as null|num
+			var/num_input = input(usr, "Quantidade", "Quantos caixas?") as null|num
 			if(!num_input || ..())
 				return 1
 			crates = Clamp(round(num_input), 1, 20)
 
 		var/timeout = world.time + 600
-		var/reason = input(usr,"Reason:","Why do you require this item?","") as null|text
+		var/reason = input(usr,"Motivo:","Por que você precisa deste item?","") as null|text
 		if(world.time > timeout || !reason || ..())
 			return 1
 		reason = sanitize(copytext(reason, 1, MAX_MESSAGE_LEN))
@@ -167,7 +167,7 @@
 
 /obj/machinery/computer/supplycomp/attack_hand(mob/user)
 	if(!allowed(user) && !isobserver(user))
-		to_chat(user, "<span class='warning'>Access denied.</span>")
+		to_chat(user, "<span class='warning'>Acesso Negado.</span>")
 		return 1
 
 	post_signal("supply")
@@ -176,7 +176,7 @@
 
 /obj/machinery/computer/supplycomp/emag_act(mob/user)
 	if(!emagged)
-		to_chat(user, "<span class='notice'>Special supplies unlocked.</span>")
+		to_chat(user, "<span class='notice'>Suprimentos especiais desbloqueados.</span>")
 		emagged = TRUE
 		contraband = TRUE
 
@@ -230,7 +230,7 @@
 	data["canapprove"] = (shuttle_master.supply.getDockedId() == "supply_away") && !(shuttle_master.supply.mode != SHUTTLE_IDLE)
 	data["points"] = round(shuttle_master.points)
 	data["send"] = list("send" = 1)
-	data["message"] = shuttle_master.centcom_message ? shuttle_master.centcom_message : "Remember to stamp and send back the supply manifests."
+	data["message"] = shuttle_master.centcom_message ? shuttle_master.centcom_message : "Lembre-se de marcar e enviar de volta os manifestos dos suprimentos."
 
 	data["moving"] = shuttle_master.supply.mode != SHUTTLE_IDLE
 	data["at_station"] = shuttle_master.supply.getDockedId() == "supply_home"
@@ -255,17 +255,17 @@
 		return 1
 
 	if(!shuttle_master)
-		log_runtime(EXCEPTION("The shuttle_master controller datum is missing somehow."), src)
+		log_runtime(EXCEPTION("O controlador shuttle_master está faltando de alguma forma."), src)
 		return 1
 
 	if(href_list["send"])
 		if(shuttle_master.supply.canMove())
-			to_chat(usr, "<span class='warning'>For safety reasons the automated supply shuttle cannot transport live organisms, classified nuclear weaponry or homing beacons.</span>")
+			to_chat(usr, "<span class='warning'>Por razões de segurança o transporte de alimentação automatizado não pode transportar organismos vivos, armamento nuclear classificados ou faróis ambulantes.</span>")
 		else if(shuttle_master.supply.getDockedId() == "supply_home")
 			shuttle_master.supply.emagged = emagged
 			shuttle_master.supply.contraband = contraband
 			shuttle_master.toggleShuttle("supply", "supply_home", "supply_away", 1)
-			investigate_log("[key_name(usr)] has sent the supply shuttle away. Remaining points: [shuttle_master.points]. Shuttle contents: [shuttle_master.sold_atoms]", "cargo")
+			investigate_log("[key_name(usr)] enviou o serviço de transporte. Pontos restantes: [shuttle_master.points]. Conteúdo da Shuttle: [shuttle_master.sold_atoms]", "cargo")
 		else if(!shuttle_master.supply.request(shuttle_master.getDock("supply_home")))
 			post_signal("supply")
 			if(LAZYLEN(shuttle_master.shoppinglist) && prob(10))
@@ -274,11 +274,11 @@
 				O.pack = shuttle_master.supply_packs[pick(shuttle_master.supply_packs)]
 				O.orderer = random_name(pick(MALE,FEMALE), species = "Human")
 				shuttle_master.shoppinglist += O
-				investigate_log("Random [O.pack] crate added to supply shuttle")
+				investigate_log("Caixa aleatória [O.pack] adicionada ao serviço de transporte de suprimentos")
 
 	else if(href_list["doorder"])
 		if(world.time < reqtime)
-			visible_message("<b>[src]</b>'s monitor flashes, \"[world.time - reqtime] seconds remaining until another requisition form may be printed.\"")
+			visible_message("<b>[src]</b> monitor pisca, \"[world.time - reqtime] segundos restantes até que outro formulário de requisição possa ser impresso.\"")
 			nanomanager.update_uis(src)
 			return 1
 
@@ -291,13 +291,13 @@
 			return 1
 		var/crates = 1
 		if(multi)
-			var/num_input = input(usr, "Amount:", "How many crates?") as null|num
+			var/num_input = input(usr, "Quantidade:", "Quantos caixas?") as null|num
 			if(!num_input || !is_authorized(usr) || ..())
 				return 1
 			crates = Clamp(round(num_input), 1, 20)
 
 		var/timeout = world.time + 600
-		var/reason = input(usr,"Reason:","Why do you require this item?","") as null|text
+		var/reason = input(usr,"Motivo:","Por que você precisa deste item?","") as null|text
 		if(world.time > timeout || !reason || !is_authorized(usr) || ..())
 			return 1
 		reason = sanitize(copytext(reason, 1, MAX_MESSAGE_LEN))
@@ -329,7 +329,7 @@
 					shuttle_master.points -= SO.pack.cost
 					shuttle_master.requestlist -= SO
 					shuttle_master.shoppinglist += SO
-					investigate_log("[key_name(usr)] has authorized an order for [SO.pack.name]. Remaining points: [shuttle_master.points].", "cargo")
+					investigate_log("[key_name(usr)] autorizou um pedido para [SO.pack.name]. Pontos restantes: [shuttle_master.points].", "cargo")
 
 	else if(href_list["rreq"])
 		var/ordernum = text2num(href_list["rreq"])
