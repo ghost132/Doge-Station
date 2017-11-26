@@ -2,3 +2,4 @@
 #define TARGET_CAN_RUN 2
 #define TARGET_CAN_CLICK 4
 #define TARGET_CAN_RADIO 8
+#define TARGET_IS_GAY 3
