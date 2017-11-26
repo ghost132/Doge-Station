@@ -9,4 +9,4 @@
 		H.AdjustHallucinate(rand(50, 100))
 
 /datum/event/mass_hallucination/announce()
-	event_announcement.Announce("It seems that station [station_name()] is passing through a minor radiation field, this may cause some hallucination, but no further damage")
+	event_announcement.Announce("Parece que a estação [station_name()] está passando por um campo de radiação menor, isso pode causar alguma alucinação, mas nenhum dano adicional")
