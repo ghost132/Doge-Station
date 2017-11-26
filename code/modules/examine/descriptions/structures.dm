@@ -4,7 +4,7 @@
 	You can dismantle the girder with a wrench."
 
 /obj/structure/girder/reinforced
-	description_info = "Add another sheet of plasteel to finish."
+	description_info = "Adicione outra folha de plasteel para terminar."
 
 /obj/structure/grille
 	description_info = "A powered and knotted wire underneath this will cause the grille to shock anyone not wearing insulated gloves.<br>\
