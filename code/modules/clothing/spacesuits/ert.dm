@@ -150,3 +150,22 @@
 	name = "champion's hardsuit"
 	desc = "Voices echo from the hardsuit, driving the user insane."
 	icon_state = "hardsuit-berserker"
+
+
+//roupas extras
+
+//Storm Trooper
+
+/obj/item/clothing/suit/space/hardsuit/stormtrooper
+	name = "roupa de storm trooper"
+	desc = "não certa nada"
+	icon = 'icons/mob/suit.dmi'
+	icon_state = "stormtrooper"
+	w_class = WEIGHT_CLASS_NORMAL
+
+/obj/item/clothing/head/helmet/space/hardsuit/capacete_stormtrooper
+	name = "capacete storm trooper"
+	desc = "capacete da roupa storm trooper"
+	icon = 'icons/mob/head.dmi'
+	icon_state = "stormtrooper_helmet"
+	w_class = WEIGHT_CLASS_NORMAL
