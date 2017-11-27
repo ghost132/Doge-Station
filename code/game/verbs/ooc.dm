@@ -11,7 +11,7 @@ var/global/admin_ooc_colour = "#b82e00"
 	if(!mob)
 		return
 	if(IsGuestKey(key))
-		to_chat(src, "<span class='danger'>Guests may not use OOC.</span>")
+		to_chat(src, "<span class='danger'>Os convidados não podem usar OOC.</span>")
 		return
 
 	msg = trim(sanitize(copytext(msg, 1, MAX_MESSAGE_LEN)))
@@ -19,25 +19,25 @@ var/global/admin_ooc_colour = "#b82e00"
 		return
 
 	if(!(prefs.toggles & CHAT_OOC))
-		to_chat(src, "<span class='danger'>You have OOC muted.</span>")
+		to_chat(src, "<span class='danger'>Você tem OOC silenciado.</span>")
 		return
 
 	if(!check_rights(R_ADMIN|R_MOD,0))
 		if(!config.ooc_allowed)
-			to_chat(src, "<span class='danger'>OOC is globally muted.</span>")
+			to_chat(src, "<span class='danger'>OOC é globalmente silenciado.</span>")
 			return
 		if(!config.dooc_allowed && (mob.stat == DEAD))
-			to_chat(usr, "<span class='danger'>OOC for dead mobs has been turned off.</span>")
+			to_chat(usr, "<span class='danger'>OOC para mobs mortos foi desligado.</span>")
 			return
 		if(prefs.muted & MUTE_OOC)
-			to_chat(src, "<span class='danger'>You cannot use OOC (muted).</span>")
+			to_chat(src, "<span class='danger'>Você não pode usar OOC (silenciado).</span>")
 			return
 		if(handle_spam_prevention(msg, MUTE_OOC, OOC_COOLDOWN))
 			return
 		if(findtext(msg, "byond://"))
-			to_chat(src, "<B>Advertising other servers is not allowed.</B>")
-			log_admin("[key_name(src)] has attempted to advertise in OOC: [msg]")
-			message_admins("[key_name_admin(src)] has attempted to advertise in OOC: [msg]")
+			to_chat(src, "<B>A publicidade de outros servidores não é permitida.</B>")
+			log_admin("[key_name(src)] tentou anunciar no OOC: [msg]")
+			message_admins("[key_name_admin(src)] tentou anunciar no OOC: [msg]")
 			return
 
 	log_ooc("[mob.name]/[key] : [msg]")
@@ -87,78 +87,78 @@ var/global/admin_ooc_colour = "#b82e00"
 /proc/toggle_ooc()
 	config.ooc_allowed = ( !config.ooc_allowed )
 	if(config.ooc_allowed)
-		to_chat(world, "<B>The OOC channel has been globally enabled!</B>")
+		to_chat(world, "<B>O canal OOC foi ativado globalmente!</B>")
 	else
-		to_chat(world, "<B>The OOC channel has been globally disabled!</B>")
+		to_chat(world, "<B>O canal OOC foi desativado globalmente!</B>")
 
 /proc/auto_toggle_ooc(var/on)
 	if(config.auto_toggle_ooc_during_round && config.ooc_allowed != on)
 		toggle_ooc()
 
 /client/proc/set_ooc(newColor as color)
-	set name = "Set Player OOC Colour"
-	set desc = "Modifies the default player OOC color."
+	set name = "Set Player OOC Color"
+	set desc = "Modifica a cor OOC padrão do jogador."
 	set category = "Server"
 
 	if(!check_rights(R_SERVER))	return
 
 	normal_ooc_colour = newColor
-	message_admins("[key_name_admin(usr)] has set the default player OOC color to [newColor]")
-	log_admin("[key_name(usr)] has set the default player OOC color to [newColor]")
+	message_admins("[key_name_admin(usr)] configurou a cor OOC padrão do jogador para [newColor]")
+	log_admin("[key_name(usr)] configurou a cor OOC padrão do jogador para [newColor]")
 
 
 	feedback_add_details("admin_verb","SOOC")
 
 /client/proc/reset_ooc()
-	set name = "Reset Player OOC Color"
-	set desc = "Returns the default player OOC color to default."
+	set name = "Redefinir a cor da OOC Player"
+	set desc = "Retorna a cor OOC padrão do player para o padrão."
 	set category = "Server"
 
 	if(!check_rights(R_SERVER))	return
 
 	normal_ooc_colour = initial(normal_ooc_colour)
-	message_admins("[key_name_admin(usr)] has reset the default player OOC color")
-	log_admin("[key_name(usr)] has reset the default player OOC color")
+	message_admins("[key_name_admin(usr)] restaurou a cor OOC padrão do jogador")
+	log_admin("[key_name(usr)] restaurou a cor OOC padrão do jogador")
 
 	feedback_add_details("admin_verb","ROOC")
 
 /client/proc/colorooc()
-	set name = "Set Your OOC Color"
-	set desc = "Allows you to pick a custom OOC color."
+	set name = "Defina sua cor OOC"
+	set desc = "Permite que você escolha uma cor OOC personalizada."
 	set category = "Preferences"
 
 	if(!check_rights(R_ADMIN)) return
 
-	var/new_ooccolor = input(src, "Please select your OOC color.", "OOC color", prefs.ooccolor) as color|null
+	var/new_ooccolor = input(src, "Please select your OOC color.", "cor OOC", prefs.ooccolor) as color|null
 	if(new_ooccolor)
 		prefs.ooccolor = new_ooccolor
 		prefs.save_preferences(src)
-		to_chat(usr, "Your OOC color has been set to [new_ooccolor].")
+		to_chat(usr, "Sua cor OOC foi configurada para [new_ooccolor].")
 
 	feedback_add_details("admin_verb","OC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/resetcolorooc()
-	set name = "Reset Your OOC Color"
-	set desc = "Returns your OOC color to default."
+	set name = "Redefinir sua cor OOC"
+	set desc = "Retorna a cor OOC para o padrão."
 	set category = "Preferences"
 
 	if(!check_rights(R_ADMIN)) return
 
 	prefs.ooccolor = initial(prefs.ooccolor)
 	prefs.save_preferences(src)
-	to_chat(usr, "Your OOC color has been reset.")
+	to_chat(usr, "Sua cor OOC foi resetada.")
 
 	feedback_add_details("admin_verb","ROC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/verb/looc(msg as text)
 	set name = "LOOC"
-	set desc = "Local OOC, seen only by those in view."
+	set desc = "Local OOC, visto apenas por aqueles em vista."
 	set category = "OOC"
 
 	if(!mob)
 		return
 	if(IsGuestKey(key))
-		to_chat(src, "<span class='danger'>Guests may not use OOC.</span>")
+		to_chat(src, "<span class='danger'>Os convidados não podem usar OOC.</span>")
 		return
 
 	msg = trim(sanitize(copytext(msg, 1, MAX_MESSAGE_LEN)))
@@ -166,25 +166,25 @@ var/global/admin_ooc_colour = "#b82e00"
 		return
 
 	if(!(prefs.toggles & CHAT_LOOC))
-		to_chat(src, "<span class='danger'>You have LOOC muted.</span>")
+		to_chat(src, "<span class='danger'>Você tem o LOOC silenciado.</span>")
 		return
 
 	if(!check_rights(R_ADMIN|R_MOD,0))
 		if(!config.looc_allowed)
-			to_chat(src, "<span class='danger'>LOOC is globally muted.</span>")
+			to_chat(src, "<span class='danger'>O LOOC está globalmente silenciado.</span>")
 			return
 		if(!config.dooc_allowed && (mob.stat == DEAD))
-			to_chat(usr, "<span class='danger'>LOOC for dead mobs has been turned off.</span>")
+			to_chat(usr, "<span class='danger'>O LOOC para mobs mortos foi desligado.</span>")
 			return
 		if(prefs.muted & MUTE_OOC)
-			to_chat(src, "<span class='danger'>You cannot use LOOC (muted).</span>")
+			to_chat(src, "<span class='danger'>Você não pode usar LOOC (silenciado).</span>")
 			return
 		if(handle_spam_prevention(msg, MUTE_OOC, OOC_COOLDOWN))
 			return
 		if(findtext(msg, "byond://"))
-			to_chat(src, "<B>Advertising other servers is not allowed.</B>")
-			log_admin("[key_name(src)] has attempted to advertise in LOOC: [msg]")
-			message_admins("[key_name_admin(src)] has attempted to advertise in LOOC: [msg]")
+			to_chat(src, "<B>A publicidade de outros servidores não é permitida.</B>")
+			log_admin("[key_name(src)] tentou anunciar no LOOC: [msg]")
+			message_admins("[key_name_admin(src)] tentou anunciar no LOOC: [msg]")
 			return
 
 	log_ooc("(LOCAL) [mob.name]/[key] : [msg]")
