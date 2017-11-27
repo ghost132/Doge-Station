@@ -221,7 +221,7 @@
 		to_chat(user, "<span class='warning'>O autolathe está cheio. Remova o metal ou o vidro do autolathe para inserir mais.</span>")
 		return 1
 	if(!user.unEquip(O))
-		to_chat(user, "<span class='warning'>\O [O] está preso a você e não pode ser colocado no autolathe.</span>")
+		to_chat(user, "<span class='warning'>O [O] está preso a você e não pode ser colocado no autolathe.</span>")
 		return 1
 
 	busy = 1

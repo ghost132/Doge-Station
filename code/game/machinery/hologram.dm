@@ -31,7 +31,7 @@ var/const/HOLOPAD_MODE = 0
 var/list/holopads = list()
 
 /obj/machinery/hologram/holopad
-	name = "\holopad AI inadequado"
+	name = "holopad AI"
 	desc = "É um dispositivo montado no chão para projetar imagens holográficas. É ativado remotamente."
 	icon_state = "holopad0"
 
