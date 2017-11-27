@@ -46,8 +46,8 @@ var/round_start_time = 0
 	'sound/music/Title3.ogg',)
 	do
 		pregame_timeleft = 180
-		to_chat(world, "<B><FONT color='blue'>Welcome to the pre-game lobby!</FONT></B>")
-		to_chat(world, "Please, setup your character and select ready. Game will start in [pregame_timeleft] seconds")
+		to_chat(world, "<B><FONT color='blue'>Bem-vindo ao lobby do pré-jogo!</FONT></B>")
+		to_chat(world, "Por favor, configure seu personagem e selecione pronto. O jogo começará em [pregame_timeleft] segundos")
 		while(current_state == GAME_STATE_PREGAME)
 			sleep(10)
 			if(going)
@@ -77,7 +77,7 @@ var/round_start_time = 0
 		runnable_modes = config.get_runnable_modes()
 		if(runnable_modes.len==0)
 			current_state = GAME_STATE_PREGAME
-			to_chat(world, "<B>Unable to choose playable game mode.</B> Reverting to pre-game lobby.")
+			to_chat(world, "<B>Não é possível escolher o modo de jogo jogável.</B> Voltando ao lobby do pré-jogo.")
 			return 0
 		if(secret_force_mode != "secret")
 			var/datum/game_mode/M = config.pick_mode(secret_force_mode)
@@ -92,7 +92,7 @@ var/round_start_time = 0
 	else
 		src.mode = config.pick_mode(master_mode)
 	if(!src.mode.can_start())
-		to_chat(world, "<B>Unable to start [mode.name].</B> Not enough players, [mode.required_players] players needed. Reverting to pre-game lobby.")
+		to_chat(world, "<B>Impossível iniciar [mode.name].</B> Jogadores insuficientes, [mode.required_players] jogadores necessários. Voltando ao lobby do pré-jogo.")
 		mode = null
 		current_state = GAME_STATE_PREGAME
 		job_master.ResetOccupations()
@@ -106,7 +106,7 @@ var/round_start_time = 0
 	if(!can_continue)
 		qdel(mode)
 		current_state = GAME_STATE_PREGAME
-		to_chat(world, "<B>Error setting up [master_mode].</B> Reverting to pre-game lobby.")
+		to_chat(world, "<B>Erro na configuração de [master_mode].</B> Voltando ao lobby do pré-jogo.")
 		job_master.ResetOccupations()
 		return 0
 
@@ -115,8 +115,8 @@ var/round_start_time = 0
 		for(var/datum/game_mode/M in runnable_modes)
 			modes+=M.name
 		modes = sortList(modes)
-		to_chat(world, "<B>The current game mode is - Secret!</B>")
-		to_chat(world, "<B>Possibilities:</B> [english_list(modes)]")
+		to_chat(world, "<B>O modo de jogo atual é - Segredo!</B>")
+		to_chat(world, "<B>Possibilidades:</B> [english_list(modes)]")
 	else
 		src.mode.announce()
 
@@ -152,7 +152,7 @@ var/round_start_time = 0
 			for(var/obj/effect/landmark/spacepod/random/R in L)
 				qdel(R)
 
-		to_chat(world, "<FONT color='blue'><B>Enjoy the game!</B></FONT>")
+		to_chat(world, "<FONT color='blue'><B>Aproveite o jogo!</B></FONT>")
 		world << sound('sound/AI/welcome.ogg')// Skie
 
 		if(holiday_master.holidays)
@@ -211,7 +211,7 @@ var/round_start_time = 0
 
 	var/list/admins_number = staff_countup(R_BAN)
 	if(admins_number[1] == 0 && admins_number[3] == 0)
-		send2irc(config.admin_notify_irc, "Round has started with no admins online.")
+		send2irc(config.admin_notify_irc, "Round começou com nenhum administrador on-line.")
 	auto_toggle_ooc(0) // Turn it off
 	round_start_time = world.time
 
@@ -365,7 +365,7 @@ var/round_start_time = 0
 	if(captainless)
 		for(var/mob/M in player_list)
 			if(!istype(M,/mob/new_player))
-				to_chat(M, "Captainship not forced on anyone.")
+				to_chat(M, "A capitania não é forçada a ninguém.")
 
 
 /datum/controller/gameticker/proc/process()
@@ -393,9 +393,9 @@ var/round_start_time = 0
 			callHook("roundend")
 
 			if(mode.station_was_nuked)
-				world.Reboot("Station destroyed by Nuclear Device.", "end_proper", "nuke")
+				world.Reboot("Estação destruída pelo dispositivo nuclear.", "end_proper", "nuke")
 			else
-				world.Reboot("Round ended.", "end_proper", "proper completion")
+				world.Reboot("Round terminou.", "end_proper", "proper completion")
 
 	return 1
 
@@ -419,15 +419,15 @@ var/round_start_time = 0
 	//Silicon laws report
 	for(var/mob/living/silicon/ai/aiPlayer in mob_list)
 		if(aiPlayer.stat != 2)
-			to_chat(world, "<b>[aiPlayer.name] (Played by: [aiPlayer.key])'s laws at the end of the game were:</b>")
+			to_chat(world, "<b>[aiPlayer.name] (Jogado por: [aiPlayer.key]) as leis no final do jogo foram:</b>")
 		else
-			to_chat(world, "<b>[aiPlayer.name] (Played by: [aiPlayer.key])'s laws when it was deactivated were:</b>")
+			to_chat(world, "<b>[aiPlayer.name] (Jogado por: [aiPlayer.key]) as leis quando foram desativadas foram:</b>")
 		aiPlayer.show_laws(1)
 
 		if(aiPlayer.connected_robots.len)
 			var/robolist = "<b>The AI's loyal minions were:</b> "
 			for(var/mob/living/silicon/robot/robo in aiPlayer.connected_robots)
-				robolist += "[robo.name][robo.stat?" (Deactivated) (Played by: [robo.key]), ":" (Played by: [robo.key]), "]"
+				robolist += "[robo.name][robo.stat?" (Desativado) (Jogado por: [robo.key]), ":" (Jogado por: [robo.key]), "]"
 			to_chat(world, "[robolist]")
 
 	var/dronecount = 0
@@ -440,15 +440,15 @@ var/round_start_time = 0
 
 		if(!robo.connected_ai)
 			if(robo.stat != 2)
-				to_chat(world, "<b>[robo.name] (Played by: [robo.key]) survived as an AI-less borg! Its laws were:</b>")
+				to_chat(world, "<b>[robo.name] (Jogado por: [robo.key]) sobreviveu como um Borg de AI-less! Suas leis eram:</b>")
 			else
-				to_chat(world, "<b>[robo.name] (Played by: [robo.key]) was unable to survive the rigors of being a cyborg without an AI. Its laws were:</b>")
+				to_chat(world, "<b>[robo.name] (Jogado por: [robo.key]) não conseguiu sobreviver aos rigores de ser um cyborg sem AI. Suas leis eram:</b>")
 
 			if(robo) //How the hell do we lose robo between here and the world messages directly above this?
 				robo.laws.show_laws(world)
 
 	if(dronecount)
-		to_chat(world, "<b>There [dronecount>1 ? "were" : "was"] [dronecount] industrious maintenance [dronecount>1 ? "drones" : "drone"] this round.")
+		to_chat(world, "<b>Há [dronecount>1 ? "estavam" : "estava"] [dronecount] manutenção industrial [dronecount>1 ? "drones" : "drone"] esse round")
 
 	mode.declare_completion()//To declare normal completion.
 
