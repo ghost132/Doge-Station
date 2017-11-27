@@ -169,3 +169,26 @@
 	icon = 'icons/mob/head.dmi'
 	icon_state = "stormtrooper_helmet"
 	w_class = WEIGHT_CLASS_NORMAL
+
+//Strom trooper capitão
+
+/obj/item/clothing/suit/space/hardsuit/stormtrooper
+	name = "roupa stormt rooper capitão"
+	desc = "Para mandar nos storm troopers"
+	icon_state = "stormtrooper_cpt"
+	w_class = WEIGHT_CLASS_NORMAL
+
+//Storm trooper piloto
+
+/obj/item/clothing/suit/space/hardsuit/stormtrooper
+	name = "roupa stormt rooper capitão"
+	desc = "Para mandar nos storm troopers"
+	icon_state = "stormtrooper_pilot"
+	w_class = WEIGHT_CLASS_NORMAL
+
+/obj/item/clothing/head/helmet/space/hardsuit/capacete_stormtrooper
+	name = "capacete storm trooper"
+	desc = "capacete da roupa storm trooper"
+	icon = 'icons/mob/head.dmi'
+	icon_state = "stormtrooper_helmet_pilot"
+	w_class = WEIGHT_CLASS_NORMAL

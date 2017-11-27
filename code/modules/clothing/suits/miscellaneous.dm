@@ -966,3 +966,25 @@
 	name = "ladies red victorian coat"
 	icon_state = "ladiesredvictoriancoat"
 	item_state = "ladiesredvictoriancoat"
+
+
+//roupas extras
+
+//dollynho
+
+/obj/item/clothing/suit/extra
+	name = "roupa do dolinho"
+	desc = "Sou dolinho seu amiginho, vamos brincar?"
+	icon = 'icons/mob/mob.dmi'
+	icon_state = "dollynho"
+	w_class = WEIGHT_CLASS_NORMAL
+
+
+//hue guy
+
+/obj/item/clothing/suit/extra
+	name = "hue guy"
+	desc = "HUEHUEHUEHUE"
+	icon = 'icons/mob/mob.dmi'
+	icon_state = "hue_guy"
+	w_class = WEIGHT_CLASS_LIGHT
