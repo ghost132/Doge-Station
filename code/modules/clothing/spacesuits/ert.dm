@@ -192,3 +192,22 @@
 	icon = 'icons/mob/head.dmi'
 	icon_state = "stormtrooper_helmet_pilot"
 	w_class = WEIGHT_CLASS_NORMAL
+
+	//dollynho
+
+/obj/item/clothing/suit/space/hardsuit/dollynho
+	name = "roupa do dolinho"
+	desc = "Sou dolinho seu amiginho, vamos brincar?"
+	icon = 'icons/mob/suit.dmi'
+	icon_state = "dollynho"
+	w_class = WEIGHT_CLASS_NORMAL
+
+
+//hue guy
+
+/obj/item/clothing/suit/space/hardsuit/hue_guy
+	name = "hue guy"
+	desc = "HUEHUEHUEHUE"
+	icon = 'icons/mob/suit.dmi'
+	icon_state = "hue_guy"
+	w_class = WEIGHT_CLASS_NORMAL
