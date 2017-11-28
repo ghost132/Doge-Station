@@ -171,7 +171,7 @@
 
 /obj/machinery/autolathe/attackby(obj/item/O, mob/user, params)
 	if(busy)
-		to_chat(user, "<span class='alert'>O autolathe est� ocupado. Aguarde a conclus�o da opera��o anterior.</span>")
+		to_chat(user, "<span class='alert'>O autolathe esta ocupado. Aguarde a conclusao da operacao anterior.</span>")
 		return 1
 
 	if(default_deconstruction_screwdriver(user, "autolathe_t", "autolathe", O))
@@ -197,31 +197,31 @@
 		if(istype(O, /obj/item/weapon/disk/design_disk))
 			var/obj/item/weapon/disk/design_disk/D = O
 			if(D.blueprint)
-				user.visible_message("[user] come�a a carregar \ o [O] no [src]...",
-					"Voc� come�a a carregar um design de \ o [O]...",
-					"Voc� ouve a conversa de uma unidade de disquete.")
+				user.visible_message("[user] comeca a carregar \ o [O] no [src]...",
+					"Voce comeca a carregar um design de \ o [O]...",
+					"Voce ouve a conversa de uma unidade de disquete.")
 				playsound(get_turf(src), 'sound/goonstation/machines/printer_dotmatrix.ogg', 50, 1)
 				busy = 1
 				if(do_after(user, 14.4, target = src))
 					files.AddDesign2Known(D.blueprint)
 				busy = 0
 			else
-				to_chat(user, "<span class='warning'>Esse disco n�o tem um design nele!</span>")
+				to_chat(user, "<span class='warning'>Esse disco nao tem um design nele!</span>")
 			return 1
 		else
 			// So that people who are bad at computers don't shred their disks
-			to_chat(user, "<span class='warning'>Este n�o � o tipo correto de disco para o autolathe!</span>")
+			to_chat(user, "<span class='warning'>Este nao e o tipo correto de disco para o autolathe!</span>")
 			return 1
 
 	var/material_amount = materials.get_item_material_amount(O)
 	if(!material_amount)
-		to_chat(user, "<span class='warning'>Este objeto n�o cont�m quantidades suficientes de metal ou vidro para ser aceito pelo autolathe.</span>")
+		to_chat(user, "<span class='warning'>Este objeto nao contem quantidades suficientes de metal ou vidro para ser aceito pelo autolathe.</span>")
 		return 1
 	if(!materials.has_space(material_amount))
-		to_chat(user, "<span class='warning'>O autolathe est� cheio. Remova o metal ou o vidro do autolathe para inserir mais.</span>")
+		to_chat(user, "<span class='warning'>O autolathe esta cheio. Remova o metal ou o vidro do autolathe para inserir mais.</span>")
 		return 1
 	if(!user.unEquip(O))
-		to_chat(user, "<span class='warning'>O [O] est� preso a voc� e n�o pode ser colocado no autolathe.</span>")
+		to_chat(user, "<span class='warning'>O [O] esta preso a voce e nao pode ser colocado no autolathe.</span>")
 		return 1
 
 	busy = 1
@@ -427,7 +427,7 @@
 			being_built = new /list()
 			return 0
 		if(!can_build(D, multiplier))
-			visible_message("[bicon(src)] <b>\The [src]</b> beeps, \"N�o h� recursos suficientes. O processamento da fila foi encerrado.\"")
+			visible_message("[bicon(src)] <b>\The [src]</b> beeps, \"Nao ha recursos suficientes. O processamento da fila foi encerrado.\"")
 			queue = list()
 			being_built = new /list()
 			return 0
@@ -437,7 +437,7 @@
 		D = listgetindex(listgetindex(queue, 1),1)
 		multiplier = listgetindex(listgetindex(queue,1),2)
 	being_built = new /list()
-	//visible_message("[bicon(src)] <b>\The [src]</b> beeps, \"Queue processing finished successfully.\"")
+	//visible_message("[bicon(src)] <b>\The [src]</b> beeps, \"O processamento da fila foi concluído com sucesso.\"")
 
 /obj/machinery/autolathe/proc/adjust_hacked(hack)
 	hacked = hack
