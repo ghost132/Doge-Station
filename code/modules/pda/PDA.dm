@@ -6,7 +6,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 /obj/item/device/pda
 	name = "PDA"
-	desc = "Um micrô computador portatil by Thinktronic Systems, LTD. A funcionalidade é determinada pelo cartucho ROM."
+	desc = "Um micrÃ´ computador portatil feito por Sistemas Thinktronic, LTD. A funcionalidade Ã© determinada pelo cartucho ROM."
 	icon = 'icons/obj/pda.dmi'
 	icon_state = "pda"
 	item_state = "electronic"
@@ -116,7 +116,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 	var/title = "Personal Data Assistant"
 
-	// update the ui if it exists, returns null if no ui is passed/found
+	// update the ui if it exists ~~there is porn of it~~, returns null if no ui is passed/found
 	ui = nanomanager.try_update_ui(user, src, ui_key, ui, force_open)
 	if(!ui)
 		// the ui does not exist, so we'll create a new() one
@@ -297,9 +297,9 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		start_program(find_program(/datum/data/pda/app/main_menu))
 		notifying_programs.Cut()
 		overlays -= image('icons/obj/pda.dmi', "pda-r")
-		to_chat(usr, "<span class='notice'>Você pressionou o botão de reset \the [src].</span>")
+		to_chat(usr, "<span class='notice'>VocÃª pressionou o botÃ£o de reset \the [src].</span>")
 	else
-		to_chat(usr, "<span class='notice'>Você não pode fazer isso enquanto estiver restrito.</span>")
+		to_chat(usr, "<span class='notice'>VocÃª nÃ£o pode fazer isso enquanto estiver restrito.</span>")
 
 /obj/item/device/pda/AltClick(mob/user)
 	..()
@@ -325,7 +325,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		if(ismob(loc))
 			var/mob/M = loc
 			M.put_in_hands(id)
-			to_chat(user, "<span class='notice'>Você removeu o ID de [name].</span>")
+			to_chat(user, "<span class='notice'>VocÃª removeu o ID de [name].</span>")
 		else
 			id.forceMove(get_turf(src))
 		overlays -= image('icons/goonstation/objects/pda_overlay.dmi', id.icon_state)
@@ -343,9 +343,9 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		if(id)
 			remove_id(usr)
 		else
-			to_chat(usr, "<span class='notice'>Este PDA não tem um id nele.</span>")
+			to_chat(usr, "<span class='notice'>Este PDA nÃ£o tem um id nele.</span>")
 	else
-		to_chat(usr, "<span class='notice'>Você não pode fazer isso enquanto estiver restrito.</span>")
+		to_chat(usr, "<span class='notice'>VocÃª nÃ£o pode fazer isso enquanto estiver restrito.</span>")
 
 /obj/item/device/pda/verb/verb_remove_pen()
 	set category = "Object"
@@ -361,7 +361,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if( can_use(user) )
 		var/obj/item/weapon/pen/O = locate() in src
 		if(O)
-			to_chat(user, "<span class='notice'>Você removeu o [O] de [src].</span>")
+			to_chat(user, "<span class='notice'>VocÃª removeu o [O] de [src].</span>")
 			if(istype(loc, /mob))
 				var/mob/M = loc
 				if(M.get_active_hand() == null)
@@ -371,7 +371,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		else
 			to_chat(user, "<span class='warning'>Este PDA nao tem uma caneta nele.</span>")
 	else
-		to_chat(user, "<span class='notice'>Você não pode fazer isso enquanto estiver restrito.</span>")
+		to_chat(user, "<span class='notice'>VocÃª nÃ£o pode fazer isso enquanto estiver restrito.</span>")
 
 /obj/item/device/pda/proc/id_check(mob/user as mob, choice as num)//To check for IDs; 1 for in-pda use, 2 for out of pda use.
 	if(choice == 1)
@@ -401,7 +401,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		cartridge.forceMove(src)
 		cartridge.update_programs(src)
 		update_shortcuts()
-		to_chat(user, "<span class='notice'>Você inseriu [cartridge] dentro [src].</span>")
+		to_chat(user, "<span class='notice'>VocÃª inseriu [cartridge] dentro [src].</span>")
 		if(cartridge.radio)
 			cartridge.radio.hostpda = src
 
@@ -415,13 +415,13 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			ownjob = idcard.assignment
 			ownrank = idcard.rank
 			name = "PDA-[owner] ([ownjob])"
-			to_chat(user, "<span class='notice'>Cartão escaneado.</span>")
+			to_chat(user, "<span class='notice'>CartÃ£o escaneado.</span>")
 		else
 			//Basic safety check. If either both objects are held by user or PDA is on ground and card is in hand.
 			if(((src in user.contents) && (C in user.contents)) || (istype(loc, /turf) && in_range(src, user) && (C in user.contents)) )
 				if( can_use(user) )//If they can still act.
 					id_check(user, 2)
-					to_chat(user, "<span class='notice'>Você colocou o ID \the [src] no slot.<br>Você pode remover isso com o clickando com o direito.</span>")
+					to_chat(user, "<span class='notice'>VocÃª colocou o ID \the [src] no slot.<br>VocÃª pode remover isso com o clickando com o direito.</span>")
 					overlays += image('icons/goonstation/objects/pda_overlay.dmi', C.icon_state)
 
 	else if(istype(C, /obj/item/device/paicard) && !src.pai)
@@ -432,11 +432,11 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	else if(istype(C, /obj/item/weapon/pen))
 		var/obj/item/weapon/pen/O = locate() in src
 		if(O)
-			to_chat(user, "<span class='notice'>Ele está preparado para pôr a caneta \the [src].</span>")
+			to_chat(user, "<span class='notice'>Ele estÃ¡ preparado para pÃ´r a caneta \the [src].</span>")
 		else
 			user.drop_item()
 			C.forceMove(src)
-			to_chat(user, "<span class='notice'>Você deslizou \the [C] dentro \the [src].</span>")
+			to_chat(user, "<span class='notice'>VocÃª deslizou \the [C] dentro \the [src].</span>")
 	else if(istype(C, /obj/item/weapon/nanomob_card))
 		if(cartridge && istype(cartridge, /obj/item/weapon/cartridge/mob_hunt_game))
 			cartridge.attackby(C, user, params)
