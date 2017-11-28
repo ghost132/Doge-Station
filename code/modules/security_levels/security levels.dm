@@ -41,9 +41,9 @@
 
 			if(SEC_LEVEL_BLUE)
 				if(security_level < SEC_LEVEL_BLUE)
-					security_announcement_up.Announce("A estacao recebeu informacoes confiaveis sobre possiveis atividades hostis na estacao. O pessoal de seguranca pode ter armas visiveis e pesquisas aleatorias sao permitidas.","Atencao! Nivel de seguranca elevado ao azul.")
+					security_announcement_up.Announce("A estacao recebeu informacoes confiaveis sobre possiveis atividades hostis na estacao. Os segurancas pode ter armas visiveis e pesquisas aleatorias sao permitidas.","Atencao! Nivel de seguranca elevado ao azul.")
 				else
-					security_announcement_down.Announce("A ameaca imediata passou. Seguranca ja não podem ter armas em punho em todos os momentos, mas pode continuar a te-los visiveis. Pesquisas aleatórias ainda são permitidas.","Atencao! Nivel de seguranca baixado para azul.")
+					security_announcement_down.Announce("A ameaca imediata passou. Segurancas ja não podem ter armas em punho em todos os momentos, mas pode continuar a te-los visiveis. Pesquisas aleatórias ainda são permitidas.","Atencao! Nivel de seguranca baixado para azul.")
 				security_level = SEC_LEVEL_BLUE
 
 				post_status("alert", "outline")
