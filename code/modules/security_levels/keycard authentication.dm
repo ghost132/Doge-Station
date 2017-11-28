@@ -1,6 +1,6 @@
 /obj/machinery/keycard_auth
 	name = "Dispositivo de Autenticacao de Cartao-chave"
-	desc = "Este dispositivo e usado para acionar funcoes da estação, que exigem que mais de um cartao de identificacao se autentique"
+	desc = "Este dispositivo e usado para acionar funcoes da estacao, que exigem que mais de um cartao de identificacao se autentique"
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "auth_off"
 
@@ -30,7 +30,7 @@
 
 /obj/machinery/keycard_auth/attackby(obj/item/weapon/W as obj, mob/user as mob, params)
 	if(stat & (NOPOWER|BROKEN))
-		to_chat(user, "Este dispositivo está sem energia.")
+		to_chat(user, "Este dispositivo esta sem energia.")
 		return
 	if(istype(W, /obj/item/weapon/card/id) || istype(W, /obj/item/device/pda))
 		if(check_access(W))
