@@ -129,7 +129,7 @@ var/global/admin_ooc_colour = "#b82e00"
 
 	if(!check_rights(R_ADMIN)) return
 
-	var/new_ooccolor = input(src, "Please select your OOC color.", "cor OOC", prefs.ooccolor) as color|null
+	var/new_ooccolor = input(src, "Por favor selecione sua cor OOC", "cor OOC", prefs.ooccolor) as color|null
 	if(new_ooccolor)
 		prefs.ooccolor = new_ooccolor
 		prefs.save_preferences(src)
