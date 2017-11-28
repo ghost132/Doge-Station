@@ -15,7 +15,7 @@
 		setup(safety_loop)
 
 /datum/event/anomaly/announce()
-	event_announcement.Announce("Onda de fluxo hiper-enérgico detectada em scanners de longo alcance. Local esperado de impacto: [impact_area.name].", "Alerta de Anomalias")
+	event_announcement.Announce("Onda de fluxo hiper-energico detectada em scanners de longo alcance. Local esperado de impacto: [impact_area.name].", "Alerta de Anomalias")
 
 /datum/event/anomaly/start()
 	var/turf/T = pick(get_area_turfs(impact_area))

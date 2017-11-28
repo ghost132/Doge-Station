@@ -37,7 +37,7 @@
 
 	var/datum/material_container/materials
 
-	var/list/categories = list("Ferramentas", "Eletrônicos", "Construção", "Comunicação", "Segurança", "Máquinas", "Medical", "Diversos", "Louça", "Importado")
+	var/list/categories = list("Ferramentas", "Eletronicos", "Construcao", "Comunicacao", "Seguranca", "Maquinas", "Medical", "Diversos", "Dinnerware", "Importado")
 
 /obj/machinery/autolathe/New()
 	..()
@@ -171,7 +171,7 @@
 
 /obj/machinery/autolathe/attackby(obj/item/O, mob/user, params)
 	if(busy)
-		to_chat(user, "<span class='alert'>O autolathe está ocupado. Aguarde a conclusão da operação anterior.</span>")
+		to_chat(user, "<span class='alert'>O autolathe estï¿½ ocupado. Aguarde a conclusï¿½o da operaï¿½ï¿½o anterior.</span>")
 		return 1
 
 	if(default_deconstruction_screwdriver(user, "autolathe_t", "autolathe", O))
@@ -197,31 +197,31 @@
 		if(istype(O, /obj/item/weapon/disk/design_disk))
 			var/obj/item/weapon/disk/design_disk/D = O
 			if(D.blueprint)
-				user.visible_message("[user] começa a carregar \ o [O] no [src]...",
-					"Você começa a carregar um design de \ o [O]...",
-					"Você ouve a conversa de uma unidade de disquete.")
+				user.visible_message("[user] comeï¿½a a carregar \ o [O] no [src]...",
+					"Vocï¿½ comeï¿½a a carregar um design de \ o [O]...",
+					"Vocï¿½ ouve a conversa de uma unidade de disquete.")
 				playsound(get_turf(src), 'sound/goonstation/machines/printer_dotmatrix.ogg', 50, 1)
 				busy = 1
 				if(do_after(user, 14.4, target = src))
 					files.AddDesign2Known(D.blueprint)
 				busy = 0
 			else
-				to_chat(user, "<span class='warning'>Esse disco não tem um design nele!</span>")
+				to_chat(user, "<span class='warning'>Esse disco nï¿½o tem um design nele!</span>")
 			return 1
 		else
 			// So that people who are bad at computers don't shred their disks
-			to_chat(user, "<span class='warning'>Este não é o tipo correto de disco para o autolathe!</span>")
+			to_chat(user, "<span class='warning'>Este nï¿½o ï¿½ o tipo correto de disco para o autolathe!</span>")
 			return 1
 
 	var/material_amount = materials.get_item_material_amount(O)
 	if(!material_amount)
-		to_chat(user, "<span class='warning'>Este objeto não contém quantidades suficientes de metal ou vidro para ser aceito pelo autolathe.</span>")
+		to_chat(user, "<span class='warning'>Este objeto nï¿½o contï¿½m quantidades suficientes de metal ou vidro para ser aceito pelo autolathe.</span>")
 		return 1
 	if(!materials.has_space(material_amount))
-		to_chat(user, "<span class='warning'>O autolathe está cheio. Remova o metal ou o vidro do autolathe para inserir mais.</span>")
+		to_chat(user, "<span class='warning'>O autolathe estï¿½ cheio. Remova o metal ou o vidro do autolathe para inserir mais.</span>")
 		return 1
 	if(!user.unEquip(O))
-		to_chat(user, "<span class='warning'>O [O] está preso a você e não pode ser colocado no autolathe.</span>")
+		to_chat(user, "<span class='warning'>O [O] estï¿½ preso a vocï¿½ e nï¿½o pode ser colocado no autolathe.</span>")
 		return 1
 
 	busy = 1
@@ -232,10 +232,10 @@
 				flick("autolathe_o",src)//plays metal insertion animation
 			if(O.materials[MAT_GLASS])
 				flick("autolathe_r", src)//plays glass insertion animation
-			to_chat(user, "<span class='notice'>Você inseriur [inserted] folha[inserted>1 ? "s" : ""] para o autolathe.</span>")
+			to_chat(user, "<span class='notice'>Vocï¿½ inseriur [inserted] folha[inserted>1 ? "s" : ""] para o autolathe.</span>")
 			use_power(inserted * 100)
 		else
-			to_chat(user, "<span class='notice'>Você insere um total material de [inserted] para o autolathe.</span>")
+			to_chat(user, "<span class='notice'>Vocï¿½ insere um total material de [inserted] para o autolathe.</span>")
 			use_power(max(500, inserted / 10))
 			qdel(O)
 	busy = 0
@@ -286,7 +286,7 @@
 		if((queue.len + 1) < queue_max_len)
 			add_to_queue(design_last_ordered,multiplier)
 		else
-			to_chat(usr, "<span class='warning'>A fila autolathe está cheia!</span>")
+			to_chat(usr, "<span class='warning'>A fila autolathe estï¿½ cheia!</span>")
 		if(!busy)
 			busy = 1
 			process_queue()
@@ -427,7 +427,7 @@
 			being_built = new /list()
 			return 0
 		if(!can_build(D, multiplier))
-			visible_message("[bicon(src)] <b>\The [src]</b> beeps, \"Não há recursos suficientes. O processamento da fila foi encerrado.\"")
+			visible_message("[bicon(src)] <b>\The [src]</b> beeps, \"Nï¿½o hï¿½ recursos suficientes. O processamento da fila foi encerrado.\"")
 			queue = list()
 			being_built = new /list()
 			return 0

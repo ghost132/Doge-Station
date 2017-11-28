@@ -10,7 +10,7 @@
 
 /obj/effect/space_dust
 	name = "Poeira espacial"
-	desc = "Poeira no espaço."
+	desc = "Poeira no espaco."
 	icon = 'icons/obj/meteor.dmi'
 	icon_state = "space_dust"
 	density = 1

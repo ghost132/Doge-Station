@@ -114,7 +114,7 @@
 			crates = Clamp(round(num_input), 1, 20)
 
 		var/timeout = world.time + 600
-		var/reason = input(usr,"Motivo:","Por que você precisa deste item?","") as null|text
+		var/reason = input(usr,"Motivo:","Por que voce precisa deste item?","") as null|text
 		if(world.time > timeout || !reason || ..())
 			return 1
 		reason = sanitize(copytext(reason, 1, MAX_MESSAGE_LEN))
@@ -255,17 +255,17 @@
 		return 1
 
 	if(!shuttle_master)
-		log_runtime(EXCEPTION("O controlador shuttle_master está faltando de alguma forma."), src)
+		log_runtime(EXCEPTION("O controlador shuttle_master esta faltando de alguma forma."), src)
 		return 1
 
 	if(href_list["send"])
 		if(shuttle_master.supply.canMove())
-			to_chat(usr, "<span class='warning'>Por razões de segurança o transporte de alimentação automatizado não pode transportar organismos vivos, armamento nuclear classificados ou faróis ambulantes.</span>")
+			to_chat(usr, "<span class='warning'>Por razoes de seguranca o transporte de alimentacao automatizado nao pode transportar organismos vivos, armamento nuclear classificados ou farois ambulantes.</span>")
 		else if(shuttle_master.supply.getDockedId() == "supply_home")
 			shuttle_master.supply.emagged = emagged
 			shuttle_master.supply.contraband = contraband
 			shuttle_master.toggleShuttle("supply", "supply_home", "supply_away", 1)
-			investigate_log("[key_name(usr)] enviou o serviço de transporte. Pontos restantes: [shuttle_master.points]. Conteúdo da Shuttle: [shuttle_master.sold_atoms]", "cargo")
+			investigate_log("[key_name(usr)] enviou o servico de transporte. Pontos restantes: [shuttle_master.points]. Conteudo da Shuttle: [shuttle_master.sold_atoms]", "cargo")
 		else if(!shuttle_master.supply.request(shuttle_master.getDock("supply_home")))
 			post_signal("supply")
 			if(LAZYLEN(shuttle_master.shoppinglist) && prob(10))
@@ -274,11 +274,11 @@
 				O.pack = shuttle_master.supply_packs[pick(shuttle_master.supply_packs)]
 				O.orderer = random_name(pick(MALE,FEMALE), species = "Human")
 				shuttle_master.shoppinglist += O
-				investigate_log("Caixa aleatória [O.pack] adicionada ao serviço de transporte de suprimentos")
+				investigate_log("Caixa aleatoria [O.pack] adicionada ao servico de transporte de suprimentos")
 
 	else if(href_list["doorder"])
 		if(world.time < reqtime)
-			visible_message("<b>[src]</b> monitor pisca, \"[world.time - reqtime] segundos restantes até que outro formulário de requisição possa ser impresso.\"")
+			visible_message("<b>[src]</b> monitor pisca, \"[world.time - reqtime] segundos restantes ate que outro formulario de requisicao possa ser impresso.\"")
 			nanomanager.update_uis(src)
 			return 1
 
@@ -297,7 +297,7 @@
 			crates = Clamp(round(num_input), 1, 20)
 
 		var/timeout = world.time + 600
-		var/reason = input(usr,"Motivo:","Por que você precisa deste item?","") as null|text
+		var/reason = input(usr,"Motivo:","Por que voce precisa deste item?","") as null|text
 		if(world.time > timeout || !reason || !is_authorized(usr) || ..())
 			return 1
 		reason = sanitize(copytext(reason, 1, MAX_MESSAGE_LEN))

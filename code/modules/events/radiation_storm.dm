@@ -21,7 +21,7 @@
 
 /datum/event/radiation_storm/start()
 	spawn()
-		event_announcement.Announce("Elevados níveis de radiação detectados perto da estação. Evacuue para um dos túneis blindados de manutenção.", "Alerta de Anomalias", new_sound = 'sound/AI/radiation.ogg')
+		event_announcement.Announce("Elevados niveis de radiacao detectados perto da estacao. Evacuue para um dos tuneis blindados de manutencao.", "Alerta de Anomalias", new_sound = 'sound/AI/radiation.ogg')
 
 		for(var/area/A in world)
 			if(!is_station_level(A.z) || is_safe_zone(A))
@@ -32,7 +32,7 @@
 
 		sleep(600)
 
-		event_announcement.Announce("A estação entrou no cinto de radiação. Mantenha-se em uma área protegida até que passemos pelo cinto de radiação.", "Alerta de Anomalias")
+		event_announcement.Announce("A estacao entrou no cinto de radiacao. Mantenha-se em uma area protegida ate que passemos pelo cinto de radiacao.", "Alerta de Anomalias")
 
 		for(var/i = 0, i < 10, i++)
 			for(var/mob/living/carbon/human/H in living_mob_list)
@@ -58,7 +58,7 @@
 
 			sleep(100)
 
-		event_announcement.Announce("A estação passou pelo cinto de radiação. Informe-se para medbay se você tiver sintomas incomuns. A manutenção perderá todo o acesso novamente em breve.", "Alerta de Anomalias")
+		event_announcement.Announce("A estacao passou pelo cinto de radiacao. Informe-se para medbay se voce tiver sintomas incomuns. A manutencao perdera todo o acesso novamente em breve.", "Alerta de Anomalias")
 
 		for(var/area/A in world)
 			if(!is_station_level(A.z) || is_safe_zone(A))

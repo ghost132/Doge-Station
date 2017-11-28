@@ -303,13 +303,13 @@
 	if(prob(severity) && istype(crosser) && !isvineimmune(holder))
 		var/mob/living/M = crosser
 		M.adjustBruteLoss(5)
-		to_chat(M, "<span class='alert'>Você se cortou nas videiras espinhosas.</span>")
+		to_chat(M, "<span class='alert'>Voce se cortou nas videiras espinhosas.</span>")
 
 /datum/spacevine_mutation/thorns/on_hit(obj/structure/spacevine/holder, mob/living/hitter, obj/item/I, expected_damage)
 	if(prob(severity) && istype(hitter) && !isvineimmune(holder))
 		var/mob/living/M = hitter
 		M.adjustBruteLoss(5)
-		to_chat(M, "<span class='alert'>Você se corta nas videiras espinhosas.</span>")
+		to_chat(M, "<span class='alert'>Voce se corta nas videiras espinhosas.</span>")
 	. =	expected_damage
 
 /datum/spacevine_mutation/woodening

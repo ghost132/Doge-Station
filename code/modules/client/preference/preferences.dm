@@ -241,7 +241,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 
 	var/dat = ""
 	dat += "<center>"
-	dat += "<a href='?_src_=prefs;preference=tab;tab=[TAB_CHAR]' [current_tab == TAB_CHAR ? "class='linkOn'" : ""]>Edição do Personagem</a>"
+	dat += "<a href='?_src_=prefs;preference=tab;tab=[TAB_CHAR]' [current_tab == TAB_CHAR ? "class='linkOn'" : ""]>Edicao do Personagem</a>"
 	dat += "<a href='?_src_=prefs;preference=tab;tab=[TAB_GAME]' [current_tab == TAB_GAME ? "class='linkOn'" : ""]>Preferencias do Jogo</a>"
 	dat += "<a href='?_src_=prefs;preference=tab;tab=[TAB_GEAR]' [current_tab == TAB_GEAR ? "class='linkOn'" : ""]>Loadout</a>"
 	dat += "</center>"
@@ -291,17 +291,17 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 			if(S.bodyflags & (HAS_SKIN_TONE|HAS_ICON_SKIN_TONE))
 				dat += "<b>Skin Tone:</b> <a href='?_src_=prefs;preference=s_tone;task=input'>[S.bodyflags & HAS_ICON_SKIN_TONE ? "[s_tone]" : "[-s_tone + 35]/220"]</a><br>"
 			dat += "<b>Deficiencais:</b> <a href='?_src_=prefs;preference=disabilities'>\[Set\]</a><br>"
-			dat += "<b>Relações com a Nanotrasen:</b> <a href ='?_src_=prefs;preference=nt_relation;task=input'>[nanotrasen_relation]</a><br>"
+			dat += "<b>Relacoes com a Nanotrasen:</b> <a href ='?_src_=prefs;preference=nt_relation;task=input'>[nanotrasen_relation]</a><br>"
 			dat += "<a href='byond://?_src_=prefs;preference=flavor_text;task=input'>Set Flavor Text</a><br>"
 			if(lentext(flavor_text) <= 40)
 				if(!lentext(flavor_text))	dat += "\[...\]<br>"
 				else						dat += "[flavor_text]<br>"
 			else dat += "[TextPreview(flavor_text)]...<br>"
 
-			dat += "<h2>Cabelo & Acessórios</h2>"
+			dat += "<h2>Cabelo & Acessorios</h2>"
 
 			if(S.bodyflags & HAS_HEAD_ACCESSORY) //Species that have head accessories.
-				var/headaccessoryname = "Acessório de Cabeça: "
+				var/headaccessoryname = "Acessorio de Cabeca: "
 				if(species == "Unathi")
 					headaccessoryname = "Chifres: "
 				dat += "<b>[headaccessoryname]</b>"
@@ -309,7 +309,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 				dat += "<a href='?_src_=prefs;preference=headaccessory;task=input'>Color</a> [color_square(hacc_colour)]<br>"
 
 			if(S.bodyflags & HAS_HEAD_MARKINGS) //Species with head markings.
-				dat += "<b>Marcas na Cabeça:</b> "
+				dat += "<b>Marcas na Cabeca:</b> "
 				dat += "<a href='?_src_=prefs;preference=m_style_head;task=input'>[m_styles["head"]]</a>"
 				dat += "<a href='?_src_=prefs;preference=m_head_colour;task=input'>Color</a> [color_square(m_colours["head"])]<br>"
 			if(S.bodyflags & HAS_BODY_MARKINGS) //Species with body markings/tattoos.
@@ -351,7 +351,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 				dat += "<a href='?_src_=prefs;preference=body_accessory;task=input'>[body_accessory ? "[body_accessory]" : "None"]</a><br>"
 
 			dat += "</td><td width='405px' height='200px' valign='top'>"
-			dat += "<h2>Escolhas de Profissão</h2>"
+			dat += "<h2>Escolhas de Profissao</h2>"
 			dat += "<a href='?_src_=prefs;preference=job;task=menu'>Colocar preferencia de profissão</a><br>"
 			if(jobban_isbanned(user, "Records"))
 				dat += "<b>You are banned from using character records.</b><br>"
@@ -360,7 +360,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 
 			dat += "<h2>Limbs</h2>"
 			if(S.bodyflags & HAS_ALT_HEADS) //Species with alt heads.
-				dat += "<b>Cabeça Alternativa:</b> "
+				dat += "<b>Cabeca Alternativa:</b> "
 				dat += "<a href='?_src_=prefs;preference=alt_head;task=input'>[alt_head]</a><br>"
 			dat += "<b>Membros:</b> <a href='?_src_=prefs;preference=limbs;task=input'>Adjust</a><br>"
 			if(species != "Pessoa Slime" && species != "Machine")
@@ -426,11 +426,11 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 
 		if(TAB_GAME) // General Preferences
 			dat += "<table><tr><td width='340px' height='300px' valign='top'>"
-			dat += "<h2>Configuações Gerais</h2>"
+			dat += "<h2>Configuacoes Gerais</h2>"
 			dat += "<b>NanoUI Divertido:</b> <a href='?_src_=prefs;preference=nanoui'>[(nanoui_fancy) ? "Yes" : "No"]</a><br>"
-			dat += "<b>Animação do Ataque Fantasma:</b> <a href='?_src_=prefs;preference=ghost_att_anim'>[(show_ghostitem_attack) ? "Yes" : "No"]</a><br>"
+			dat += "<b>Animacão do Ataque Fantasma:</b> <a href='?_src_=prefs;preference=ghost_att_anim'>[(show_ghostitem_attack) ? "Yes" : "No"]</a><br>"
 			dat += "<b>Janela piscante:</b> <a href='?_src_=prefs;preference=winflash'>[(windowflashing) ? "Yes" : "No"]</a><br>"
-			dat += "<b>Configuração dos UI customizado:</b><br>"
+			dat += "<b>Configuracão dos UI customizado:</b><br>"
 			dat += " - <b>UI Style:</b> <a href='?_src_=prefs;preference=ui'><b>[UI_style]</b></a><br>"
 			dat += " - <b>Cor:</b> <a href='?_src_=prefs;preference=UIcolor'><b>[UI_style_color]</b></a> <table style='display:inline;' bgcolor='[UI_style_color]'<tr><td>__</td></tr></table><br>"
 			dat += " - <b>Alpha (transparency):</b> <a href='?_src_=prefs;preference=UIalpha'><b>[UI_style_alpha]</b></a><br>"
@@ -459,7 +459,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 			dat += "</td><td width='300px' height='300px' valign='top'>"
 			dat += "<h2>Editar profissão especial</h2>"
 			if(jobban_isbanned(user, "Syndicate"))
-				dat += "<b>Você foi banido de profissões especiais.</b>"
+				dat += "<b>Você foi banido de profissoes especiais.</b>"
 				be_special = list()
 			else
 				for(var/i in special_roles)
@@ -539,12 +539,12 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 	dat += "<hr><center>"
 	if(!IsGuestKey(user.key))
 		dat += "<a href='?_src_=prefs;preference=load'>Desfazer</a> - "
-		dat += "<a href='?_src_=prefs;preference=save'>Salvar Edição</a> - "
+		dat += "<a href='?_src_=prefs;preference=save'>Salvar Edicão</a> - "
 
-	dat += "<a href='?_src_=prefs;preference=reset_all'>Resetar Edição</a>"
+	dat += "<a href='?_src_=prefs;preference=reset_all'>Resetar Edicao</a>"
 	dat += "</center>"
 
-	var/datum/browser/popup = new(user, "preferencias", "<div align='center'>Edição do Personagem</div>", 820, 640)
+	var/datum/browser/popup = new(user, "preferencias", "<div align='center'>Edicao do Personagem</div>", 820, 640)
 	popup.set_content(dat)
 	popup.open(0)
 
@@ -828,7 +828,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 
 	HTML += ShowDisabilityState(user,DISABILITY_FLAG_NEARSIGHTED,"Precisa de oculos")
 	HTML += ShowDisabilityState(user,DISABILITY_FLAG_FAT,"Obeso")
-	HTML += ShowDisabilityState(user,DISABILITY_FLAG_EPILEPTIC,"Convulsões")
+	HTML += ShowDisabilityState(user,DISABILITY_FLAG_EPILEPTIC,"Convulsoes")
 	HTML += ShowDisabilityState(user,DISABILITY_FLAG_DEAF,"Surdo")
 	HTML += ShowDisabilityState(user,DISABILITY_FLAG_BLIND,"Cego")
 	HTML += ShowDisabilityState(user,DISABILITY_FLAG_COLOURBLIND,"Daltonico")
@@ -868,7 +868,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 	else
 		HTML += "[copytext(gen_record, 1, 37)]..."
 
-	HTML += "<br><a href=\"byond://?_src_=prefs;preference=records;task=sec_record\">Registros de segurança</a><br>"
+	HTML += "<br><a href=\"byond://?_src_=prefs;preference=records;task=sec_record\">Registros de seguranca</a><br>"
 
 	if(lentext(sec_record) <= 40)
 		HTML += "[sec_record]<br>"
@@ -1063,7 +1063,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 				var/datum/job/job = locate(href_list["job"])
 				if(job)
 					var/choices = list(job.title) + job.alt_titles
-					var/choice = input("Escolha um cargo para [job.title].", "Geração de personagem", GetPlayerAltTitle(job)) as anything in choices | null
+					var/choice = input("Escolha um cargo para [job.title].", "Geracao de personagem", GetPlayerAltTitle(job)) as anything in choices | null
 					if(choice)
 						SetPlayerAltTitle(job, choice)
 						SetChoices(user)
@@ -1110,7 +1110,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 				SetRecords(user)
 
 		if(href_list["task"] == "sec_record")
-			var/secmsg = input(usr,"Coloque suas notas de segurança aqui.","Registros de segurança",html_decode(sec_record)) as message
+			var/secmsg = input(usr,"Coloque suas notas de seguranca aqui.","Registros de seguranca",html_decode(sec_record)) as message
 
 			if(secmsg != null)
 				secmsg = copytext(secmsg, 1, MAX_PAPER_MESSAGE_LEN)
@@ -1255,7 +1255,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 		if("input")
 			switch(href_list["preference"])
 				if("name")
-					var/raw_name = input(user, "Escolha o nome do personagem:", "Edição do personagem") as text|null
+					var/raw_name = input(user, "Escolha o nome do personagem:", "Edicao do personagem") as text|null
 					if(!isnull(raw_name)) // Check to ensure that the user entered text (rather than cancel.)
 						var/new_name = reject_bad_name(raw_name, 1)
 						if(new_name)
@@ -1267,7 +1267,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 							to_chat(user, "<font color='red'>Nome invalido. Você deve ter pelo menos um nome e um sobrenome [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</font>")
 
 				if("age")
-					var/new_age = input(user, "Escolha a idade do personagem:\n([AGE_MIN]-[AGE_MAX])", "Edição do peronagem") as num|null
+					var/new_age = input(user, "Escolha a idade do personagem:\n([AGE_MIN]-[AGE_MAX])", "Edicao do peronagem") as num|null
 					if(new_age)
 						age = max(min(round(text2num(new_age)), AGE_MAX),AGE_MIN)
 				if("species")

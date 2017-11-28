@@ -26,7 +26,7 @@ var/global/list/unused_trade_stations = list("sol")
 	trader_objectives = forge_trader_objectives()
 
 	spawn()
-		var/list/candidates = pollCandidates("Você quer jogar como comerciante?", ROLE_TRADER, 1)
+		var/list/candidates = pollCandidates("Voce quer jogar como comerciante?", ROLE_TRADER, 1)
 		var/index = 1
 		while(spawn_count > 0 && candidates.len > 0)
 			if(index > spawnlocs.len)
@@ -63,9 +63,9 @@ var/global/list/unused_trade_stations = list("sol")
 	return M
 
 /datum/event/traders/proc/greet_trader(var/mob/living/carbon/human/M)
-	to_chat(M, "<span class='boldnotice'>Você é um comerciante!</span>")
-	to_chat(M, "<span class='notice'>Você está atualmente ancorado em [get_area(M)].</span>")
-	to_chat(M, "<span class='notice'>Você está prestes a negociar com a NSS Athena.</span>")
+	to_chat(M, "<span class='boldnotice'>Voce e um comerciante!</span>")
+	to_chat(M, "<span class='notice'>Voce esta atualmente ancorado em [get_area(M)].</span>")
+	to_chat(M, "<span class='notice'>Voce esta prestes a negociar com a NSS Athena.</span>")
 	to_chat(M, "<span class='notice'>Negocie um acordo e solicite docking.</span>")
 	spawn(25)
 		show_objectives(M.mind)

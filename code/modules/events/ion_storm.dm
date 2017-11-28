@@ -17,7 +17,7 @@
 
 /datum/event/ion_storm/announce()
 	if(announceEvent == ION_ANNOUNCE || (announceEvent == ION_RANDOM && prob(ionAnnounceChance)))
-		event_announcement.Announce("Tempestade Ion detectada perto da estação. Verifique todos os equipamentos com controle IA para erros.", "Alerta de Anomalias", 'sound/AI/ionstorm.ogg')
+		event_announcement.Announce("Tempestade Ion detectada perto da estacao. Verifique todos os equipamentos com controle IA para erros.", "Alerta de Anomalias", 'sound/AI/ionstorm.ogg')
 
 
 /datum/event/ion_storm/start()

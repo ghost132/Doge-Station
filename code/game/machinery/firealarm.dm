@@ -2,8 +2,8 @@
 FIRE ALARM
 */
 /obj/machinery/firealarm
-	name = "alarme de incêndio"
-	desc = "<i>\"Puxe isto em caso de emergência\"</i>. Portanto, continue puxando para sempre."
+	name = "alarme de incendio"
+	desc = "<i>\"Puxe isto em caso de emergencia\"</i>. Portanto, continue puxando para sempre."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "fire0"
 	var/detecting = 1.0
@@ -46,8 +46,8 @@ FIRE ALARM
 	if(!emagged)
 		emagged = 1
 		if(user)
-			user.visible_message("<span class='warning'>Faíscas voam para fora do [src]!</span>",
-								"<span class='notice'>Você emag [src], desativando seus sensores térmicos.</span>")
+			user.visible_message("<span class='warning'>Faiscas voam para fora do [src]!</span>",
+								"<span class='notice'>Voce emag [src], desativando seus sensores termicos.</span>")
 		playsound(loc, 'sound/effects/sparks4.ogg', 50, 1)
 
 /obj/machinery/firealarm/temperature_expose(datum/gas_mixture/air, temperature, volume)
@@ -84,9 +84,9 @@ FIRE ALARM
 				if(istype(W, /obj/item/device/multitool))
 					detecting = !detecting
 					if(detecting)
-						user.visible_message("<span class='warning'>[user] has reconnected [src]'s detecting unit!</span>", "You have reconnected [src]'s detecting unit.")
+						user.visible_message("<span class='warning'>[user] conectou [src]'s detecting unit!</span>", "Voce se reconectou [src]'s detecting unit.")
 					else
-						user.visible_message("<span class='warning'>[user] has disconnected [src]'s detecting unit!</span>", "You have disconnected [src]'s detecting unit.")
+						user.visible_message("<span class='warning'>[user] desconectou [src]'s detecting unit!</span>", "Voce se desconectou [src]'s detecting unit.")
 
 				else if(istype(W, /obj/item/weapon/wirecutters))  // cutting the wires out
 					to_chat(user, "<span class='warning'>You cut the wires!</span>")
@@ -100,16 +100,16 @@ FIRE ALARM
 				if(istype(W, /obj/item/stack/cable_coil))
 					var/obj/item/stack/cable_coil/coil = W
 					if(!coil.use(5))
-						to_chat(user, "<span class='warning'>^Você corta os fios!</span>")
+						to_chat(user, "<span class='warning'>^Voce corta os fios!</span>")
 						return
 
 					buildstage = 2
 					playsound(get_turf(src), W.usesound, 50, 1)
-					to_chat(user, "<span class='notice'>Você corta \o [src]!</span>")
+					to_chat(user, "<span class='notice'>Voce corta \o [src]!</span>")
 					update_icon()
 
 				else if(istype(W, /obj/item/weapon/crowbar))
-					to_chat(user, "<span class='warning'>Você puxa o circuito!</span>")
+					to_chat(user, "<span class='warning'>Voce puxa o circuito!</span>")
 					playsound(get_turf(src), W.usesound, 50, 1)
 					if(do_after(user, 20 * W.toolspeed, target = src))
 						if(buildstage != 1)
@@ -120,13 +120,13 @@ FIRE ALARM
 						update_icon()
 			if(0)
 				if(istype(W, /obj/item/weapon/firealarm_electronics))
-					to_chat(user, "<span class='notice'>Você insere o circuito!</span>")
+					to_chat(user, "<span class='notice'>Voce insere o circuito!</span>")
 					qdel(W)
 					buildstage = 1
 					update_icon()
 
 				else if(istype(W, /obj/item/weapon/wrench))
-					to_chat(user, "<span class='warning'>Você remove o conjunto de alarme de incêndio da parede!</span>")
+					to_chat(user, "<span class='warning'>Voce remove o conjunto de alarme de incendio da parede!</span>")
 					new /obj/item/mounted/frame/firealarm(get_turf(user))
 					playsound(get_turf(src), W.usesound, 50, 1)
 					qdel(src)
@@ -263,10 +263,10 @@ FIRE ALARM CIRCUIT
 Just a object used in constructing fire alarms
 */
 /obj/item/weapon/firealarm_electronics
-	name = "eletrônicos de alarme de incêndio"
+	name = "eletronicos de alarme de incendio"
 	icon = 'icons/obj/doors/door_assembly.dmi'
 	icon_state = "door_electronics"
-	desc = "Um circuito. Tem um rótulo sobre isso, diz \"Pode lidar com níveis de calor até 40 graus Celsius!\""
+	desc = "Um circuito. Tem um rotulo sobre isso, diz \"Pode lidar com niveis de calor ate 40 graus Celsius!\""
 	w_class = WEIGHT_CLASS_SMALL
 	materials = list(MAT_METAL=50, MAT_GLASS=50)
 	origin_tech = "engineering=2;programming=1"

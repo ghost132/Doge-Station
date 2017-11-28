@@ -8,7 +8,7 @@
 	spawncount = 1
 
 /datum/event/spider_terror/announce()
-	command_announcement.Announce("Confirmação de risco biológico a nível 3 a bordo da [station_name()]. Todo o pessoal deve conter o surto.", "Alerta de Risco Biológico", 'sound/effects/siren-spooky.ogg')
+	command_announcement.Announce("Confirmacao de risco biologico a nivel 3 a bordo da [station_name()]. Todo o pessoal deve conter o surto.", "Alerta de Risco Biologico", 'sound/effects/siren-spooky.ogg')
 
 /datum/event/spider_terror/start()
 

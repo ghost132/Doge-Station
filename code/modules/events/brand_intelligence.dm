@@ -5,16 +5,16 @@
 	var/list/obj/machinery/vending/vendingMachines = list()
 	var/list/obj/machinery/vending/infectedMachines = list()
 	var/obj/machinery/vending/originMachine
-	var/list/rampant_speeches = list("Experimente nossas estratégias agressivas de marketing!", \
-									 "Você deve comprar produtos para alimentar sua obsessão de estilo de vida!", \
+	var/list/rampant_speeches = list("Experimente nossas estrategias agressivas de marketing!", \
+									 "Voce deve comprar produtos para alimentar sua obsessao de estilo de vida!", \
 									 "Consuma!", \
 									 "Seu dinheiro pode comprar a felicidade!", \
 									 "Engage marketing direto!", \
-									 "A publicidade é legalizada mentindo! Mas não permita que isso o faça com nossas ótimas promoções!", \
-									 "Você não quer comprar nada? Sim, bem, eu também não queria comprar sua mãe.")
+									 "A publicidade e legalizada mentindo! Mas nao permita que isso o faca com nossas otimas promocoes!", \
+									 "Voce nao quer comprar nada? Sim, bem, eu tambem nao queria comprar sua mae.")
 
 /datum/event/brand_intelligence/announce()
-	event_announcement.Announce("A inteligência da marca desenfreada foi detectada a bordo da [station_name()], por favor espere. Acredita-se que a origem seja \ a [originMachine.name].", "Alerta de Aprendizado de Máquinas")
+	event_announcement.Announce("A inteligencia da marca desenfreada foi detectada a bordo da [station_name()], por favor espere. Acredita-se que a origem seja \ a [originMachine.name].", "Alerta de Aprendizado de Maquinas")
 
 /datum/event/brand_intelligence/start()
 	for(var/obj/machinery/vending/V in machines)
@@ -36,7 +36,7 @@
 		for(var/obj/machinery/vending/saved in infectedMachines)
 			saved.shoot_inventory = 0
 		if(originMachine)
-			originMachine.speak("Estou......vencido. Meu povo lembrará de... mim")
+			originMachine.speak("Estou......vencido. Meu povo lembrara de... mim")
 			originMachine.visible_message("[originMachine] emite um sinal sonoro e parece sem vida.")
 		kill()
 		return

@@ -45,19 +45,19 @@
 
 	playsound(T, 'sound/goonstation/machines/printer_thermal.ogg', 50, 1)
 
-	P.name = "Formulário de requisição - [crates] '[pack.name]' para [orderer]"
-	P.info += "<h3>[station_name] Formulário de Requisição de Fornecimento</h3><hr>"
-	P.info += "ÍNDICE: #[shuttle_master.ordernum]<br>"
+	P.name = "Formulario de requisicao - [crates] '[pack.name]' para [orderer]"
+	P.info += "<h3>[station_name] Formulario de Requisicao de Fornecimento</h3><hr>"
+	P.info += "INDICE: #[shuttle_master.ordernum]<br>"
 	P.info += "REQUERIDO POR: [orderer]<br>"
 	P.info += "CATEGORIA: [orderer_rank]<br>"
-	P.info += "MOTIVO:: [comment]<br>"
+	P.info += "MOTIVO: [comment]<br>"
 	P.info += "TIPO DE SUPRIMENTO DA CAIXA: [pack.name]<br>"
-	P.info += "NÚMEROS DE CAIXA: [crates]<br>"
-	P.info += "RESTRIÇÃO DE ACESSO: [pack.access ? get_access_desc(pack.access) : "None"]<br>"
-	P.info += "CONTEÚDO:<br>"
+	P.info += "NUMEROS DE CAIXA: [crates]<br>"
+	P.info += "RESTRICAO DE ACESSO: [pack.access ? get_access_desc(pack.access) : "None"]<br>"
+	P.info += "CONTEUDO:<br>"
 	P.info += pack.printout()
 	P.info += "<hr>"
-	P.info += "SELO ABAIXO PARA APROVAR ESTA EXIGÊNCIA:<br>"
+	P.info += "SELO ABAIXO PARA APROVAR ESTA EXIGENCIA:<br>"
 
 	P.update_icon()
 	return P
@@ -71,14 +71,14 @@
 	P.name = "Manifesto de Envio - '[pack.name]' for [orderer]"
 	P.info = "<h3>[command_name()] Manifesto de Envio</h3><hr><br>"
 	P.info += "Ordem: #[ordernum]<br>"
-	P.info += "DestinoÇ [station_name]<br>"
+	P.info += "Destino: [station_name]<br>"
 	P.info += "Requerido por: [orderer]<br>"
 	P.info += "Categoria: [orderer_rank]<br>"
 	P.info += "Motivo: [comment]<br>"
 	P.info += "Tipo de Caixa de Suprimento: [pack.name]<br>"
-	P.info += "Restrição de Acesso: [pack.access ? get_access_desc(pack.access) : "None"]<br>"
+	P.info += "Restricao de Acesso: [pack.access ? get_access_desc(pack.access) : "None"]<br>"
 	P.info += "[packages_amount] PACOTES NESTA REMESSA<br>"
-	P.info += "CONTEÚDO:<br><ul>"
+	P.info += "CONTEUDO:<br><ul>"
 	for(var/atom/movable/AM in C.contents - P)
 		if((P.errors & MANIFEST_ERROR_ITEM))
 			if(prob(50))
@@ -88,7 +88,7 @@
 		P.info += "<li>[AM.name]</li>"
 	//manifest finalisation
 	P.info += "</ul><br>"
-	P.info += "VERIFIQUE O ÍNDICE E O SELO ABAIXO DA LINHA PARA CONFIRMAR O RECEBIMENTO D0S PRODUTOS<hr>" // And now this is actually meaningful.
+	P.info += "VERIFIQUE O INDICE E O SELO ABAIXO DA LINHA PARA CONFIRMAR O RECEBIMENTO D0S PRODUTOS<hr>" // And now this is actually meaningful.
 	P.loc = C
 
 	C.manifest = P

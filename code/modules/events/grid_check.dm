@@ -8,14 +8,14 @@
 	power_failure(0)
 
 /datum/event/grid_check/announce()
-	event_announcement.Announce("Atividade anormal detectada na rede de energia na [station_name()]. Como medida de precaução, a energia da estação será desligado por um período indefinido.", "Verificação de grade automatizada", new_sound = 'sound/AI/poweroff.ogg')
+	event_announcement.Announce("Atividade anormal detectada na rede de energia na [station_name()]. Como medida de precaucao, a energia da estacao sera desligado por um periodo indefinido.", "Verificacao de grade automatizada", new_sound = 'sound/AI/poweroff.ogg')
 
 /datum/event/grid_check/end()
 	power_restore()
 
 /proc/power_failure(var/announce = 1)
 	if(announce)
-		event_announcement.Announce("Atividade anormal detectada na rede de energia na [station_name()]. Como medida de precaução, a energia da estalçao será desligado por um período indefinido. ", "Falha de energia crítica", new_sound = 'sound/AI/poweroff.ogg')
+		event_announcement.Announce("Atividade anormal detectada na rede de energia na [station_name()]. Como medida de precaucao, a energia da estacao sera desligado por um periodo indefinido. ", "Falha de energia critica", new_sound = 'sound/AI/poweroff.ogg')
 
 	var/list/skipped_areas = list(/area/turret_protected/ai)
 	var/list/skipped_areas_apc = list(/area/engine/engineering)
@@ -45,7 +45,7 @@
 	var/list/skipped_areas_apc = list(/area/engine/engineering)
 
 	if(announce)
-		event_announcement.Announce("A energia foi restaurado para [station_name()]. Pedimos desculpas pela inconveniência.", "Sistema de energia nominal", new_sound = 'sound/AI/poweron.ogg')
+		event_announcement.Announce("A energia foi restaurado para [station_name()]. Pedimos desculpas pela inconveniencia.", "Sistema de energia nominal", new_sound = 'sound/AI/poweron.ogg')
 	for(var/obj/machinery/power/apc/C in apcs)
 		var/area/current_area = get_area(C)
 		if(current_area.type in skipped_areas_apc || !is_station_level(C.z))
@@ -64,7 +64,7 @@
 
 /proc/power_restore_quick(var/announce = 1)
 	if(announce)
-		event_announcement.Announce("Todos os SMES na [station_name()] foram recarregados. Pedimos desculpas pela incoveniência.", "Sistema de energia nominal", new_sound = 'sound/AI/poweron.ogg')
+		event_announcement.Announce("Todos os SMES na [station_name()] foram recarregados. Pedimos desculpas pela incoveniencia.", "Sistema de energia nominal", new_sound = 'sound/AI/poweron.ogg')
 	for(var/obj/machinery/power/smes/S in machines)
 		if(!is_station_level(S.z))
 			continue

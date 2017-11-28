@@ -3,7 +3,7 @@
 	var/lightsoutRange	= 25
 
 /datum/event/electrical_storm/announce()
-	event_announcement.Announce("Uma tempestade elétrica foi detectada em sua Àrea, repare possiveis sobrecargas elétricas.", "Alerta de Tempestade Elétrica")
+	event_announcement.Announce("Uma tempestade eletrica foi detectada em sua area, repare possiveis sobrecargas eletricas.", "Alerta de Tempestade Eletrica")
 
 /datum/event/electrical_storm/start()
 	var/list/epicentreList = list()
@@ -24,4 +24,3 @@
 	for(var/obj/effect/landmark/epicentre in epicentreList)
 		for(var/obj/machinery/power/apc/apc in range(epicentre,lightsoutRange))
 			apc.overload_lighting()
-

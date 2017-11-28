@@ -1,8 +1,8 @@
 /datum/event/dust/meaty/announce()
 	if(prob(16))
-		event_announcement.Announce("Unknown biological entities have been detected near [station_name()], please stand-by.", "Lifesign Alert")
+		event_announcement.Announce("Entidades biológicas desconhecidas foram detectadas perto de [station_name()], por favor aguarde.", "Alerta de Sinais de Vida")
 	else
-		event_announcement.Announce("Meaty ores have been detected on collision course with the station.", "Meaty Ore Alert", new_sound = 'sound/AI/meteors.ogg')
+		event_announcement.Announce("Os minérios de carne foram detectados em curso de colisão com a estação.", "Alerta de Minério de Carne", new_sound = 'sound/AI/meteors.ogg')
 
 /datum/event/dust/meaty/setup()
 	qnty = rand(45,125)

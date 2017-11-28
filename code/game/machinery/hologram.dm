@@ -32,7 +32,7 @@ var/list/holopads = list()
 
 /obj/machinery/hologram/holopad
 	name = "holopad AI"
-	desc = "É um dispositivo montado no chão para projetar imagens holográficas. É ativado remotamente."
+	desc = "E um dispositivo montado no chao para projetar imagens holograficas. E ativado remotamente."
 	icon_state = "holopad0"
 
 	layer = TURF_LAYER+0.1 //Preventing mice and drones from sneaking under them.
@@ -71,16 +71,16 @@ var/list/holopads = list()
 /obj/machinery/hologram/holopad/attack_hand(var/mob/living/carbon/human/user) //Carn: Hologram requests.
 	if(!istype(user))
 		return
-	if(alert(user,"Gostaria de solicitar a presença de um IA?",,"Sim","Não") == "Sim")
+	if(alert(user,"Gostaria de solicitar a presenï¿½a de um IA?",,"Sim","Nï¿½o") == "Sim")
 		if(last_request + 200 < world.time) //don't spam the AI with requests you jerk!
 			last_request = world.time
-			to_chat(user, "<span class='notice'>Você solicita a presença de um IA.</span>")
+			to_chat(user, "<span class='notice'>Vocï¿½ solicita a presenï¿½a de um IA.</span>")
 			var/area/area = get_area(src)
 			for(var/mob/living/silicon/ai/AI in living_mob_list)
 				if(!AI.client)	continue
-				to_chat(AI, "<span class='info'>Sua presença é solicitada em <a href='?src=[AI.UID()];jumptoholopad=\ref[src]'>\the [area]</a>.</span>")
+				to_chat(AI, "<span class='info'>Sua presenï¿½a ï¿½ solicitada em <a href='?src=[AI.UID()];jumptoholopad=\ref[src]'>\the [area]</a>.</span>")
 		else
-			to_chat(user, "<span class='notice'>Um pedido de presença de IA já foi enviado recentemente.</span>")
+			to_chat(user, "<span class='notice'>Um pedido de presenï¿½a de IA jï¿½ foi enviado recentemente.</span>")
 
 /obj/machinery/hologram/holopad/attack_ai(mob/living/silicon/ai/user)
 	if(!istype(user))
@@ -98,18 +98,18 @@ var/list/holopads = list()
 
 /obj/machinery/hologram/holopad/proc/activate_holo(mob/living/silicon/ai/user, var/force = 0)
 	if(!force && user.eyeobj.loc != src.loc) // allows holopads to pass off holograms to the next holopad in the chain
-		to_chat(user, "<font color='red'>ERROR:</font> Não é possível projetar holograma.")
+		to_chat(user, "<font color='red'>ERROR:</font> Nï¿½o ï¿½ possï¿½vel projetar holograma.")
 	else if(!(stat & NOPOWER))//If the projector has power
 		if(user.holo)
 			var/obj/machinery/hologram/holopad/current = user.holo
 			current.clear_holo()
 		if(!hologram)//If there is not already a hologram.
 			create_holo(user)//Create one.
-			src.visible_message("Uma imagem holográfica de [user] desloca a vida bem diante de seus olhos!")
+			src.visible_message("Uma imagem hologrï¿½fica de [user] desloca a vida bem diante de seus olhos!")
 		else
-			to_chat(user, "<font color='red'>ERROR:</font> Alimentação de imagens em andamento.")
+			to_chat(user, "<font color='red'>ERROR:</font> Alimentaï¿½ï¿½o de imagens em andamento.")
 	else
-		to_chat(user, "<font color='red'>ERROR:</font> Não é possível projetar holograma.")
+		to_chat(user, "<font color='red'>ERROR:</font> Nï¿½o ï¿½ possï¿½vel projetar holograma.")
 	return
 
 /*This is the proc for special two-way communication between AI and holopad/people talking near holopad.
@@ -265,6 +265,6 @@ Holographic project of everything else.
  */
 /obj/machinery/hologram/projector
 	name = "projetor de holograma"
-	desc = "Isso faz aparecer um holograma ... com ímãs ou algo assim ..."
+	desc = "Isso faz aparecer um holograma ... com ï¿½mï¿½s ou algo assim ..."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "hologram0"

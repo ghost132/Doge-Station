@@ -10,7 +10,7 @@
 /datum/export/large/crate/total_printout() // That's why a goddamn metal crate costs that much.
 	. = ..()
 	if(.)
-		. += " Obrigado por participar do Programa de Reciclagem da Nanotrasen."
+		. += " Obrigado por participar do Programa de Reciclagem de Caixas da Nanotrasen."
 
 /datum/export/large/crate/wooden
 	cost = 100

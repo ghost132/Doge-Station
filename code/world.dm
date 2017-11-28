@@ -28,11 +28,11 @@ var/global/list/map_transition_config = MAP_TRANSITION_CONFIG
 	href_logfile = file("data/logs/[date_string] hrefs.htm")
 	diary = file("data/logs/[date_string].log")
 	diaryofmeanpeople = file("data/logs/[date_string] Attack.log")
-	diary << "\n\nComeçando. [time2text(world.timeofday, "hh:mm.ss")]\n---------------------"
-	diaryofmeanpeople << "\n\nComeçando. [time2text(world.timeofday, "hh:mm.ss")]\n---------------------"
+	diary << "\n\nComecando. [time2text(world.timeofday, "hh:mm.ss")]\n---------------------"
+	diaryofmeanpeople << "\n\nComecando. [time2text(world.timeofday, "hh:mm.ss")]\n---------------------"
 
 	if(byond_version < RECOMMENDED_VERSION)
-		log_to_dd("A versão do byond do seu servidor não atende aos requisitos recomendados para este código. Atualize BYOND")
+		log_to_dd("A versao do byond do seu servidor nao atende aos requisitos recomendados para este codigo. Atualize BYOND")
 
 	if(config && config.log_runtimes)
 		log = file("data/logs/runtime/[time2text(world.realtime,"YYYY-MM-DD-(hh-mm-ss)")]-runtime.log")
@@ -112,7 +112,7 @@ var/world_topic_spam_protect_time = world.timeofday
 	else if("status" in input)
 		var/list/s = list()
 		var/list/admins = list()
-		s["Versão"] = game_version
+		s["Versao"] = game_version
 		s["modo"] = master_mode
 		s["respawn"] = config ? abandon_allowed : 0
 		s["entrar"] = enter_allowed
@@ -120,7 +120,7 @@ var/world_topic_spam_protect_time = world.timeofday
 		s["ai"] = config.allow_ai
 		s["host"] = host ? host : null
 		s["jogadores"] = list()
-		s["horario da estação"] = worldtime2text()
+		s["horario da estaï¿½ï¿½o"] = worldtime2text()
 		var/player_count = 0
 		var/admin_count = 0
 
@@ -207,7 +207,7 @@ var/world_topic_spam_protect_time = world.timeofday
 				C = K
 				break
 		if(!C)
-			return "Não há nenhum cliente com esse nome"
+			return "Nao ha nenhum cliente com esse nome"
 
 		var/message =	"<font color='red'>IRC-Admin PM from <b><a href='?irc_msg=1'>[C.holder ? "IRC-" + input["sender"] : "Administrator"]</a></b>: [input["msg"]]</font>"
 		var/amessage =  "<font color='blue'>IRC-Admin PM from <a href='?irc_msg=1'>IRC-[input["sender"]]</a> to <b>[key_name(C)]</b> : [input["msg"]]</font>"
@@ -259,7 +259,7 @@ var/world_topic_spam_protect_time = world.timeofday
 				C = K
 				break
 		if(!C)
-			return "Não há nenhum cliente com esse nome no jogo"
+			return "Nao ha nenhum cliente com esse nome no jogo"
 
 		del(C)
 
@@ -348,7 +348,7 @@ var/world_topic_spam_protect_time = world.timeofday
 			if(C.is_afk(INACTIVITY_KICK))
 				if(!istype(C.mob, /mob/dead))
 					log_access("AFK: [key_name(C)]")
-					to_chat(C, "<span class='warning'>Você ficou inatico por mais de 10 minutos, você será desconectado.</span>")
+					to_chat(C, "<span class='warning'>Voce ficou inatico por mais de 10 minutos, voce sera desconectado.</span>")
 					del(C)
 		if( ((world.timeofday - sleep_check) > work_length) || ((world.timeofday - sleep_check) < 0) )
 			sleep(sleep_length)

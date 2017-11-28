@@ -11,10 +11,10 @@
 /datum/event/carp_migration/announce()
 	var/announcement = ""
 	if(severity == EVENT_LEVEL_MAJOR)
-		announcement = "Migração maciça de entidades biológicas desconhecidas foi detectada perto da [station_name()], por favor espere."
+		announcement = "Migracao macica de entidades biologicas desconhecidas foi detectada perto da [station_name()], por favor espere."
 	else
-		announcement = "Desconhecido biológico [spawned_carp.len == 1 ? "entity has" : "entities have"] detectado perto da [station_name()], por favor espere.."
-	event_announcement.Announce(announcement, "Lifesign Alert")
+		announcement = "Desconhecido biologico [spawned_carp.len == 1 ? "entity has" : "entities have"] detectado perto da [station_name()], por favor espere.."
+	event_announcement.Announce(announcement, "Alerta Sinais de Vida")
 
 /datum/event/carp_migration/start()
 	if(severity == EVENT_LEVEL_MAJOR)

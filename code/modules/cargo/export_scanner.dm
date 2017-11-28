@@ -1,6 +1,6 @@
 /obj/item/device/export_scanner
-	name = "scanner de exportação"
-	desc = "Um dispositivo usado para verificar objetos contra o banco de dados de exportações da Nanotrasen."
+	name = "scanner de exportacao"
+	desc = "Um dispositivo usado para verificar objetos contra o banco de dados de exportacoes da Nanotrasen."
 	icon_state = "export_scanner"
 	item_state = "radio"
 	flags = NOBLUDGEON
@@ -11,7 +11,7 @@
 /obj/item/device/export_scanner/examine(user)
 	..()
 	if(!cargo_console)
-		to_chat(user, "<span class='notice'>O [src] atualmente não está vinculado a um console de carga.</span>")
+		to_chat(user, "<span class='notice'>O [src] atualmente nao esta vinculado a um console de carga.</span>")
 
 /obj/item/device/export_scanner/afterattack(obj/O, mob/user, proximity)
 	if(!istype(O) || !proximity)
@@ -22,7 +22,7 @@
 		cargo_console = C
 		to_chat(user, "<span class='notice'>Scanner ligado a [C].</span>")
 	else if(!istype(cargo_console))
-		to_chat(user, "<span class='warning'>Você deve vincular [src] para um console de carga primeiro!</span>")
+		to_chat(user, "<span class='warning'>Voce deve vincular [src] para um console de carga primeiro!</span>")
 	else
 		// Before you fix it:
 		// yes, checking manifests is a part of intended functionality.
@@ -31,4 +31,4 @@
 		if(price)
 			to_chat(user, "<span class='notice'>Escaneado [O], valor: <b>[price]</b> creditos[O.contents.len ? " (contents included)" : ""].</span>")
 		else
-			to_chat(user, "<span class='warning'>Escaneado [O], sem valor de exportação.</span>")
+			to_chat(user, "<span class='warning'>Escaneado [O], sem valor de exportacao.</span>")
