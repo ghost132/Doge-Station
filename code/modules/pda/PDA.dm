@@ -6,7 +6,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 /obj/item/device/pda
 	name = "PDA"
-	desc = "Um micrô computador portatil feito por Sistemas Thinktronic, LTD. A funcionalidade é determinada pelo cartucho ROM."
+	desc = "Um micrô computador portatil feito pelo Sistema Thinktronic, LTD. A funcionalidade é determinada pelo cartucho ROM."
 	icon = 'icons/obj/pda.dmi'
 	icon_state = "pda"
 	item_state = "electronic"
