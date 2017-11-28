@@ -232,10 +232,10 @@
 				flick("autolathe_o",src)//plays metal insertion animation
 			if(O.materials[MAT_GLASS])
 				flick("autolathe_r", src)//plays glass insertion animation
-			to_chat(user, "<span class='notice'>Voc� inseriur [inserted] folha[inserted>1 ? "s" : ""] para o autolathe.</span>")
+			to_chat(user, "<span class='notice'>Voce inseriur [inserted] folha[inserted>1 ? "s" : ""] para o autolathe.</span>")
 			use_power(inserted * 100)
 		else
-			to_chat(user, "<span class='notice'>Voc� insere um total material de [inserted] para o autolathe.</span>")
+			to_chat(user, "<span class='notice'>Voce insere um total material de [inserted] para o autolathe.</span>")
 			use_power(max(500, inserted / 10))
 			qdel(O)
 	busy = 0
@@ -286,7 +286,7 @@
 		if((queue.len + 1) < queue_max_len)
 			add_to_queue(design_last_ordered,multiplier)
 		else
-			to_chat(usr, "<span class='warning'>A fila autolathe est� cheia!</span>")
+			to_chat(usr, "<span class='warning'>A fila do autolathe esta cheia!</span>")
 		if(!busy)
 			busy = 1
 			process_queue()
