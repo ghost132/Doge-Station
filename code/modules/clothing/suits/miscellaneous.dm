@@ -966,3 +966,13 @@
 	name = "ladies red victorian coat"
 	icon_state = "ladiesredvictoriancoat"
 	item_state = "ladiesredvictoriancoat"
+
+
+//roupa de pucci ~~chaplain
+
+/obj/item/clothing/suit/pucci
+	name = "bata escura"
+	desc = "Uma Bata Escura.. isso parece familiar.. seus olhos veem uma luz sainda dela"
+	luminosity = 5
+	icon = 'icons/mob/suit.dmi'   //sprites by Demetreo
+	icon_state = "bata_pucci"
