@@ -195,13 +195,3 @@ var/sc_safecode5 = "[rand(0,9)]"
 
 /obj/singularity/narsie/sc_Narsie/ex_act()
 	return
-
-
-//Armas Extra
-
-//E-Blaster
-
-obj/item/weapon/gun/energy/laser/e-blaster
-	name = "E-blaster"
-	desc = "pew pew pew"
-	icon = '

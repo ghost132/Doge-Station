@@ -255,3 +255,20 @@ obj/item/clothing/head/blob
 	name = "emergency response team janitor helmet"
 	desc = "A set of armor worn by janitorial members of the Nanotrasen Emergency Response Team. Has red and white highlights."
 	icon_state = "erthelmet_jan"
+
+
+//storm trooper
+
+/obj/item/clothing/head/helmet/stormtrooper_capacete
+	name = "capacete de stormtrooper"
+	desc = "coloca na cabeça, retardado"
+	icon = 'icons/mob/head.dmi'
+	icon_state = "stormtrooper_helmet"
+
+//storm trooper piloto
+
+/obj/item/clothing/head/helmet/stormtrooper_capacete_piloto
+	name = "capacete de stormtrooper piloto"
+	desc = "mas senhor, a viseira atrapalha"
+	icon = 'icons/mob/head.dmi'
+	icon_state = "stormtrooper_helmet_pilot"
