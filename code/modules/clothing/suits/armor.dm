@@ -458,3 +458,28 @@
 	name = "emergency response team janitor armor"
 	desc = "A set of armor worn by janitorial members of the Nanotrasen Emergency Response Team. Has red and white highlights."
 	icon_state = "ertarmor_jan"
+
+
+//storm trooper
+
+/obj/item/clothing/suit/armor/stormtrooper
+	name = "roupa de stormtrooper"
+	desc = "ele não vai acertar"
+	icon = 'icons/mob/suit.dmi'
+	icon_state = "stormtrooper"
+
+//storm trooper capitão
+
+/obj/item/clothing/suit/armor/stormtrooper_cpt
+	name = "roupa de storm trooper capitão"
+	desc = "pra mandar nos trouxas"
+	icon = 'icons/mob/suit.dmi'
+	icon_state = "stormtrooper_cpt"
+
+//storm trooper piloto
+
+/obj/item/clothing/suit/armor/stormtrooper_pilot
+	name = "roupa de stormtrooper piloto"
+	desc = "relaxa, ele não vai acertar o asteroide"
+	icon = 'icons/mob/suit.dmi'
+	icon_state = "stormtrooper_pilot"

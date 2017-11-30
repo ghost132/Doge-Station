@@ -147,3 +147,13 @@
 	needs_permit = 0
 	ammo_x_offset = 2
 	selfcharge = 1
+
+/obj/item/weapon/gun/energy/laser/blaster_rifle
+	name = "E11-blaster rifle"
+	desc = "a culpa é de quem atira"
+	ammo_type = list(/obj/item/ammo_casing/energy/laser/redtag)
+	icon = 'icons/obj/guns/energy.dmi'
+	icon_state = "blaster_rifle"
+	can_flashlight = 1
+	fire_sound = 'sound/weapons/blaster.ogg'
+	zoomable = 1
