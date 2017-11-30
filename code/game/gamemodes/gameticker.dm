@@ -365,7 +365,7 @@ var/round_start_time = 0
 	if(captainless)
 		for(var/mob/M in player_list)
 			if(!istype(M,/mob/new_player))
-				to_chat(M, "A capitania não é forçada a ninguém.")
+				to_chat(M, "A capitania nao e forcada a ninguem.")
 
 
 /datum/controller/gameticker/proc/process()
