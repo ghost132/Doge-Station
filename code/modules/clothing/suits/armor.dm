@@ -482,4 +482,4 @@
 	name = "roupa de stormtrooper piloto"
 	desc = "relaxa, ele não vai acertar o asteroide"
 	icon = 'icons/mob/suit.dmi'
-	icons_state = "stormtrooper_pilot"
+	icon_state = "stormtrooper_pilot"
