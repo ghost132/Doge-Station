@@ -4,13 +4,13 @@
 	var/obj/structure/blob/core/Blob
 
 /datum/event/blob/announce()
-	event_announcement.Announce("Confirmed outbreak of level 5 biohazard aboard [station_name()]. All personnel must contain the outbreak.", "Biohazard Alert", 'sound/AI/outbreak5.ogg')
+	event_announcement.Announce("Confirmacao de risco biologico a nivel 5 a bordo da [station_name()]. Todo o pessoal deve conter o surto.", "Alerta de Risco Biologico", 'sound/AI/outbreak5.ogg')
 
 /datum/event/blob/start()
 	var/turf/T = pick(blobstart)
 	if(!T)
 		return kill()
-	var/list/candidates = pollCandidates("Do you want to play as a blob?", ROLE_BLOB, 1)
+	var/list/candidates = pollCandidates("Voce quer jogar como um blob?", ROLE_BLOB, 1)
 	var/mob/C
 	if(candidates.len)
 		C = pick(candidates)

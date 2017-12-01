@@ -303,13 +303,13 @@
 	if(prob(severity) && istype(crosser) && !isvineimmune(holder))
 		var/mob/living/M = crosser
 		M.adjustBruteLoss(5)
-		to_chat(M, "<span class='alert'>You cut yourself on the thorny vines.</span>")
+		to_chat(M, "<span class='alert'>Voce se cortou nas videiras espinhosas.</span>")
 
 /datum/spacevine_mutation/thorns/on_hit(obj/structure/spacevine/holder, mob/living/hitter, obj/item/I, expected_damage)
 	if(prob(severity) && istype(hitter) && !isvineimmune(holder))
 		var/mob/living/M = hitter
 		M.adjustBruteLoss(5)
-		to_chat(M, "<span class='alert'>You cut yourself on the thorny vines.</span>")
+		to_chat(M, "<span class='alert'>Voce se corta nas videiras espinhosas.</span>")
 	. =	expected_damage
 
 /datum/spacevine_mutation/woodening
@@ -651,7 +651,7 @@
 	for(var/datum/spacevine_mutation/SM in mutations)
 		SM.on_buckle(src, V)
 	if((V.stat != DEAD) && (V.buckled != src)) //not dead or captured
-		to_chat(V, "<span class='danger'>The vines [pick("wind", "tangle", "tighten")] around you!</span>")
+		to_chat(V, "<span class='danger'>As videiras [pick("wind", "tangle", "tighten")] ao seu redor!</span>")
 		buckle_mob(V, 1)
 
 /obj/structure/spacevine/proc/spread()

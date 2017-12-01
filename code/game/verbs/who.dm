@@ -3,7 +3,7 @@
 	set name = "Who"
 	set category = "OOC"
 
-	var/msg = "<b>Current Players:</b>\n"
+	var/msg = "<b>Jogadores Atuais:</b>\n"
 
 
 	var/list/Lines = list()
@@ -16,21 +16,21 @@
 			var/entry = "\t[C.key]"
 			if(C.holder && C.holder.fakekey)
 				entry += " <i>(as [C.holder.fakekey])</i>"
-			entry += " - Playing as [C.mob.real_name]"
+			entry += " - Jogando como [C.mob.real_name]"
 			switch(C.mob.stat)
 				if(UNCONSCIOUS)
-					entry += " - <font color='darkgray'><b>Unconscious</b></font>"
+					entry += " - <font color='darkgray'><b>Inconsciente</b></font>"
 				if(DEAD)
 					if(isobserver(C.mob))
 						var/mob/dead/observer/O = C.mob
 						if(O.started_as_observer)
-							entry += " - <font color='gray'>Observing</font>"
+							entry += " - <font color='gray'>Observando</font>"
 						else
-							entry += " - <font color='black'><b>DEAD</b></font>"
+							entry += " - <font color='black'><b>MORTO</b></font>"
 					else if(istype(C.mob, /mob/new_player))
-						entry += " - <font color='green'>New Player</font>"
+						entry += " - <font color='green'>Novo Jogador</font>"
 					else
-						entry += " - <font color='black'><b>DEAD</b></font>"
+						entry += " - <font color='black'><b>MORTO</b></font>"
 
 			var/age
 			if(isnum(C.player_age))
@@ -46,7 +46,7 @@
 			entry += " - [age]"
 
 			if(is_special_character(C.mob))
-				entry += " - <b><font color='red'>Antagonist</font></b>"
+				entry += " - <b><font color='red'>Antagonista</font></b>"
 			entry += " (<A HREF='?_src_=holder;adminmoreinfo=\ref[C.mob]'>?</A>)"
 			Lines += entry
 	else
@@ -62,7 +62,7 @@
 	for(var/line in sortList(Lines))
 		msg += "[line]\n"
 
-	msg += "<b>Total Players: [length(Lines)]</b>"
+	msg += "<b>Total Jogadores: [length(Lines)]</b>"
 	to_chat(src, msg)
 
 /client/verb/adminwho()
@@ -89,11 +89,11 @@
 					msg += " <i>(as [C.holder.fakekey])</i>"
 
 				if(isobserver(C.mob))
-					msg += " - Observing"
+					msg += " - Observando"
 				else if(istype(C.mob,/mob/new_player))
 					msg += " - Lobby"
 				else
-					msg += " - Playing"
+					msg += " - Jogando"
 
 				if(C.is_afk())
 					msg += " (AFK)"
@@ -105,11 +105,11 @@
 				modmsg += "\t[C] is a [C.holder.rank]"
 
 				if(isobserver(C.mob))
-					modmsg += " - Observing"
+					modmsg += " - Observando"
 				else if(istype(C.mob,/mob/new_player))
 					modmsg += " - Lobby"
 				else
-					modmsg += " - Playing"
+					modmsg += " - Jogando"
 
 				if(C.is_afk())
 					modmsg += " (AFK)"
@@ -126,5 +126,5 @@
 				modmsg += "\t[C] is a [C.holder.rank]\n"
 				num_mods_online++
 
-	msg = "<b>Current Admins ([num_admins_online]):</b>\n" + msg + "\n<b>Current Mentors ([num_mods_online]):</b>\n" + modmsg
+	msg = "<b>Admins Atuais ([num_admins_online]):</b>\n" + msg + "\n<b>Mentores Atuais ([num_mods_online]):</b>\n" + modmsg
 	to_chat(src, msg)

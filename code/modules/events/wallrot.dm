@@ -3,7 +3,7 @@
 	endWhen = announceWhen + 1
 
 /datum/event/wallrot/announce()
-	event_announcement.Announce("Harmful fungi detected on station. Station structures may be contaminated.", "Biohazard Alert")
+	event_announcement.Announce("Fungos prejudiciais detectados na estacao. As estruturas da estacao podem estar contaminadas.", "Alerta de Risco Biologico")
 
 /datum/event/wallrot/start()
 	spawn()

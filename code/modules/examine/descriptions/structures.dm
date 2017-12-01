@@ -1,21 +1,20 @@
 /obj/structure/girder
-	description_info = "Use metal sheets on this to build a normal wall.  Adding plasteel instead will make a reinforced wall.<br>\
-	A false wall can be made by using a crowbar on this girder, and then adding metal or plasteel.<br>\
-	You can dismantle the girder with a wrench."
-
+	description_info = "Use folhas de metal para construir uma parede normal. Adicionando plasteel em vez disso, fara uma parede reforcada.<br>\
+	Uma parede falsa pode ser feita usando uma barra de pe-de-cabra nessa viga e, em seguida, adicionando metal ou plasteel.<br>\
+	Voce pode desmontar a viga com uma chave inglesa."
 /obj/structure/girder/reinforced
-	description_info = "Add another sheet of plasteel to finish."
+	description_info = "Adicione outra folha de plasteel para terminar."
 
 /obj/structure/grille
-	description_info = "A powered and knotted wire underneath this will cause the grille to shock anyone not wearing insulated gloves.<br>\
-	Wirecutters will turn the grille into metal rods instantly.  Grilles are made with metal rods."
+	description_info = "Um fio de potencia e amarrado debaixo isso fara com que a grade para chocar alguem nao usar luvas isolantes.<br>\
+	Os cortadores de fio transformarao a grelha em hastes de metal instantaneamente. As grelhas sao feitas com hastes de metal."
 
 /obj/structure/lattice
-	description_info = "Add a metal floor tile to build a floor on top of the lattice.<br>\
-	Lattices can be made by applying metal rods to a space tile."
+	description_info = "Adicione uma telha metalica para construir um piso em cima da rede.<br>\
+	As redes podem ser feitas aplicando varas de metal a uma telha espacial."
 
 /obj/structure/stool/bed
-	description_info = "Click and drag yourself (or anyone) to this to buckle in. Click on this with an empty hand to undo the buckles.<br>\
+	description_info = "Clique e arraste-se (ou qualquer um) para isso para entrar. Faca clique sobre isso com uma mao vazia para desfazer as fivelas.<br>\
 	<br>\
-	Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
-	the buckles, instead."
+	Qualquer pessoa com restricoes, como algemas, nao podera desabotoar. Eles devem usar o botao Resistir, ou verbo, para se libertar de \
+as fivelas, em vez disso."

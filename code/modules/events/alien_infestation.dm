@@ -10,7 +10,7 @@
 
 /datum/event/alien_infestation/announce()
 	if(successSpawn)
-		event_announcement.Announce("Unidentified lifesigns detected coming aboard [station_name()]. Secure any exterior access, including ducting and ventilation.", "Lifesign Alert", new_sound = 'sound/AI/aliens.ogg')
+		event_announcement.Announce("Sinais de vida nao indentificados abordo da [station_name()]. Proteja qualquer acesso externo, incluindo ducto e ventilacao.", "Alerta de Sinais de Vida", new_sound = 'sound/AI/aliens.ogg')
 
 /datum/event/alien_infestation/start()
 	var/list/vents = list()
@@ -20,7 +20,7 @@
 				vents += temp_vent
 
 	spawn()
-		var/list/candidates = pollCandidates("Do you want to play as an alien?", ROLE_ALIEN, 1)
+		var/list/candidates = pollCandidates("Voce quer jogar como alienigena?", ROLE_ALIEN, 1)
 
 		while(spawncount > 0 && vents.len && candidates.len)
 			var/obj/vent = pick_n_take(vents)

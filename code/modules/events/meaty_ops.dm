@@ -1,6 +1,6 @@
 /datum/event/meteor_wave/goreop/announce()
-	var/meteor_declaration = "MeteorOps have declared their intent to utterly destroy [station_name()] with their own bodies, and dares the crew to try and stop them."
-	event_announcement.Announce(meteor_declaration, "Declaration of 'War'", 'sound/effects/siren.ogg')
+	var/meteor_declaration = "Os MeteorosOps declararam sua intenção de destruir completamente [station_name()] com seus próprios corpos, e se atreve à tripulação para tentar detê-los."
+	event_announcement.Announce(meteor_declaration, "Declaração de 'Guerra'", 'sound/effects/siren.ogg')
 
 /datum/event/meteor_wave/goreop/setup()
 	waves = 3
@@ -16,4 +16,4 @@
 
 
 /datum/event/meteor_wave/goreop/end()
-	event_announcement.Announce("All MeteorOps are dead. Major Station Victory.", "MeteorOps")
+	event_announcement.Announce("Todos os Meteoros estao mortos. Major Station Victory.", "MeteorosOps")

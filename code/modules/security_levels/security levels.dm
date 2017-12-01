@@ -29,7 +29,7 @@
 	if(level >= SEC_LEVEL_GREEN && level <= SEC_LEVEL_DELTA && level != security_level)
 		switch(level)
 			if(SEC_LEVEL_GREEN)
-				security_announcement_down.Announce("All threats to the station have passed. All weapons need to be holstered and privacy laws are once again fully enforced.","Attention! Security level lowered to green.")
+				security_announcement_down.Announce("Todas as ameacas a estacao passaram. Todas as armas precisam ser estofadas e as leis de privacidade sao mais uma vez totalmente cumpridas.","Atencao! Nivel de seguranca baixado para verde.")
 				security_level = SEC_LEVEL_GREEN
 
 				post_status("alert", "outline")
@@ -41,9 +41,9 @@
 
 			if(SEC_LEVEL_BLUE)
 				if(security_level < SEC_LEVEL_BLUE)
-					security_announcement_up.Announce("The station has received reliable information about possible hostile activity on the station. Security staff may have weapons visible and random searches are permitted.","Attention! Security level elevated to blue.")
+					security_announcement_up.Announce("A estacao recebeu informacoes confiaveis sobre possiveis atividades hostis na estacao. Os segurancas pode ter armas visiveis e pesquisas aleatorias sao permitidas.","Atencao! Nivel de seguranca elevado ao azul.")
 				else
-					security_announcement_down.Announce("The immediate threat has passed. Security may no longer have weapons drawn at all times, but may continue to have them visible. Random searches are still allowed.","Attention! Security level lowered to blue.")
+					security_announcement_down.Announce("A ameaca imediata passou. Segurancas ja não podem ter armas em punho em todos os momentos, mas pode continuar a te-los visiveis. Pesquisas aleatórias ainda são permitidas.","Atencao! Nivel de seguranca baixado para azul.")
 				security_level = SEC_LEVEL_BLUE
 
 				post_status("alert", "outline")
@@ -55,9 +55,9 @@
 
 			if(SEC_LEVEL_RED)
 				if(security_level < SEC_LEVEL_RED)
-					security_announcement_up.Announce("There is an immediate and serious threat to the station. Security may have weapons unholstered at all times. Random searches are allowed and advised.","Attention! Code Red!")
+					security_announcement_up.Announce("Existe uma ameaca imediata e seria para a estacao. A seguranca pode ter armas sem limites em todos os momentos. Pesquisas aleatorias sao permitidas e aconselhadas.","Atencao! Codigo vermelho!")
 				else
-					security_announcement_down.Announce("The station's self-destruct mechanism has been deactivated, but there is still an immediate and serious threat to the station. Security may have weapons unholstered at all times. Random searches are allowed and advised.","Attention! Code Red!")
+					security_announcement_down.Announce("O mecanismo de autodestruicao da estacao foi desativado, mas ainda ha uma ameaca imediata e seria para a estacao. A seguranca pode ter armas sem limites em todos os momentos. Pesquisas aleatorias sao permitidas e aconselhadas.","Atencao! Codigo vermelho!")
 				security_level = SEC_LEVEL_RED
 
 				var/obj/machinery/door/airlock/highsecurity/red/R = locate(/obj/machinery/door/airlock/highsecurity/red) in airlocks
@@ -73,7 +73,7 @@
 						FA.overlays += image('icons/obj/monitors.dmi', "overlay_red")
 
 			if(SEC_LEVEL_GAMMA)
-				security_announcement_up.Announce("Central Command has ordered the Gamma security level on the station. Security is to have weapons equipped at all times, and all civilians are to immediately seek their nearest head for transportation to a secure location. The station's Gamma armory has been unlocked and is ready for use.","Attention! Gamma security level activated!")
+				security_announcement_up.Announce("O Comando Central ordenou o nivel de seguranca Gamma na estacao. A seguranca e necessario ter armas equipadas em todos os momentos, e todos os civis devem procurar imediatamente um chefe de equipe mais proxima para o transporte para um local seguro. O armario Gamma da estacao foi desbloqueado e esta pronto para uso.","Atencao! Nivel de seguranca Gamma ativado!")
 				security_level = SEC_LEVEL_GAMMA
 
 				move_gamma_ship()
@@ -98,7 +98,7 @@
 						FA.update_icon()
 
 			if(SEC_LEVEL_EPSILON)
-				security_announcement_up.Announce("Central Command has ordered the Epsilon security level on the station. Consider all contracts terminated.","Attention! Epsilon security level activated!")
+				security_announcement_up.Announce("O Comando Central ordenou o nivel de seguranca do Epsilon na estacao. Considere todos os contratos encerrados.","Atencao! Nivel de seguranca Epsilon ativado!")
 				security_level = SEC_LEVEL_EPSILON
 
 				post_status("alert", "epsilonalert")
@@ -109,7 +109,7 @@
 						FA.overlays += image('icons/obj/monitors.dmi', "overlay_epsilon")
 
 			if(SEC_LEVEL_DELTA)
-				security_announcement_up.Announce("The station's self-destruct mechanism has been engaged. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill.","Attention! Delta security level reached!")
+				security_announcement_up.Announce("O mecanismo de autodestruicao da estacao foi ativado. Todas as equipes sao instruidas para obedecer todas as instrucoes dadas pelos chefes de equipe. Qualquer violacao dessas ordens pode ser punida com a morte. Esta nao e um treino.","Atencao! Nivel de seguranca Delta alcancado!")
 				security_level = SEC_LEVEL_DELTA
 
 				post_status("alert", "deltaalert")

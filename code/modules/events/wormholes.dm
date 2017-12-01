@@ -21,7 +21,7 @@
 		wormholes += new /obj/effect/portal/wormhole(T, null, null, -1)
 
 /datum/event/wormholes/announce()
-	event_announcement.Announce("Space-time anomalies detected on the station. There is no additional data.", "Anomaly Alert", new_sound = 'sound/AI/spanomalies.ogg')
+	event_announcement.Announce("Anomalias espaciais detectadas na estacao. Nao ha dados adicionais.", "Alerta de Anomalias", new_sound = 'sound/AI/spanomalies.ogg')
 
 /datum/event/wormholes/tick()
 	if(activeFor % shift_frequency == 0)
@@ -36,8 +36,8 @@
 
 
 /obj/effect/portal/wormhole
-	name = "wormhole"
-	desc = "It looks highly unstable; It could close at any moment."
+	name = "buraco de minhoca"
+	desc = "Parece altamente instavel; Poderia fechar a qualquer momento."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "anom"
 	failchance = 0

@@ -31,8 +31,8 @@ var/const/HOLOPAD_MODE = 0
 var/list/holopads = list()
 
 /obj/machinery/hologram/holopad
-	name = "\improper AI holopad"
-	desc = "It's a floor-mounted device for projecting holographic images. It is activated remotely."
+	name = "holopad AI"
+	desc = "E um dispositivo montado no chao para projetar imagens holograficas. E ativado remotamente."
 	icon_state = "holopad0"
 
 	layer = TURF_LAYER+0.1 //Preventing mice and drones from sneaking under them.
@@ -71,16 +71,16 @@ var/list/holopads = list()
 /obj/machinery/hologram/holopad/attack_hand(var/mob/living/carbon/human/user) //Carn: Hologram requests.
 	if(!istype(user))
 		return
-	if(alert(user,"Would you like to request an AI's presence?",,"Yes","No") == "Yes")
+	if(alert(user,"Gostaria de solicitar a presen�a de um IA?",,"Sim","N�o") == "Sim")
 		if(last_request + 200 < world.time) //don't spam the AI with requests you jerk!
 			last_request = world.time
-			to_chat(user, "<span class='notice'>You request an AI's presence.</span>")
+			to_chat(user, "<span class='notice'>Voc� solicita a presen�a de um IA.</span>")
 			var/area/area = get_area(src)
 			for(var/mob/living/silicon/ai/AI in living_mob_list)
 				if(!AI.client)	continue
-				to_chat(AI, "<span class='info'>Your presence is requested at <a href='?src=[AI.UID()];jumptoholopad=\ref[src]'>\the [area]</a>.</span>")
+				to_chat(AI, "<span class='info'>Sua presen�a � solicitada em <a href='?src=[AI.UID()];jumptoholopad=\ref[src]'>\the [area]</a>.</span>")
 		else
-			to_chat(user, "<span class='notice'>A request for AI presence was already sent recently.</span>")
+			to_chat(user, "<span class='notice'>Um pedido de presen�a de IA j� foi enviado recentemente.</span>")
 
 /obj/machinery/hologram/holopad/attack_ai(mob/living/silicon/ai/user)
 	if(!istype(user))
@@ -98,18 +98,18 @@ var/list/holopads = list()
 
 /obj/machinery/hologram/holopad/proc/activate_holo(mob/living/silicon/ai/user, var/force = 0)
 	if(!force && user.eyeobj.loc != src.loc) // allows holopads to pass off holograms to the next holopad in the chain
-		to_chat(user, "<font color='red'>ERROR:</font> Unable to project hologram.")
+		to_chat(user, "<font color='red'>ERROR:</font> N�o � poss�vel projetar holograma.")
 	else if(!(stat & NOPOWER))//If the projector has power
 		if(user.holo)
 			var/obj/machinery/hologram/holopad/current = user.holo
 			current.clear_holo()
 		if(!hologram)//If there is not already a hologram.
 			create_holo(user)//Create one.
-			src.visible_message("A holographic image of [user] flicks to life right before your eyes!")
+			src.visible_message("Uma imagem hologr�fica de [user] desloca a vida bem diante de seus olhos!")
 		else
-			to_chat(user, "<font color='red'>ERROR:</font> Image feed in progress.")
+			to_chat(user, "<font color='red'>ERROR:</font> Alimenta��o de imagens em andamento.")
 	else
-		to_chat(user, "<font color='red'>ERROR:</font> Unable to project hologram.")
+		to_chat(user, "<font color='red'>ERROR:</font> N�o � poss�vel projetar holograma.")
 	return
 
 /*This is the proc for special two-way communication between AI and holopad/people talking near holopad.
@@ -121,7 +121,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 /obj/machinery/hologram/holopad/hear_message(mob/living/M, text)
 	if(M&&hologram&&master)//Master is mostly a safety in case lag hits or something.
 		var/name_used = M.GetVoice()
-		var/rendered = "<i><span class='game say'>Holopad received, <span class='name'>[name_used]</span> [text]</span></i>"
+		var/rendered = "<i><span class='game say'>Holopad recebeu, <span class='name'>[name_used]</span> [text]</span></i>"
 		master.show_message(rendered, 2)
 	return
 
@@ -264,7 +264,7 @@ Holographic project of everything else.
  * Other Stuff: Is this even used?
  */
 /obj/machinery/hologram/projector
-	name = "hologram projector"
-	desc = "It makes a hologram appear...with magnets or something..."
+	name = "projetor de holograma"
+	desc = "Isso faz aparecer um holograma ... com �m�s ou algo assim ..."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "hologram0"

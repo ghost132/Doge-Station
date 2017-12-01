@@ -1,7 +1,7 @@
 /datum/event/sentience
 
 /datum/event/sentience/start()
-	var/ghostmsg = "Do you want to awaken as a sentient being?"
+	var/ghostmsg = "Voce quer despertar como um ser consciente?"
 	var/list/candidates = pollCandidates(ghostmsg, ROLE_SENTIENT, 1)
 	var/list/potential = list()
 	var/sentience_type = SENTIENCE_ORGANIC
@@ -26,7 +26,7 @@
 	var/strength = pick("human", "skrell", "vox", "grey", "diona", "IPC", "tajaran", "vulpakanin", "kidan", "plasmaman", "drask",
 					 "slime", "monkey", "moderate", "lizard", "security", "command", "clown", "mime", "low", "very low", "greytide", "catgirl", "\[REDACTED\]")
 
-	sentience_report += "<br><br>Based on [data], we believe that one of the station's [pets] has developed [strength] level intelligence, and the ability to communicate."
+	sentience_report += "<br><br>Baseado em [data], acreditamos que um dos animais de estimacao da estacao [pets] desenvolveu [strength] nvel de inteligencia e capacidade de comunicacao."
 
 
 
@@ -44,4 +44,3 @@
 	to_chat(M, "<span class='warning'>Due to freak radiation, you have gained \
 	 						human level intelligence and the ability to speak and understand \
 							human language!</span>")
-

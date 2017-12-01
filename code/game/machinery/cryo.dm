@@ -1,5 +1,5 @@
 /obj/machinery/atmospherics/unary/cryo_cell
-	name = "cryo cell"
+	name = "celula cryo"
 	icon = 'icons/obj/cryogenics.dmi'
 	icon_state = "pod0"
 	density = 1
@@ -98,7 +98,7 @@
 	if(!istype(user.loc, /turf) || !istype(O.loc, /turf)) // are you in a container/closet/pod/etc?
 		return
 	if(occupant)
-		to_chat(user, "<span class='boldnotice'>The cryo cell is already occupied!</span>")
+		to_chat(user, "<span class='boldnotice'>A celula cryo ja esta ocupada!</span>")
 		return
 	var/mob/living/L = O
 	if(!istype(L) || L.buckled)
@@ -108,13 +108,13 @@
 		return
 	for(var/mob/living/carbon/slime/M in range(1,L))
 		if(M.Victim == L)
-			to_chat(usr, "[L.name] will not fit into the cryo cell because they have a slime latched onto their head.")
+			to_chat(usr, "[L.name] nao vai caber na cryo porque eles tem uma lodo preso na cabeca deles.")
 			return
 	if(put_mob(L))
 		if(L == user)
-			visible_message("[user] climbs into the cryo cell.")
+			visible_message("[user] sobe para a celula cryo.")
 		else
-			visible_message("[user] puts [L.name] into the cryo cell.")
+			visible_message("[user] coloca [L.name] para dentro da celula de cryo.")
 			if(user.pulling == L)
 				user.stop_pulling()
 
@@ -161,7 +161,7 @@
 		return
 
 	if(panel_open)
-		to_chat(usr, "<span class='boldnotice'>Close the maintenance panel first.</span>")
+		to_chat(usr, "<span class='boldnotice'>Feche o painel de manutencao primeiro!</span>")
 		return
 
 	ui_interact(user)
@@ -184,7 +184,7 @@
 	if(!ui)
 		// the ui does not exist, so we'll create a new() one
         // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "cryo.tmpl", "Cryo Cell Control System", 520, 420)
+		ui = new(user, src, ui_key, "cryo.tmpl", "Sistema de Controle da Celula Cryo", 520, 420)
 		// open the new ui window
 		ui.open()
 		// auto update every Master Controller tick
@@ -265,19 +265,19 @@
 /obj/machinery/atmospherics/unary/cryo_cell/attackby(var/obj/item/weapon/G as obj, var/mob/user as mob, params)
 	if(istype(G, /obj/item/weapon/reagent_containers/glass))
 		if(beaker)
-			to_chat(user, "<span class='warning'>A beaker is already loaded into the machine.</span>")
+			to_chat(user, "<span class='warning'>Um copo ja esta carregado na maquina.</span>")
 			return
 		if(!user.drop_item())
-			to_chat(user, "The [G] is stuck to you!")
+			to_chat(user, "O [G] esta preso a voce!")
 			return
 		G.forceMove(src)
 		beaker =  G
 
-		user.visible_message("[user] adds \a [G] to \the [src]!", "You add \a [G] to \the [src]!")
+		user.visible_message("[user] acrescenta \ a [G] para \o [src]!", "Voce adiciona \ a [G] para \o [src]!")
 
 	if(istype(G, /obj/item/weapon/screwdriver))
 		if(occupant || on)
-			to_chat(user, "<span class='notice'>The maintenance panel is locked.</span>")
+			to_chat(user, "<span class='notice'>O painel de manutencao esta fechado.</span>")
 			return
 		default_deconstruction_screwdriver(user, "pod0-o", "pod0", G)
 		return
@@ -289,13 +289,13 @@
 
 	if(istype(G, /obj/item/weapon/grab))
 		if(panel_open)
-			to_chat(user, "<span class='boldnotice'>Close the maintenance panel first.</span>")
+			to_chat(user, "<span class='boldnotice'>Feche o painel de manutencao primeiro!</span>")
 			return
 		if(!ismob(G:affecting))
 			return
 		for(var/mob/living/carbon/slime/M in range(1,G:affecting))
 			if(M.Victim == G:affecting)
-				to_chat(usr, "[G:affecting:name] will not fit into the cryo because they have a slime latched onto their head.")
+				to_chat(usr, "[G:affecting:name] nao vai caber na cryo porque eles tem uma lodo preso na cabeca deles.")
 				return
 		var/mob/M = G:affecting
 		if(put_mob(M))
@@ -409,21 +409,21 @@
 
 /obj/machinery/atmospherics/unary/cryo_cell/proc/put_mob(mob/living/carbon/M as mob)
 	if(!istype(M))
-		to_chat(usr, "<span class='danger'>The cryo cell cannot handle such a lifeform!</span>")
+		to_chat(usr, "<span class='danger'>A celula cryo nao pode lidar com essa forma de vida!</span>")
 		return
 	if(occupant)
-		to_chat(usr, "<span class='danger'>The cryo cell is already occupied!</span>")
+		to_chat(usr, "<span class='danger'>A celula cryo ja esta ocupada!</span>")
 		return
 	if(M.abiotic())
-		to_chat(usr, "<span class='warning'>Subject may not have abiotic items on.</span>")
+		to_chat(usr, "<span class='warning'>O individuo pode nao ter itens abioticos.</span>")
 		return
 	if(!node)
-		to_chat(usr, "<span class='warning'>The cell is not correctly connected to its pipe network!</span>")
+		to_chat(usr, "<span class='warning'>A celula nao esta corretamente conectada a sua rede de tubulacao!</span>")
 		return
 	M.stop_pulling()
 	M.forceMove(src)
 	if(M.health > -100 && (M.health < 0 || M.sleeping))
-		to_chat(M, "<span class='boldnotice'>You feel a cold liquid surround you. Your skin starts to freeze up.</span>")
+		to_chat(M, "<span class='boldnotice'>Voce sente um liquido frio que o rodeia. Sua pele comeca a congelar.</span>")
 	occupant = M
 //	M.metabslow = 1
 	add_fingerprint(usr)
@@ -432,14 +432,14 @@
 	return 1
 
 /obj/machinery/atmospherics/unary/cryo_cell/verb/move_eject()
-	set name = "Eject occupant"
+	set name = "Ejetar Ocupante"
 	set category = "Object"
 	set src in oview(1)
 
 	if(usr == occupant)//If the user is inside the tube...
 		if(usr.stat == DEAD)
 			return
-		to_chat(usr, "<span class='notice'>Release sequence activated. This will take two minutes.</span>")
+		to_chat(usr, "<span class='notice'>Sequencia de lancamento ativada. Isso demorara dois minutos.</span>")
 		sleep(600)
 		if(!src || !usr || !occupant || (occupant != usr)) //Check if someone's released/replaced/bombed him already
 			return
@@ -464,7 +464,7 @@
 
 	for(var/mob/living/carbon/slime/M in range(1,usr))
 		if(M.Victim == usr)
-			to_chat(usr, "You're too busy getting your life sucked out of you.")
+			to_chat(usr, "Voce esta muito ocupado tirando sua vida de voce.")
 			return
 
 	if(stat & (NOPOWER|BROKEN))

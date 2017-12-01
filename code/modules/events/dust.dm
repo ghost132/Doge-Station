@@ -9,8 +9,8 @@
 		new /obj/effect/space_dust/weak()
 
 /obj/effect/space_dust
-	name = "Space Dust"
-	desc = "Dust in space."
+	name = "Poeira espacial"
+	desc = "Poeira no espaco."
 	icon = 'icons/obj/meteor.dmi'
 	icon_state = "space_dust"
 	density = 1

@@ -15,7 +15,7 @@
 		kill()
 
 /datum/event/money_hacker/announce()
-	var/message = "A brute force hack has been detected (in progress since [worldtime2text()]). The target of the attack is: Financial account #[affected_account.account_number], \
+	var/message = "O hack de forca bruta foi detectado (em progresso desde [worldtime2text()]). O alvo do ataque e: Conta Financeira #[affected_account.account_number], \
 	without intervention this attack will succeed in approximately 10 minutes. Required intervention: temporary suspension of affected accounts until the attack has ceased. \
 	Notifications will be sent as updates occur.<br>"
 	var/my_department = "[station_name()] firewall subroutines"
@@ -34,7 +34,7 @@
 	var/message
 	if(affected_account && !affected_account)
 		//hacker wins
-		message = "The hack attempt has succeeded."
+		message = "A tentativa de hack conseguiu."
 
 		//subtract the money
 		var/lost = affected_account.money * 0.8 + (rand(2,4) - 2) / 10
@@ -57,7 +57,7 @@
 
 	else
 		//crew wins
-		message = "The attack has ceased, the affected accounts can now be brought online."
+		message = "O ataque cessou, as contas afetadas agora podem ser colocadas online."
 
 	var/my_department = "[station_name()] firewall subroutines"
 

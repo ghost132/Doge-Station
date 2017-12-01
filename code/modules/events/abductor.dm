@@ -4,12 +4,12 @@
 	//spawn abductor team
 	processing = 0 //so it won't fire again in next tick
 	if(!makeAbductorTeam())
-		message_admins("Abductor event failed to find players. Retrying in 30s.")
+		message_admins("O evento Abductor nao conseguiu encontrar jogadores. Repeticao em 30s.")
 		spawn(300)
 			makeAbductorTeam()
 
 /datum/event/abductor/proc/makeAbductorTeam()
-	var/list/mob/dead/observer/candidates = pollCandidates("Do you wish to be considered for an Abductor Team?", ROLE_ABDUCTOR, 1)
+	var/list/mob/dead/observer/candidates = pollCandidates("Voce deseja ser considerado para uma equipe de Abducao?", ROLE_ABDUCTOR, 1)
 
 	if(candidates.len >= 2)
 		//Oh god why we can't have static functions

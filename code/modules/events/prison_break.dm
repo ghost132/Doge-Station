@@ -37,7 +37,7 @@
 
 /datum/event/prison_break/announce()
 	if(areas && areas.len > 0)
-		event_announcement.Announce("[pick("Gr3y.T1d3 virus","Malignant trojan")] detected in [station_name()] [(eventDept == "Security")? "imprisonment":"containment"] subroutines. Secure any compromised areas immediately. Station AI involvement is recommended.", "[eventDept] Alert")
+		event_announcement.Announce("[pick("Gr3y.T1d3 virus","Malignant trojan")] detectado na [station_name()] [(eventDept == "Security")? "imprisonment":"containment"] sub-rotinas. Proteja imediatamente quaisquer areas comprometidas. O envolvimento da AI da estacao e recomendado.", "[eventDept] Alerta")
 
 /datum/event/prison_break/start()
 	for(var/area/A in world)
@@ -45,15 +45,15 @@
 			areas += A
 
 	if(areas && areas.len > 0)
-		var/my_department = "[station_name()] firewall subroutines"
-		var/rc_message = "An unknown malicious program has been detected in the [english_list(areaName)] lighting and airlock control systems at [worldtime2text()]. Systems will be fully compromised within approximately three minutes. Direct intervention is required immediately.<br>"
+		var/my_department = "[station_name()] sub-rotinas de firewall"
+		var/rc_message = "Um programa mal-intencionado desconhecido foi detectado no [english_list(areaName)] sistemas de controle de iluminacao e [worldtime2text()]. Os sistemas serao totalmente comprometidos dentro de aproximadamente tres minutos. A intervencao direta e necessaria imediatamente.<br>"
 		for(var/obj/machinery/message_server/MS in world)
 			MS.send_rc_message("Engineering", my_department, rc_message, "", "", 2)
 		for(var/mob/living/silicon/ai/A in player_list)
-			to_chat(A, "<span class='danger'>Malicious program detected in the [english_list(areaName)] lighting and airlock control systems by [my_department].</span>")
+			to_chat(A, "<span class='danger'>Programa malicioso detectado no [english_list(areaName)] sistemas de controle de iluminacao e [my_department].</span>")
 
 	else
-		log_runtime("Could not initate grey-tide. Unable to find suitable containment area.", src)
+		log_runtime("Nao foi possivel iniciar o grey-tide. Nao e possivel encontrar uma area de contencao adequada.", src)
 		kill()
 
 /datum/event/prison_break/tick()

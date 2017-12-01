@@ -109,7 +109,7 @@ Credit dupes that require a lot of manual work shouldn't be removed, unless they
 /datum/export/proc/total_printout(contr = 0, emag = 0)
 	if(!total_cost && !total_amount)
 		return ""
-	var/msg = "[total_cost] credits: Received [total_amount] "
+	var/msg = "[total_cost] creditos: Recebido [total_amount] "
 	if(total_cost > 0)
 		msg = "+" + msg
 

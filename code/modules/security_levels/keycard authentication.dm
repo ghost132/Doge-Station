@@ -1,6 +1,6 @@
 /obj/machinery/keycard_auth
-	name = "Keycard Authentication Device"
-	desc = "This device is used to trigger station functions, which require more than one ID card to authenticate."
+	name = "Dispositivo de Autenticacao de Cartao-chave"
+	desc = "Este dispositivo e usado para acionar funcoes da estacao, que exigem que mais de um cartao de identificacao se autentique"
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "auth_off"
 
@@ -25,12 +25,12 @@
 	req_access = list(access_keycard_auth)
 
 /obj/machinery/keycard_auth/attack_ai(mob/user as mob)
-	to_chat(user, "<span class='warning'>The station AI is not to interact with these devices.</span>")
+	to_chat(user, "<span class='warning'>A IA da estacao nao e para interagir com esses dispositivos.</span>")
 	return
 
 /obj/machinery/keycard_auth/attackby(obj/item/weapon/W as obj, mob/user as mob, params)
 	if(stat & (NOPOWER|BROKEN))
-		to_chat(user, "This device is not powered.")
+		to_chat(user, "Este dispositivo esta sem energia.")
 		return
 	if(istype(W, /obj/item/weapon/card/id) || istype(W, /obj/item/device/pda))
 		if(check_access(W))
@@ -40,13 +40,13 @@
 					event_source.confirmed = 1
 					event_source.event_confirmed_by = usr
 			else if(screen == 2)
-				if(event == "Emergency Response Team" && ert_reason == "Reason for ERT")
-					to_chat(user, "<span class='notice'>Supply a reason for calling the ERT first!</span>")
+				if(event == "Equipe de Resposta de Emergencia" && ert_reason == "Motivo para ERT")
+					to_chat(user, "<span class='notice'>Forneca um motivo para chamar a ERT primeiro!</span>")
 					return
 				event_triggered_by = usr
 				broadcast_request() //This is the device making the initial event request. It needs to broadcast to other devices
 		else
-			to_chat(user, "<span class='warning'>Access denied.</span>")
+			to_chat(user, "<span class='warning'>Accesso Negado.</span>")
 
 /obj/machinery/keycard_auth/power_change()
 	if(powered(ENVIRON))
@@ -65,7 +65,7 @@
 
 /obj/machinery/keycard_auth/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(busy)
-		to_chat(user, "This device is busy.")
+		to_chat(user, "Este dispositivo está ocupado.")
 		return
 
 	user.set_machine(src)
@@ -87,7 +87,7 @@
 		return 1
 
 	if(busy)
-		to_chat(usr, "This device is busy.")
+		to_chat(usr, "Este dispositivo esta ocupado.")
 		return
 
 	if(href_list["triggerevent"])
@@ -96,7 +96,7 @@
 	if(href_list["reset"])
 		reset()
 	if(href_list["ert"])
-		ert_reason = input(usr, "Reason for ERT Call:", "", "")
+		ert_reason = input(usr, "Motivo para o chamado da ERT:", "", "")
 
 	nanomanager.update_uis(src)
 	add_fingerprint(usr)
@@ -145,20 +145,20 @@
 
 /obj/machinery/keycard_auth/proc/trigger_event()
 	switch(event)
-		if("Red Alert")
+		if("Alerta Vermelho")
 			set_security_level(SEC_LEVEL_RED)
 			feedback_inc("alert_keycard_auth_red",1)
-		if("Grant Emergency Maintenance Access")
+		if("Conceder acesso de manutencao de emergencia")
 			make_maint_all_access()
 			feedback_inc("alert_keycard_auth_maintGrant",1)
-		if("Revoke Emergency Maintenance Access")
+		if("Revogar o acesso de manutencao de emergencia")
 			revoke_maint_all_access()
 			feedback_inc("alert_keycard_auth_maintRevoke",1)
-		if("Emergency Response Team")
+		if("Equipe de Resposta de Emergencia")
 			if(is_ert_blocked())
-				to_chat(usr, "<span class='warning'>All Emergency Response Teams are dispatched and can not be called at this time.</span>")
+				to_chat(usr, "<span class='warning'>Todas as Equipes de Resposta de Emergencia são despachadas e nao podem ser chamadas neste momento.</span>")
 				return
-			to_chat(usr, "<span class = 'notice'>ERT request transmitted.</span>")
+			to_chat(usr, "<span class = 'notice'>Pedido ERT transmitido.</span>")
 
 
 			var/fullmin_count = 0
@@ -168,7 +168,7 @@
 			if(fullmin_count)
 				ert_request_answered = 0
 				ERT_Announce(ert_reason , event_triggered_by, 0)
-				ert_reason = "Reason for ERT"
+				ert_reason = "Motivo para ERT"
 				feedback_inc("alert_keycard_auth_ert",1)
 				spawn(3000)
 					if(!ert_request_answered)
@@ -186,7 +186,7 @@ var/global/maint_all_access = 0
 		for(var/obj/machinery/door/airlock/D in A)
 			D.emergency = 1
 			D.update_icon(0)
-	minor_announcement.Announce("Access restrictions on maintenance and external airlocks have been removed.")
+	minor_announcement.Announce("Foram removidas as restricoes de acesso a manutencao e aos airlocks externos.")
 	maint_all_access = 1
 
 /proc/revoke_maint_all_access()
@@ -194,5 +194,5 @@ var/global/maint_all_access = 0
 		for(var/obj/machinery/door/airlock/D in A)
 			D.emergency = 0
 			D.update_icon(0)
-	minor_announcement.Announce("Access restrictions on maintenance and external airlocks have been re-added.")
+	minor_announcement.Announce("As restricoes de acesso a manutencao e aos airlocks externos foram re-adicionadas.")
 	maint_all_access = 0

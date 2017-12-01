@@ -269,5 +269,3 @@
 	satchel = /obj/item/weapon/storage/backpack/satchel_sec
 	dufflebag = /obj/item/weapon/storage/backpack/duffel/security
 	box = /obj/item/weapon/storage/box/engineer
-
-

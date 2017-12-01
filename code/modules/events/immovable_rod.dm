@@ -11,7 +11,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 	announceWhen = 5
 
 /datum/event/immovable_rod/announce()
-	event_announcement.Announce("What the fuck was that?!", "General Alert")
+	event_announcement.Announce("O que diabos foi isso ?!", "Alerta geral")
 
 /datum/event/immovable_rod/start()
 	var/startside = pick(cardinal)
@@ -20,8 +20,8 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 	new /obj/effect/immovablerod/event(startT, endT)
 
 /obj/effect/immovablerod
-	name = "Immovable Rod"
-	desc = "What the fuck is that?"
+	name = "Barra Imutavel"
+	desc = "O que diabos e isso?"
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "immrod"
 	throwforce = 100
@@ -74,7 +74,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 	else if(istype(clong, /mob))
 		if(istype(clong, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = clong
-			H.visible_message("<span class='danger'>[H.name] is penetrated by an immovable rod!</span>" , "<span class='userdanger'>The rod penetrates you!</span>" , "<span class ='danger'>You hear a CLANG!</span>")
+			H.visible_message("<span class='danger'>[H.name] e penetrado por uma haste imobilizadora!</span>" , "<span class='userdanger'>A haste penetra voce!</span>" , "<span class ='danger'>Voce ouve um CLANG!</span>")
 			H.adjustBruteLoss(160)
 		if(clong.density || prob(10))
 			clong.ex_act(2)
