@@ -1,6 +1,6 @@
 /obj/item/clothing/glasses/hud
 	name = "\improper HUD"
-	desc = "Um display que provide informaçao util (as vezes)."
+	desc = "Um display que mostra informaçao util (as vezes)."
 	flags = null //doesn't protect eyes because it's a monocle, duh
 	origin_tech = "magnets=3;biotech=2"
 	var/HUDType = null //Hudtype is defined on glasses.dm
