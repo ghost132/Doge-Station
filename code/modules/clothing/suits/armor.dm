@@ -258,6 +258,8 @@
 	actions_types = list(/datum/action/item_action/toggle)
 	unacidable = 1
 	hit_reaction_chance = 50
+	allowed = list(/obj/item/weapon/tank, /obj/item/weapon/hand_tele, /obj/item/device/flashlight)
+
 
 /obj/item/clothing/suit/armor/reactive/attack_self(mob/user)
 	active = !(active)

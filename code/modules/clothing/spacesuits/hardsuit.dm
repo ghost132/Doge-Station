@@ -629,3 +629,34 @@
 	item_state = "syndie_helm"
 	item_color = "syndi"
 	armor = list(melee = 40, bullet = 50, laser = 30, energy = 15, bomb = 35, bio = 100, rad = 50)
+	heat_protection = HEAD
+	max_heat_protection_temperature = FIRE_IMMUNITY_HELM_MAX_TEMP_PROTECT
+
+
+//Research Director hardsuit
+
+/obj/item/clothing/head/helmet/space/hardsuit/rd
+	name = "prototype hardsuit helmet"
+	desc = "A prototype helmet designed for research in a hazardous, low pressure environment."
+	icon = 'icons/mob/head.dmi'
+	icon_state = "hardsuit0-rd"
+	item_color = "rd"
+	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
+	armor = list(melee = 30, bullet = 5, laser = 10, energy = 5, bomb = 100, bio = 100, rad = 60, fire = 60, acid = 80)
+	var/obj/machinery/doppler_array/integrated/bomb_radar
+	scan_reagents = 1
+	actions_types = list(/datum/action/item_action/toggle_helmet_light, /datum/action/item_action/toggle_research_scanner)
+
+
+/obj/item/clothing/suit/space/hardsuit/rd
+	icon_state = "hardsuit-rd"
+	name = "prototype hardsuit"
+	desc = "A prototype suit that protects against hazardous, low pressure environments. Fitted with extensive plating for handling explosives and dangerous research materials."
+	icon = 'icons/mob/suit.dmi'
+	item_state = "hardsuit-rd"
+	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
+	allowed = list(/obj/item/device/flashlight, /obj/item/weapon/tank, /obj/item/weapon/gun/energy/wormhole_projector,
+	/obj/item/weapon/hand_tele, /obj/item/device/aicard)
+	armor = list(melee = 30, bullet = 5, laser = 10, energy = 5, bomb = 100, bio = 100, rad = 60, fire = 60, acid = 80)
+	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
+	max_heat_protection_temperature = FIRE_IMMUNITY_SUIT_MAX_TEMP_PROTECT
