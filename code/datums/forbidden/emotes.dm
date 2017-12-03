@@ -215,3 +215,59 @@ var/global/list/forbidden_emotes = list()	// stores /datum/forbidden/action/emot
 	if(P.pleasure >= MAX_PLEASURE)
 		P.cum(H, "floor")
 	..()
+	
+// Aquela sacaneada v2
+/datum/forbidden/emote/booblick
+	name = "boob-lick"
+
+/datum/forbidden/emote/booblick/actionButton(mob/living/carbon/human/H, mob/living/carbon/human/P)
+	if(prob(1))
+		return "Lick her boobs"
+
+	return "Lick her boobs"
+
+/datum/forbidden/emote/booblick/conditions(mob/living/carbon/human/H, mob/living/carbon/human/P)
+	. = ..(H, P)
+	if(. != -1)
+		if(!H.check_has_mouth() || !P.has_vagina())
+			. = -1
+
+/datum/forbidden/emote/booblick/showText(mob/living/carbon/human/H, mob/living/carbon/human/P)
+	H.visible_message("<span class='erp'><b>[H]</b> licks [P]'s boobs.</span>")
+
+/datum/forbidden/emote/booblick/logAction(mob/living/carbon/human/H, mob/living/carbon/human/P)
+	..(H, P, "boob-licked")
+
+/datum/forbidden/emote/booblick/doAction(mob/living/carbon/human/H, mob/living/carbon/human/P)
+	P.pleasure += 1 * rand(0.7, 1.7)
+	if(P.pleasure >= MAX_PLEASURE)
+		P.cum(H, "floor")
+	..()
+	
+// Aquela sacaneada v3
+/datum/forbidden/emote/dicklick
+	name = "dick-lick"
+
+/datum/forbidden/emote/dicklick/actionButton(mob/living/carbon/human/H, mob/living/carbon/human/P)
+	if(prob(1))
+		return "Lick his dick"
+
+	return "Lick his dick"
+
+/datum/forbidden/emote/dicklick/conditions(mob/living/carbon/human/H, mob/living/carbon/human/P)
+	. = ..(H, P)
+	if(. != -1)
+		if(!H.check_has_mouth() || !P.has_dick())
+			. = -1
+
+/datum/forbidden/emote/dickblick/showText(mob/living/carbon/human/H, mob/living/carbon/human/P)
+	H.visible_message("<span class='erp'><b>[H]</b> licks [P]'s boobs.</span>")
+
+/datum/forbidden/emote/dicklick/logAction(mob/living/carbon/human/H, mob/living/carbon/human/P)
+	..(H, P, "dick-licked")
+
+/datum/forbidden/emote/dicklick/doAction(mob/living/carbon/human/H, mob/living/carbon/human/P)
+	P.pleasure += 1 * rand(0.9, 1.9)
+	if(P.pleasure >= MAX_PLEASURE)
+		P.cum(H, "floor")
+	..()
