@@ -8,6 +8,7 @@
 	icon_living = "dollynho"
 	icon_resting = "dollynho"
 	icon_dead = "dollynho"
+	butcher_results = list(/obj/item/weapon/reagent_containers/food/drinks/garrafa/dolly = 6)
 	speak = list("Iae amiguinho?","Sou dollynho, seu amiguinho, vamos brincar?","Voce gosta de lolis?","Vamo ali atras amiguinho")
 	speak_chance = 1
 	turns_per_move = 5

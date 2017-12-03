@@ -221,3 +221,12 @@
 	name = "metal can"
 	desc = "A metal can suitable for beverages."
 	icon_state = "metal_can"
+
+
+//dolly guarana
+
+/obj/item/weapon/reagent_containers/food/drinks/garrafa/dolly
+	name = "Dolly"
+	desc = "O melhor"
+	icon_state = "dolly"
+	list_reagents = list("dolly" = 30)
