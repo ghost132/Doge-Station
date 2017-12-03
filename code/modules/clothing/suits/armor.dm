@@ -485,3 +485,25 @@
 	desc = "relaxa, ele não vai acertar o asteroide"
 	icon = 'icons/mob/suit.dmi'
 	icon_state = "stormtrooper_pilot"
+
+//roupa do DOOM
+
+/obj/item/clothing/suit/armor/DOOM
+	name = "roupa do DOOM"
+	desc = "MALDITOS ALIENS!!!!"
+	icon_state = "doom_armor"
+
+//calça do DOOM
+
+/obj/item/clothing/suit/armor/DOOM
+	name = "roupa do DOOM"
+	desc = "MALDITOS ALIENS!!!!"
+	icon = 'icons/obj/clothing/uniforms.dmi'
+	icon_state = "doom_armor"
+
+//capacete DOOM
+
+/obj/item/clothing/suit/armor/DOOM
+	name = "roupa do DOOM"
+	desc = "MALDITOS ALIENS!!!!"
+	icon_state = "doom_helmet"
