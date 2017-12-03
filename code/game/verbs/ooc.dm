@@ -19,12 +19,12 @@ var/global/admin_ooc_colour = "#b82e00"
 		return
 
 	if(!(prefs.toggles & CHAT_OOC))
-		to_chat(src, "<span class='danger'>Voce tem FDP silenciado.</span>")
+		to_chat(src, "<span class='danger'>O seu FDP esta silenciado.</span>")
 		return
 
 	if(!check_rights(R_ADMIN|R_MOD,0))
 		if(!config.ooc_allowed)
-			to_chat(src, "<span class='danger'>FDP e globalmente silenciado.</span>")
+			to_chat(src, "<span class='danger'>FDP foi globalmente silenciado.</span>")
 			return
 		if(!config.dooc_allowed && (mob.stat == DEAD))
 			to_chat(usr, "<span class='danger'>FDP para mobs mortos foi desligado.</span>")
@@ -87,9 +87,9 @@ var/global/admin_ooc_colour = "#b82e00"
 /proc/toggle_ooc()
 	config.ooc_allowed = ( !config.ooc_allowed )
 	if(config.ooc_allowed)
-		to_chat(world, "<B>O canal FDP foi ativado globalmente!</B>")
+		to_chat(world, "<B>FDP foi ativado globalmente!</B>")
 	else
-		to_chat(world, "<B>O canal FDP foi desativado globalmente!</B>")
+		to_chat(world, "<B>FDP foi desativado globalmente!</B>")
 
 /proc/auto_toggle_ooc(var/on)
 	if(config.auto_toggle_ooc_during_round && config.ooc_allowed != on)
