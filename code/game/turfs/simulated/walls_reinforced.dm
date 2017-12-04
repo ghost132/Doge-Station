@@ -1,6 +1,6 @@
 /turf/simulated/wall/r_wall
-	name = "reinforced wall"
-	desc = "A huge chunk of reinforced metal used to separate rooms."
+	name = "parede reforcada"
+	desc = "Um grande pedaco de metal reforcado usado para separar os quartos."
 	icon = 'icons/turf/walls/reinforced_wall.dmi'
 	icon_state = "r_wall"
 	opacity = 1

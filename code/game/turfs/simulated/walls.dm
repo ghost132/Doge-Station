@@ -54,18 +54,18 @@
 	. = ..(user)
 
 	if(!damage)
-		to_chat(user, "<span class='notice'>It looks fully intact.</span>")
+		to_chat(user, "<span class='notice'>Parece totalmente intacto.</span>")
 	else
 		var/dam = damage / damage_cap
 		if(dam <= 0.3)
-			to_chat(user, "<span class='warning'>It looks slightly damaged.</span>")
+			to_chat(user, "<span class='warning'>Parece um pouco danificado.</span>")
 		else if(dam <= 0.6)
-			to_chat(user, "<span class='warning'>It looks moderately damaged.</span>")
+			to_chat(user, "<span class='warning'>Parece moderadamente danificado.</span>")
 		else
-			to_chat(user, "<span class='danger'>It looks heavily damaged.</span>")
+			to_chat(user, "<span class='danger'>Parece fortemente danificado.</span>")
 
 	if(rotting)
-		to_chat(user, "<span class='warning'>There is fungus growing on [src].</span>")
+		to_chat(user, "<span class='warning'>Existe um fungo em crescimento [src].</span>")
 
 /turf/simulated/wall/proc/update_icon()
 	if(!damage_overlays[1]) //list hasn't been populated
@@ -170,12 +170,12 @@
 /turf/simulated/wall/mech_melee_attack(obj/mecha/M)
 	if(M.damtype == "brute")
 		playsound(src, 'sound/weapons/punch4.ogg', 50, 1)
-		M.occupant_message("<span class='danger'>You hit [src].</span>")
-		visible_message("<span class='danger'>[src] has been hit by [M.name].</span>")
+		M.occupant_message("<span class='danger'>Voce acertou [src].</span>")
+		visible_message("<span class='danger'>[src] foi atingido por [M.name].</span>")
 		if(prob(5) && M.force > 20)
 			dismantle_wall(1)
-			M.occupant_message("<span class='warning'>You smash through the wall.</span>")
-			visible_message("<span class='warning'>[src.name] smashes through the wall!</span>")
+			M.occupant_message("<span class='warning'>Voce esmaga a parede.</span>")
+			visible_message("<span class='warning'>[src.name] esmaga a parede!</span>")
 			playsound(src, 'sound/effects/meteorimpact.ogg', 100, 1)
 
 // Wall-rot effect, a nasty fungus that destroys walls.
@@ -205,7 +205,7 @@
 	var/turf/simulated/floor/F = src
 	F.burn_tile()
 	F.icon_state = "wall_thermite"
-	to_chat(user, "<span class='warning'>The thermite starts melting through the wall.</span>")
+	to_chat(user, "<span class='warning'>O thermite comeca a derreter atraves da parede.</span>")
 
 	spawn(100)
 		if(O)	qdel(O)
@@ -219,13 +219,13 @@
 	if(M.environment_smash >= 2)
 		if(M.environment_smash == 3)
 			dismantle_wall(1)
-			to_chat(M, "<span class='info'>You smash through the wall.</span>")
+			to_chat(M, "<span class='info'>Voce esmaga a parede.</span>")
 		else
-			to_chat(M, text("<span class='notice'>You smash against the wall.</span>"))
+			to_chat(M, text("<span class='notice'>Voce esmaga contra a parede.</span>"))
 			take_damage(rand(25, 75))
 			return
 
-	to_chat(M, "<span class='notice'>You push the wall but nothing happens!</span>")
+	to_chat(M, "<span class='notice'>Você empurra a parede, mas nada acontece!</span>")
 	return
 
 /turf/simulated/wall/attack_hand(mob/user as mob)
@@ -233,25 +233,25 @@
 	if(HULK in user.mutations)
 		if(prob(hardness) || rotting)
 			playsound(src, 'sound/effects/meteorimpact.ogg', 100, 1)
-			to_chat(user, text("<span class='notice'>You smash through the wall.</span>"))
+			to_chat(user, text("<span class='notice'>Você esmaga a parede.</span>"))
 			user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!" ))
 			dismantle_wall(1)
 			return
 		else
 			playsound(src, 'sound/effects/bang.ogg', 50, 1)
-			to_chat(user, text("<span class='notice'>You punch the wall.</span>"))
+			to_chat(user, text("<span class='notice'>Voce soca a parede.</span>"))
 			return
 
 	if(rotting)
 		if(hardness <= 10)
-			to_chat(user, "<span class='notice'>This wall feels rather unstable.</span>")
+			to_chat(user, "<span class='notice'>Essa parede parece bastante instavel.</span>")
 			return
 		else
-			to_chat(user, "<span class='notice'>The wall crumbles under your touch.</span>")
+			to_chat(user, "<span class='notice'>A parede se desmorona sob seu toque.</span>")
 			dismantle_wall()
 			return
 
-	to_chat(user, "<span class='notice'>You push the wall but nothing happens!</span>")
+	to_chat(user, "<span class='notice'>Voce empurra a parede, mas nada acontece!</span>")
 	playsound(src, 'sound/weapons/Genhit.ogg', 25, 1)
 	src.add_fingerprint(user)
 	..()
@@ -260,7 +260,7 @@
 /turf/simulated/wall/attackby(obj/item/weapon/W as obj, mob/user as mob, params)
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(!user.IsAdvancedToolUser())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(user, "<span class='warning'>Voce nao tem a habilidade para fazer isso!</span>")
 		return
 
 	//get the user's location
@@ -271,14 +271,14 @@
 		if(istype(W, /obj/item/weapon/weldingtool) )
 			var/obj/item/weapon/weldingtool/WT = W
 			if(WT.remove_fuel(0,user))
-				to_chat(user, "<span class='notice'>You burn away the fungi with \the [WT].</span>")
+				to_chat(user, "<span class='notice'>Voce queima os fungos com \ o [WT].</span>")
 				playsound(src, WT.usesound, 10, 1)
 				for(var/obj/effect/overlay/wall_rot/WR in src)
 					qdel(WR)
 				rotting = 0
 				return
 		else if(!is_sharp(W) && W.force >= 10 || W.force >= 20)
-			to_chat(user, "<span class='notice'>\The [src] crumbles away under the force of your [W.name].</span>")
+			to_chat(user, "<span class='notice'>\O [src]  [W.name].</span>")
 			src.dismantle_wall(1)
 			return
 
@@ -298,7 +298,7 @@
 			var/obj/item/weapon/melee/energy/blade/EB = W
 
 			EB.spark_system.start()
-			to_chat(user, "<span class='notice'>You slash \the [src] with \the [EB]; the thermite ignites!</span>")
+			to_chat(user, "<span class='notice'>Voce golpeia com o [EB]; o thermite acende-se!</span>")
 			playsound(src, "sparks", 50, 1)
 			playsound(src, EB.usesound, 50, 1)
 
@@ -310,68 +310,68 @@
 
 		var/response = "Dismantle"
 		if(damage)
-			response = alert(user, "Would you like to repair or dismantle [src]?", "[src]", "Repair", "Dismantle")
+			response = alert(user, "Gostaria de reparar ou desmantelar [src]?", "[src]", "Repair", "Dismantle")
 
 		var/obj/item/weapon/weldingtool/WT = W
 
 		if(WT.remove_fuel(0,user))
 			if(response == "Repair")
-				to_chat(user, "<span class='notice'>You start repairing the damage to [src].</span>")
+				to_chat(user, "<span class='notice'>Voce comeca a reparar o dano a [src].</span>")
 				playsound(src, WT.usesound, 100, 1)
 				if(do_after(user, max(5, damage / 5) * WT.toolspeed, target = src) && WT && WT.isOn())
-					to_chat(user, "<span class='notice'>You finish repairing the damage to [src].</span>")
+					to_chat(user, "<span class='notice'>Você acabou de reparar o dano [src].</span>")
 					take_damage(-damage)
 
 			else if(response == "Dismantle")
-				to_chat(user, "<span class='notice'>You begin slicing through the outer plating.</span>")
+				to_chat(user, "<span class='notice'>Voce comeca a cortar o revestimento exterior.</span>")
 				playsound(src, WT.usesound, 100, 1)
 
 				if(do_after(user, 100 * WT.toolspeed, target = src) && WT && WT.isOn())
-					to_chat(user, "<span class='notice'>You remove the outer plating.</span>")
+					to_chat(user, "<span class='notice'>Voce remove o revestimento exterior.</span>")
 					dismantle_wall()
 
 				else
-					to_chat(user, "<span class='warning'>You stop slicing through [src].</span>")
+					to_chat(user, "<span class='warning'>Voce para de cortar [src].</span>")
 					return
 
 		else
-			to_chat(user, "<span class='notice'>You need more welding fuel to complete this task.</span>")
+			to_chat(user, "<span class='notice'>Voce precisa de mais combustivel de soldagem para completar esta tarefa.</span>")
 			return
 
 	else if(istype(W, /obj/item/weapon/gun/energy/plasmacutter))
 
-		to_chat(user, "<span class='notice'>You begin slicing through the outer plating.</span>")
+		to_chat(user, "<span class='notice'>Voce comeca a cortar o revestimento exterior.</span>")
 		playsound(src, W.usesound, 100, 1)
 
 		if(do_after(user, istype(sheet_type, /obj/item/stack/sheet/mineral/diamond) ? 120 * W.toolspeed : 60 * W.toolspeed, target = src))
-			to_chat(user, "<span class='notice'>You remove the outer plating.</span>")
+			to_chat(user, "<span class='notice'>Voce remove o revestimento exterior.</span>")
 			dismantle_wall()
-			visible_message("<span class='warning'>[user] slices apart \the [src]!</span>","<span class='warning'>You hear metal being sliced apart.</span>")
+			visible_message("<span class='warning'>[user] separa \ o [src]!</span>","<span class='warning'>Voce ouve metal ser cortado.</span>")
 
 	//DRILLING
 	else if(istype(W, /obj/item/weapon/pickaxe/drill/diamonddrill))
 
-		to_chat(user, "<span class='notice'>You begin to drill though the wall.</span>")
+		to_chat(user, "<span class='notice'>Voce comeca a perfurar a parede.</span>")
 
 		if(do_after(user, istype(sheet_type, /obj/item/stack/sheet/mineral/diamond) ? 480 * W.toolspeed : 240 * W.toolspeed, target = src)) // Diamond pickaxe has 0.25 toolspeed, so 120/60
 			to_chat(user, "<span class='notice'>Your drill tears though the last of the reinforced plating.</span>")
 			dismantle_wall()
-			visible_message("<span class='warning'>[user] drills through \the [src]!</span>","<span class='warning'>You hear the grinding of metal.</span>")
+			visible_message("<span class='warning'>[user] perfura atraves do [src]!</span>","<span class='warning'>Voce ouve a moagem de metal.</span>")
 
 	else if(istype(W, /obj/item/weapon/pickaxe/drill/jackhammer))
 
-		to_chat(user, "<span class='notice'>You begin to disintegrates the wall.</span>")
+		to_chat(user, "<span class='notice'>Voce comeca a desintegrar a parede.</span>")
 
 		if(do_after(user, istype(sheet_type, /obj/item/stack/sheet/mineral/diamond) ? 600 * W.toolspeed : 300 * W.toolspeed, target = src)) // Jackhammer has 0.1 toolspeed, so 60/30
-			to_chat(user, "<span class='notice'>Your sonic jackhammer disintegrate the reinforced plating.</span>")
+			to_chat(user, "<span class='notice'>Seu jato de pressao sonoro desintegra o chapeamento reforcado.</span>")
 			dismantle_wall()
-			visible_message("<span class='warning'>[user] disintegrates \the [src]!</span>","<span class='warning'>You hear the grinding of metal.</span>")
+			visible_message("<span class='warning'>[user] desintegra \ o [src]!</span>","<span class='warning'>Voce ouve a moagem de metal.</span>")
 
 	else if(istype(W, /obj/item/weapon/melee/energy/blade))
 		var/obj/item/weapon/melee/energy/blade/EB = W
 
 		EB.spark_system.start()
-		to_chat(user, "<span class='notice'>You stab \the [EB] into the wall and begin to slice it apart.</span>")
+		to_chat(user, "<span class='notice'>Voce esfaqueou \ o [EB] na parede e começa a corta-lo.</span>")
 		playsound(src, "sparks", 50, 1)
 
 		if(do_after(user, istype(sheet_type, /obj/item/stack/sheet/mineral/diamond) ? 140 * EB.toolspeed : 70 * EB.toolspeed, target = src))
@@ -379,7 +379,7 @@
 			playsound(src, "sparks", 50, 1)
 			playsound(src, EB.usesound, 50, 1)
 			dismantle_wall(1)
-			visible_message("<span class='warning'>[user] slices apart \the [src]!</span>","<span class='warning'>You hear metal being sliced apart and sparks flying.</span>")
+			visible_message("<span class='warning'>[user] separa \ o [src]!</span>","<span class='warning'>Voce ouve o corte de metal e as faiscas voando.</span>")
 
 	else if(istype(W,/obj/item/mounted)) //if we place it, we don't want to have a silly message
 		return
@@ -397,14 +397,14 @@
 
 			playsound(get_turf(src), 'sound/weapons/circsawhit.ogg', 50, 1)
 			user.visible_message( \
-				"[user] starts drilling a hole in \the [src].", \
-				"<span class='notice'>You start drilling a hole in \the [src].</span>", \
-				"You hear ratchet.")
+				"[user] comeca a perfurar um buraco no [src].", \
+				"<span class='notice'>Voce comeca a perfurar um buraco no [src].</span>", \
+				"Voce ouve trincheira.")
 			if(do_after(user, 80 * W.toolspeed, target = src))
 				user.visible_message( \
-					"[user] drills a hole in \the [src] and pushes \a [P] into the void", \
-					"<span class='notice'>You have finished drilling in \the [src] and push the [P] into the void.</span>", \
-					"You hear ratchet.")
+					"[user] perfura um buraco no [src] perfura um buraco no [P] para o vazio", \
+					"<span class='notice'>Voce terminou de perfurar no [src] e empurra o [P] para o vazio.</span>", \
+					"Voce ouve trincheira.")
 
 				user.drop_item()
 				if(P.is_bent_pipe())  // bent pipe rotation fix see construction.dm
