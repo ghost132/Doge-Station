@@ -240,3 +240,84 @@ Any-Mode: (hotkey doesn't need to be on)
 
 	winset(usr, "mainwindow", "macro=[hotkeyname]")//change the hotkey
 	to_chat(usr, "Hotkey mode changed to [hotkeytype].")
+
+/*
+*	Donator Tab
+*	Criado por: Paulo Castro. Alpaca Negra - DarktPlaysBR
+*	Um simples sistema de checagem e processamento de doadores
+*/
+
+
+/*
+*	Check Donator: Um proc utilizado para atualizar os dados do jogador
+*	Retorna: Nível do tier o jogador no dia atual
+*
+*	E.g: Se o dia atual for maior que o dia do término dos seus benefícios, então a database é atualizada
+*	e o jogador perde seu rank.
+*/
+mob/proc/check_donator()
+	var/actual_tier = 0 //Armazena o tier atual do usuário em uma variável
+	if(!dbcon.IsConnected()) return //Checa a conexão MySQL
+	if(!client && !ckey) return //Checa o cliente e ckey
+
+	//Seleciona os status do usuário
+	var/DBQuery/donator_query = dbcon.NewQuery("SELECT ckey, end_date, active, tier FROM [format_table_name("donators")] WHERE ckey = [ckey]")
+	var/date_now = time2text(world.realtime, "DD-Day/MM-Month/YYYY") //Tempo atual
+	donator_query.Execute() //Executa a query acima
+
+	while(donator_query.NextRow()) //Adiciona as informações da query em variáveis
+		var/qend = donator_query.item[2]
+		var/qactive = donator_query.item[3]
+		var/qtier = donator_query.item[4]
+
+	//Processamento de informações
+		if(qend < date_now || qactive == 0 || qtier == 0)
+			actual_tier = 0
+			donator_query.item[3] = 0
+		else
+			actual_tier = donator_query.item[4]
+
+	//Processa um UPDATE_call à database
+	donator_query.Execute("UPDATE [format_table_name("donators")] SET active = [donator_query.item[3]], tier = [donator_query.item[4]] WHERE ckey = [ckey]")
+
+	//Retorna o tier do jogador baseado no dia atual
+	return actual_tier
+
+/*
+*	Process Donator: Um proc que adiciona as funcionalidades do tier_donator ao jogador
+*	Obs: As funcionalidades ainda estão sendo definidas
+*/
+/*
+mob/proc/process_donator()
+	var/qtier = check_donator()
+	switch(qtier)
+		if(0) return //Nenhum tier
+		if(1)
+			//Vantagens do tier 1
+		if(2)
+			//Vantagens do tier 2
+		if(3)
+			//Vantagens do tier 3
+		//else
+			//Mensagem de erro
+*/
+
+/*
+*	[Debug]Process Donator: Um proc utilizado para identificação de bugs
+*	Obs: Comente-o caso não esteja debugando o code.
+*/
+//*
+mob/proc/dprocess_donator()
+	var/qtier = check_donator()
+	switch(qtier)
+		if(0)
+			to_chat(usr, "You aren't listed in donators' database.") //"Você não está listado na db 'donators'"
+		if(1)
+			to_chat(usr, "Your actual tier is: [qtier].") //"Seu tier atual é: [tier]"
+		if(2)
+			to_chat(usr, "Your actual tier is: [qtier].") //"Seu tier atual é: [tier]"
+		if(3)
+			to_chat(usr, "Your actual tier is: [qtier].") //"Seu tier atual é: [tier]"
+		else
+			to_chat(usr, "An error has ocorred, please contact the present admins.") //"Um erro ocorreu.. tralalá meh"
+//*/
