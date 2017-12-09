@@ -278,7 +278,7 @@
 				rotting = 0
 				return
 		else if(!is_sharp(W) && W.force >= 10 || W.force >= 20)
-			to_chat(user, "<span class='notice'>\O [src]  [W.name].</span>")
+			to_chat(user, "<span class='notice'>O [src]  [W.name].</span>")
 			src.dismantle_wall(1)
 			return
 

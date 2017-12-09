@@ -968,7 +968,7 @@
 	item_state = "ladiesredvictoriancoat"
 
 
-//roupa de pucci ~~chaplain
+//roupa do pucci ~~chaplain
 
 /obj/item/clothing/suit/pucci
 	name = "bata escura"
