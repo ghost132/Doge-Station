@@ -975,3 +975,9 @@
 	desc = "Uma Bata Escura.. isso parece familiar... parece ter um brilho celestial.."   //mentira, nao tem nada
 	icon = 'icons/mob/suit.dmi'   //sprites by Demetreo
 	icon_state = "bata_pucci"
+
+/obj/item/clothing/suit/roupa_sith
+	name = "roupa de sith"
+	desc = "para colocar medo nos jedis"
+	icon = 'icons/mob/suit.dmi'
+	icon_state = "sith_robe"
