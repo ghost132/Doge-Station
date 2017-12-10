@@ -20,4 +20,3 @@ data/
 *.db
 stddef.dm
 .atom-build.json
-icons/mob/head.dmi
