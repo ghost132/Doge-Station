@@ -79,6 +79,18 @@
 	return
 
 
+/client/verb/donate_ad()
+	set name = "Doar por ad"
+	set desc = "Assista a um video para gerar renda para manter o host."
+	set hidden = 1
+	if(config.ad)
+		if(alert("Isso irá abrir a pagina de anuncios. Você tem certeza?",,"Sim","Não")=="Não")
+			return
+		src << link(config.ad)
+	else
+		to_chat(src, "<span class='danger'>The rules URL is not set in the server configuration.</span>")
+	return
+
 /client/verb/hotkeys_help()
 	set name = "Hotkey Help"
 	set category = "OOC"
