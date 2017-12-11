@@ -400,7 +400,7 @@ var/world_topic_spam_protect_time = world.timeofday
 	s += "[game_version]"
 	s += "</a>"
 	s += ")"
-	s += "<br>Roleplay muito baixo, servidor Brasileiro<br>"
+	s += "<br>Roleplay medio, servidor Brasileiro<br>"
 
 
 
