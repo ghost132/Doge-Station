@@ -976,6 +976,10 @@
 	icon = 'icons/mob/suit.dmi'   //sprites by Demetreo
 	icon_state = "bata_pucci"
 
+
+
+//roupa de sith
+
 /obj/item/clothing/suit/roupa_sith
 	name = "roupa de sith"
 	desc = "para colocar medo nos jedis"
