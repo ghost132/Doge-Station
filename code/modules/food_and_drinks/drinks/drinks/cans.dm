@@ -229,4 +229,4 @@
 	name = "Dolly"
 	desc = "O melhor"
 	icon_state = "dolly"
-	list_reagents = list("dolly" = 30)
+	list_reagents = list("cola" = 30)

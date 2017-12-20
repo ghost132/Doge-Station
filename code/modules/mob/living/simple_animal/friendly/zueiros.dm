@@ -30,7 +30,6 @@
 	name = "Hue Guy"
 	desc = "HUEHUEHUE."
 	icon = 'icons/mob/mob.dmi'
-	icon_state = "hue_guy"
 	icon_living = "hue_guy"
 	icon_resting = "hue_guy"
 	icon_dead = "hue_guy"
