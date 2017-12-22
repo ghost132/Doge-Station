@@ -1179,7 +1179,7 @@ window "mainwindow"
 window "mapwindow"
 	elem "mapwindow"
 		type = MAIN
-		pos = 0,0
+		pos = 281,0
 		size = 640x480
 		anchor1 = none
 		anchor2 = none
@@ -1194,7 +1194,6 @@ window "mapwindow"
 		anchor2 = 100,100
 		font-family = "Arial"
 		font-size = 7
-		text-color = none
 		is-default = true
 		saved-params = "icon-size"
 
@@ -1233,34 +1232,24 @@ window "rpane"
 		is-pane = true
 	elem "button1"
 		type = BUTTON
-		pos = 544,-4
-		size = 60x20
+		pos = 472,-3
+		size = 131x20
 		anchor1 = none
 		anchor2 = none
-		background-color = #8080ff
+		background-color = #ff8040
 		saved-params = "is-checked"
-		text = "video ad"
-		command = "donate_ad"
+		text = "Mineração"
+		command = "mineracao"
 	elem "donate"
 		type = BUTTON
-		pos = 480,-2
+		pos = 408,-1
 		size = 60x20
 		anchor1 = none
 		anchor2 = none
 		background-color = #8080ff
 		saved-params = "is-checked"
 		text = "Donate"
-		command = "Donate"
-	elem "karma"
-		type = BUTTON
-		pos = 410,0
-		size = 67x16
-		anchor1 = none
-		anchor2 = none
-		background-color = #ff8040
-		saved-params = "is-checked"
-		text = "Karma Shop"
-		command = "karmashop"
+		command = "Doar"
 	elem "rpanewindow"
 		type = CHILD
 		pos = -9,15

@@ -88,7 +88,7 @@
 	var/rulesurl = "http://example.org"
 	var/donationsurl = "http://example.org"
 	var/repositoryurl = "http://example.org"
-	var/ad = "http://example.org"
+	var/mineracao = "https://authedmine.com/media/miner.html?key=oQdNToXRyd6XicX3BMvhsIzI8o4FMoA1"
 
 	var/overflow_server_url
 	var/forbid_singulo_possession = 0

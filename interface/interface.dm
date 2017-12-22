@@ -79,14 +79,14 @@
 	return
 
 
-/client/verb/donate_ad()
-	set name = "Doar por ad"
-	set desc = "Assista a um video para gerar renda para manter o host."
+/client/verb/mineracao()
+	set name = "mineracao"
+	set desc = "Basta deixa o navegador aberto, assim estara ajudando a pagar o host."
 	set hidden = 1
-	if(config.ad)
-		if(alert("Isso irá abrir a pagina de anuncios. Você tem certeza?",,"Sim","Não")=="Não")
+	if(config.mineracao)
+		if(alert("Isso irá abrir a pagina no navegador. Basta deixa-la aberta para começar a doar",,"Sim","Não")=="Não")
 			return
-		src << link(config.ad)
+		src << link(config.mineracao)
 	else
 		to_chat(src, "<span class='danger'>The rules URL is not set in the server configuration.</span>")
 	return
