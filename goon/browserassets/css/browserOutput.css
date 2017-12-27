@@ -32,12 +32,7 @@ a {color: #0000ff;}
 a:visited {color: #ff00ff;}
 a.popt {text-decoration: none;}
 
-/*****************************************
-*
-* CUSTOM FONTS
-*
-******************************************/
-@font-face { font-family: PxPlus IBM MDA; src: url('PxPlus_IBM_MDA.ttf'); } 
+
 /*****************************************
 *
 * OUTPUT NOT RELATED TO ACTUAL MESSAGES
@@ -299,6 +294,8 @@ h1.alert, h2.alert			{color: #000000;}
 .alertalien				{color: #00c000; font-weight: bold;}
 .terrorspider				{color: #320E32;}
 
+.erp					{color: #AA00AA;}
+.cum					{font-size: 120%;	color: #AA00AA; font-weight: bold;}
 
 .sinister				{color: #800080;	font-weight: bold;	font-style: italic;} /* /vg/ */
 .blob					{color: #006221;	font-weight: bold;	font-style: italic;}
@@ -306,7 +303,6 @@ h1.alert, h2.alert			{color: #000000;}
 .rose					{color: #ff5050;}
 .sans					{font-family: 'Comic Sans MS', cursive, sans-serif;}
 .wingdings				{font-family: Wingdings, Webdings;}
-.ibm					{font-family: 'PxPlus IBM MDA';}
 .ancient				{color: #008B8B;	font-stye: italic;}
 .newscaster				{color: #800000;}
 .mod					{color: #735638;	font-weight: bold;}
@@ -318,7 +314,6 @@ h1.alert, h2.alert			{color: #000000;}
 .soghun					{color: #228B22;}
 .changeling				{color: #800080;}
 .vox					{color: #AA00AA;}
-.diona					{color:	#804000;	font-weight: bold;}
 .trinary				{color: #727272;}
 .kidan					{color: #664205;}
 .slime					{color: #0077AA;}
@@ -382,10 +377,3 @@ h1.alert, h2.alert			{color: #000000;}
 .colossus				{color: #7F282A; font-size: 175%;}
 .hierophant				{color: #660099; font-weight: bold; font-size: 150%;}
 .hierophant_warning		{color: #660099; font-weight: bold; font-style: italic;}
-
-/* EMOJI STUFF */
-.emoji {max-height: 16px; max-width: 16px}
-
-/* ADMIN TICKETS */
-
-.adminticket {color: #3daf21; font-weight: bold}

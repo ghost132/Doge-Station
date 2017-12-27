@@ -467,6 +467,11 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Captain's Office"
 	icon_state = "captain"
 
+/area/crew_quarters/heads/captain/station_lockdown_room
+	name = "Station Lockdown Room"
+	icon_state = "station_lockdown_room"
+	music = "signal"
+
 /area/crew_quarters/heads/captain/private
 	name = "Captain's Quarters"
 	icon_state = "captain"
