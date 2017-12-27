@@ -1052,6 +1052,11 @@ var/list/ghostteleportlocs = list()
 	name = "\improper Captain's Office"
 	icon_state = "captain"
 
+/area/crew_quarters/captain/station_lockdown_room
+	name = "\improper Station Lockdown Room"
+	icon_state = "station_lockdown_room"
+	music = "signal"
+
 /area/crew_quarters/captain/bedroom
 	name = "\improper Captain's Bedroom"
 	icon_state = "captain"
