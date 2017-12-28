@@ -166,35 +166,3 @@
 	icon_state = "arcade"
 	floor_tile = /obj/item/stack/tile/arcade_carpet
 	smooth = SMOOTH_FALSE
-
-//escadas
-
-/turf/simulated/floor/escada
-	icon = 'icons/turf/escada.dmi'
-	icon_state = "escada"
-	name = "escada"
-	smooth = SMOOTH_TRUE
-	canSmoothWith = null
-
-	footstep_sounds = list(
-		"human" = list('sound/effects/footstep/carpet_human.ogg'),
-		"xeno"  = list('sound/effects/footstep/carpet_xeno.ogg')
-	)
-
-
-/turf/simulated/floor/escada_cima
-	icon = 'icons/turf/escada.dmi'
-	icon_state = "escada_parte_cima"
-	name = "escada_parte_cima"
-	smooth = SMOOTH_TRUE
-	canSmoothWith = null
-
-	footstep_sounds = list(
-		"human" = list('sound/effects/footstep/carpet_human.ogg'),
-		"xeno"  = list('sound/effects/footstep/carpet_xeno.ogg')
-	)
-
-/turf/simulated/floor/area_restrita
-	icon = 'icons/turf/escada.dmi'
-	icon_state = "area_restrita"
-	name = "area_restrita"

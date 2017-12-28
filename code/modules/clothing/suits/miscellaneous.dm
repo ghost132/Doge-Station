@@ -970,8 +970,8 @@
 
 //roupa do pucci ~~chaplain
 
-/obj/item/clothing/suit/pucci
-	name = "bata escura"
+/obj/item/clothing/suit/bata_pucci
+	name = "Bata Escura"
 	desc = "Uma Bata Escura.. isso parece familiar... parece ter um brilho celestial.."   //mentira, nao tem nada
 	icon = 'icons/mob/suit.dmi'   //sprites by Demetreo
 	icon_state = "bata_pucci"
@@ -985,3 +985,12 @@
 	desc = "para colocar medo nos jedis"
 	icon = 'icons/mob/suit.dmi'
 	icon_state = "sith_robe"
+
+
+//roupa de megumin
+
+/obj/item/clothing/suit/roupa_megumin
+	name = "Roupa de Megumin"     //sprites by Demetreo
+	desc = "Para se parecer com uma mamae noel... nao pera.."
+	icon = 'icons/mob/suit.dmi'
+	icon_state = "megumin"
