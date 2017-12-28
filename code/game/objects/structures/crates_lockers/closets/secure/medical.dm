@@ -74,6 +74,7 @@
 		new /obj/item/weapon/storage/belt/medical(src)
 		new /obj/item/clothing/glasses/hud/health(src)
 		new /obj/item/clothing/shoes/sandal/white(src)
+		new /obj/item/weapon/surgical_drapes(src)
 
 //Exam Room
 /obj/structure/closet/secure_closet/exam
