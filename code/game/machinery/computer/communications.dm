@@ -51,6 +51,7 @@
 	else
 		if(message)
 			to_chat(user, "<span class='warning'>Access denied.</span>")
+			playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, 0)
 		return COMM_AUTHENTICATION_NONE
 
 /obj/machinery/computer/communications/proc/change_security_level(var/new_level)
@@ -61,6 +62,7 @@
 	if(tmp_alertlevel > SEC_LEVEL_BLUE) tmp_alertlevel = SEC_LEVEL_BLUE //Cannot engage delta with this
 	set_security_level(tmp_alertlevel)
 	if(security_level != old_level)
+		playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, 0)
 		//Only notify the admins if an actual change happened
 		log_game("[key_name(usr)] has changed the security level to [get_security_level()].")
 		message_admins("[key_name_admin(usr)] has changed the security level to [get_security_level()].")
@@ -77,11 +79,13 @@
 
 	if(!is_secure_level(src.z))
 		to_chat(usr, "<span class='warning'>Unable to establish a connection: You're too far away from the station!</span>")
+		playsound(src, 'sound/machines/terminal_alert.ogg', 25, 0)
 		return 1
 
 	if(href_list["login"])
 		if(!ishuman(usr))
 			to_chat(usr, "<span class='warning'>Access denied.</span>")
+			playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, 0)
 			return
 
 		var/list/access = usr.get_access()
@@ -94,6 +98,7 @@
 			var/obj/item/weapon/card/id = H.get_idcard(TRUE)
 			if(istype(id))
 				crew_announcement.announcer = GetNameAndAssignmentFromId(id)
+				playsound(src, 'sound/machines/terminal_prompt.ogg', 50, 0)
 
 		nanomanager.update_uis(src)
 		return
@@ -102,6 +107,7 @@
 		authenticated = COMM_AUTHENTICATION_NONE
 		crew_announcement.announcer = ""
 		setMenuState(usr,COMM_SCREEN_MAIN)
+		playsound(src, 'sound/machines/terminal_off.ogg', 50, 0)
 		nanomanager.update_uis(src)
 		return
 
@@ -118,12 +124,14 @@
 		if("newalertlevel")
 			if(isAI(usr) || isrobot(usr))
 				to_chat(usr, "<span class='warning'>Firewalls prevent you from changing the alert level.</span>")
+				playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, 0)
 				return 1
 			else if(usr.can_admin_interact())
 				change_security_level(text2num(href_list["level"]))
 				return 1
 			else if(!ishuman(usr))
 				to_chat(usr, "<span class='warning'>Security measures prevent you from changing the alert level.</span>")
+				playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, 0)
 				return 1
 
 			var/mob/living/carbon/human/L = usr
@@ -137,20 +145,24 @@
 					change_security_level(text2num(href_list["level"]))
 				else
 					to_chat(usr, "<span class='warning'>You are not authorized to do this.</span>")
+					playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, 0)
 				setMenuState(usr,COMM_SCREEN_MAIN)
 			else
 				to_chat(usr, "<span class='warning'>You need to swipe your ID.</span>")
+				playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, 0)
 
 		if("announce")
 			if(is_authenticated(usr) == COMM_AUTHENTICATION_MAX)
 				if(message_cooldown)
 					to_chat(usr, "<span class='warning'>Please allow at least one minute to pass between announcements.</span>")
+					playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, 0)
 					nanomanager.update_uis(src)
 					return
 				var/input = input(usr, "Please write a message to announce to the station crew.", "Priority Announcement")
 				if(!input || message_cooldown || ..() || !(is_authenticated(usr) == COMM_AUTHENTICATION_MAX))
 					nanomanager.update_uis(src)
 					return
+				playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, 0)
 				crew_announcement.Announce(input)
 				message_cooldown = 1
 				spawn(600)//One minute cooldown
@@ -161,6 +173,7 @@
 			if(!input || ..() || !is_authenticated(usr))
 				nanomanager.update_uis(src)
 				return
+			playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, 0)
 
 			call_shuttle_proc(usr, input)
 			if(shuttle_master.emergency.timer)
@@ -174,6 +187,7 @@
 				return 1
 			var/response = alert("Are you sure you wish to recall the shuttle?", "Confirm", "Yes", "No")
 			if(response == "Yes")
+				playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, 0)
 				cancel_call_proc(usr)
 				if(shuttle_master.emergency.timer)
 					post_status("shuttle")
@@ -190,6 +204,7 @@
 				currmsg = text2num(href_list["msgid"])
 			var/response = alert("Are you sure you wish to delete this message?", "Confirm", "Yes", "No")
 			if(response == "Yes")
+				playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, 0)
 				if(currmsg)
 					var/id = getCurrentMessage()
 					var/title = messagetitle[id]
@@ -208,6 +223,7 @@
 		// Status display stuff
 		if("setstat")
 			display_type=href_list["statdisp"]
+			playsound(src, "terminal_type", 50, 0)
 			switch(display_type)
 				if("message")
 					post_status("message", stat_msg1, stat_msg2, usr)
@@ -219,10 +235,12 @@
 
 		if("setmsg1")
 			stat_msg1 = input("Line 1", "Enter Message Text", stat_msg1) as text|null
+			playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, 0)
 			setMenuState(usr,COMM_SCREEN_STAT)
 
 		if("setmsg2")
 			stat_msg2 = input("Line 2", "Enter Message Text", stat_msg2) as text|null
+			playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, 0)
 			setMenuState(usr,COMM_SCREEN_STAT)
 
 		if("nukerequest")
@@ -267,12 +285,14 @@
 			if((is_authenticated(usr) == COMM_AUTHENTICATION_MAX) && (src.emagged))
 				if(centcomm_message_cooldown)
 					to_chat(usr, "Arrays recycling.  Please stand by.")
+					playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, 0)
 					nanomanager.update_uis(src)
 					return
 				var/input = stripped_input(usr, "Please choose a message to transmit to \[ABNORMAL ROUTING CORDINATES\] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination. Transmission does not guarantee a response.", "To abort, send an empty message.", "") as text|null
 				if(!input || ..() || !(is_authenticated(usr) == COMM_AUTHENTICATION_MAX))
 					nanomanager.update_uis(src)
 					return
+				playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, 0)
 				Syndicate_announce(input, usr)
 				to_chat(usr, "Message transmitted.")
 				log_say("[key_name(usr)] has made a Syndicate announcement: [input]")
@@ -283,6 +303,7 @@
 
 		if("RestoreBackup")
 			to_chat(usr, "Backup routing data restored!")
+			playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, 0)
 			src.emagged = 0
 			setMenuState(usr,COMM_SCREEN_MAIN)
 
@@ -316,6 +337,8 @@
 	if(!emagged)
 		src.emagged = 1
 		to_chat(user, "<span class='notice'>You scramble the communication routing circuits!</span>")
+		playsound(src, 'sound/machines/terminal_on.ogg', 50, 0)
+		playsound(src, 'sound/machines/terminal_alert.ogg', 25, 0)
 		nanomanager.update_uis(src)
 
 /obj/machinery/computer/communications/attack_ai(var/mob/user as mob)
