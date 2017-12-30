@@ -2677,3 +2677,9 @@ var/list/the_station_areas = list (
 	/area/turret_protected/ai_upload_foyer,
 	/area/turret_protected/ai,
 )
+
+
+////////////////////////Areas da zoação///////////////////////////////////////////////////
+
+area/galinhas_assassinas
+	icon_state = "galinhas"
