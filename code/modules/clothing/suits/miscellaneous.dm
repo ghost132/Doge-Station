@@ -968,29 +968,19 @@
 	item_state = "ladiesredvictoriancoat"
 
 
-//roupa do pucci ~~chaplain
+//roupa de pucci ~~chaplain
 
-/obj/item/clothing/suit/bata_pucci
-	name = "Bata Escura"
-	desc = "Uma Bata Escura.. isso parece familiar... parece ter um brilho celestial.."   //mentira, nao tem nada
+/obj/item/clothing/suit/pucci
+	name = "bata escura"
+	desc = "Uma Bata Escura.. isso parece familiar.. seus olhos veem uma luz sainda dela"
+	luminosity = 6
 	icon = 'icons/mob/suit.dmi'   //sprites by Demetreo
 	icon_state = "bata_pucci"
 
-
-
-//roupa de sith
-
-/obj/item/clothing/suit/roupa_sith
-	name = "roupa de sith"
-	desc = "para colocar medo nos jedis"
-	icon = 'icons/mob/suit.dmi'
-	icon_state = "sith_robe"
-
-
-//roupa de megumin
+//roupa megumin
 
 /obj/item/clothing/suit/roupa_megumin
-	name = "Roupa de Megumin"     //sprites by Demetreo
-	desc = "Para se parecer com uma mamae noel... nao pera.."
+	name = "roupa da megumin"
+	desc = "EXPLOSION!!!!"
 	icon = 'icons/mob/suit.dmi'
 	icon_state = "megumin"

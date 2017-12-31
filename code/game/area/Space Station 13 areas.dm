@@ -2682,4 +2682,5 @@ var/list/the_station_areas = list (
 ////////////////////////Areas da zoação///////////////////////////////////////////////////
 
 area/galinhas_assassinas
+	name = "galinhas assassinas"
 	icon_state = "galinhas"

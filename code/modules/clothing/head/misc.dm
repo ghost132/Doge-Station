@@ -448,3 +448,18 @@
 	name = "magnificent crown"
 	desc = "A crown worn by only the highest emperors of the land."
 	icon_state = "fancycrown"
+
+//cinto do DOOM
+
+/obj/item/clothing/belt/cinto_DOOM
+	name = "cinto do doom guy"
+	desc = "MALDITOS DEMONIOS!!!"
+	icon = 'icons/mob/belt.dmi'
+	icon_state = "doom_belt"
+
+//cinto punisher
+
+obj/item/clothing/belt/cinto_punisher
+	name = "conto do justiceiro"
+	desc = "se você nao ve balas nele, é porque alguem nao esta mais entre nos"
+	icon_state = "punisher_belt"
