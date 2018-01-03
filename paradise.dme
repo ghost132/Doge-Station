@@ -12,6 +12,7 @@
 // BEGIN_INCLUDE
 #include "_maps\__MAP_DEFINES.dm"
 #include "_maps\cyberiad.dm"
+#include "_maps\map_files\cyberiad\boate.dmm"
 #include "_maps\map_files\cyberiad\cyberiad.dmm"
 #include "code\_compile_options.dm"
 #include "code\hub.dm"
@@ -997,6 +998,7 @@
 #include "code\game\turfs\simulated\walls_mineral.dm"
 #include "code\game\turfs\simulated\walls_misc.dm"
 #include "code\game\turfs\simulated\walls_reinforced.dm"
+#include "code\game\turfs\simulated\floor\boate.dm"
 #include "code\game\turfs\simulated\floor\chao_hue.dm"
 #include "code\game\turfs\simulated\floor\fancy_floor.dm"
 #include "code\game\turfs\simulated\floor\light_floor.dm"
