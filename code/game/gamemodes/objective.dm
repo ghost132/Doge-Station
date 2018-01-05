@@ -50,9 +50,9 @@ var/list/potential_theft_objectives = subtypesof(/datum/theft_objective) - /datu
 /datum/objective/assassinate/find_target()
 	..()
 	if(target && target.current)
-		explanation_text = "Assassinate [target.current.real_name], the [target.assigned_role]."
+		explanation_text = "Assassine [target.current.real_name], o [target.assigned_role]."
 	else
-		explanation_text = "Free Objective"
+		explanation_text = "Objetivo livre"
 
 /datum/objective/assassinate/check_completion()
 	if(target && target.current)
@@ -72,9 +72,9 @@ var/list/potential_theft_objectives = subtypesof(/datum/theft_objective) - /datu
 /datum/objective/mutiny/find_target()
 	..()
 	if(target && target.current)
-		explanation_text = "Assassinate [target.current.real_name], the [target.assigned_role]."
+		explanation_text = "Assassine [target.current.real_name], o [target.assigned_role]."
 	else
-		explanation_text = "Free Objective"
+		explanation_text = "Objetivo livre"
 	return target
 
 /datum/objective/mutiny/check_completion()
@@ -93,9 +93,9 @@ var/list/potential_theft_objectives = subtypesof(/datum/theft_objective) - /datu
 /datum/objective/maroon/find_target()
 	..()
 	if(target && target.current)
-		explanation_text = "Prevent [target.current.real_name], the [target.assigned_role] from escaping alive."
+		explanation_text = "Previna que [target.current.real_name], o [target.assigned_role] escape vivo."
 	else
-		explanation_text = "Free Objective"
+		explanation_text = "Objetivo livre"
 	return target
 
 /datum/objective/maroon/check_completion()
@@ -121,9 +121,9 @@ var/list/potential_theft_objectives = subtypesof(/datum/theft_objective) - /datu
 /datum/objective/debrain/find_target()
 	..()
 	if(target && target.current)
-		explanation_text = "Steal the brain of [target.current.real_name] the [target.assigned_role]."
+		explanation_text = "Roube o cerebro de [target.current.real_name] o [target.assigned_role]."
 	else
-		explanation_text = "Free Objective"
+		explanation_text = "Objetivo livre"
 	return target
 
 
@@ -148,9 +148,9 @@ var/list/potential_theft_objectives = subtypesof(/datum/theft_objective) - /datu
 /datum/objective/protect/find_target()
 	..()
 	if(target && target.current)
-		explanation_text = "Protect [target.current.real_name], the [target.assigned_role]."
+		explanation_text = "Proteja [target.current.real_name], o [target.assigned_role]."
 	else
-		explanation_text = "Free Objective"
+		explanation_text = "Objetivo livre"
 	return target
 
 /datum/objective/protect/check_completion()
@@ -171,8 +171,8 @@ var/list/potential_theft_objectives = subtypesof(/datum/theft_objective) - /datu
 
 /datum/objective/hijack
 	martyr_compatible = 0 //Technically you won't get both anyway.
-	explanation_text = "Hijack the shuttle by escaping on it with no loyalist Nanotrasen crew on board and alive. \
-	Syndicate agents, other enemies of Nanotrasen, cyborgs, and pets may be allowed to escape alive."
+	explanation_text = "Sequestre a shuttle e escape, nao deixe que ninguem leal a o Nanostrasen que esteja a bordo sobreviva. \
+	Agentes do sindicato, e inimigos da Nanostrasen, seja ciborg, ou ate mesmo animal, podem ficar vivos"
 
 /datum/objective/hijack/check_completion()
 	if(!owner.current || owner.current.stat)
@@ -189,7 +189,7 @@ var/list/potential_theft_objectives = subtypesof(/datum/theft_objective) - /datu
 	return shuttle_master.emergency.is_hijacked()
 
 /datum/objective/hijackclone
-	explanation_text = "Hijack the shuttle by ensuring only you (or your copies) escape."
+	explanation_text = "Sequestre a shuttle garantindo que você (ou suas cópias) escape vivo."
 	martyr_compatible = 0
 
 /datum/objective/hijackclone/check_completion()
@@ -220,7 +220,7 @@ var/list/potential_theft_objectives = subtypesof(/datum/theft_objective) - /datu
 	return 0
 
 /datum/objective/block
-	explanation_text = "Do not allow any lifeforms, be it organic or synthetic to escape on the shuttle alive. AIs, Cyborgs, and pAIs are not considered alive."
+	explanation_text = "Nao permita que nenhuma forma de vida, seja ela ciborgue, IA, ou pIA permanecam vivos."
 	martyr_compatible = 1
 
 /datum/objective/block/check_completion()
@@ -245,7 +245,7 @@ var/list/potential_theft_objectives = subtypesof(/datum/theft_objective) - /datu
 	return 1
 
 /datum/objective/escape
-	explanation_text = "Escape on the shuttle or an escape pod alive and free."
+	explanation_text = "Escape da estação por um pod de emergencia ou pela shuttle, vivo e livre."
 
 /datum/objective/escape/check_completion()
 	if(issilicon(owner.current))
@@ -287,7 +287,7 @@ var/list/potential_theft_objectives = subtypesof(/datum/theft_objective) - /datu
 		target = pick(possible_targets)
 	if(target && target.current)
 		target_real_name = target.current.real_name
-		explanation_text = "Escape on the shuttle or an escape pod with the identity of [target_real_name], the [target.assigned_role] while wearing their identification card."
+		explanation_text = "Escape pela shuttle ou pod de emergencia com a indentidade de [target_real_name], o [target.assigned_role] usando o cartao de indentificacao do alvo."
 	else
 		explanation_text = "Free Objective"
 
@@ -304,7 +304,7 @@ var/list/potential_theft_objectives = subtypesof(/datum/theft_objective) - /datu
 	return 0
 
 /datum/objective/die
-	explanation_text = "Die a glorious death."
+	explanation_text = "Morreu gloriosamente."
 
 /datum/objective/die/check_completion()
 	if(!owner.current || owner.current.stat == DEAD || isbrain(owner.current))
@@ -316,7 +316,7 @@ var/list/potential_theft_objectives = subtypesof(/datum/theft_objective) - /datu
 
 
 /datum/objective/survive
-	explanation_text = "Stay alive until the end."
+	explanation_text = "Permaneceu vivo ate o final(parabens seu merda)"
 
 /datum/objective/survive/check_completion()
 	if(!owner.current || owner.current.stat == DEAD || isbrain(owner.current))
@@ -326,7 +326,7 @@ var/list/potential_theft_objectives = subtypesof(/datum/theft_objective) - /datu
 	return 1
 
 /datum/objective/nuclear
-	explanation_text = "Destroy the station with a nuclear device."
+	explanation_text = "Destrua a estacao com o dispositivo nuclear."
 	martyr_compatible = 1
 
 
@@ -346,9 +346,9 @@ var/list/potential_theft_objectives = subtypesof(/datum/theft_objective) - /datu
 		if(O.flags & 2)
 			continue
 		steal_target=O
-		explanation_text = "Steal [O]."
+		explanation_text = "Roube [O]."
 		return
-	explanation_text = "Free Objective."
+	explanation_text = "Objetivo livre."
 
 
 /datum/objective/steal/proc/select_target()
@@ -365,10 +365,10 @@ var/list/potential_theft_objectives = subtypesof(/datum/theft_objective) - /datu
 		O.name = sanitize(copytext(input("Enter target name:", "Objective target", custom_name) as text|null,1,MAX_NAME_LEN))
 		if(!O.name) return
 		steal_target = O
-		explanation_text = "Steal [O.name]."
+		explanation_text = "Roube [O.name]."
 	else
 		steal_target = new new_target
-		explanation_text = "Steal [steal_target.name]."
+		explanation_text = "Roube [steal_target.name]."
 	return steal_target
 
 /datum/objective/steal/check_completion()
@@ -394,7 +394,7 @@ var/list/potential_theft_objectives = subtypesof(/datum/theft_objective) - /datu
 		targetinfo = new /datum/theft_objective/unique/docs_blue
 	else if(faction == "blue")
 		targetinfo = new /datum/theft_objective/unique/docs_red
-	explanation_text = "Acquire [targetinfo.name] held by [target.current.real_name], the [target.assigned_role] and syndicate agent"
+	explanation_text = "Adquira [targetinfo.name] que esta com [target.current.real_name], o [target.assigned_role] e agente do sindicato"
 	steal_target = targetinfo
 
 /datum/objective/steal/exchange/backstab
@@ -404,13 +404,13 @@ var/list/potential_theft_objectives = subtypesof(/datum/theft_objective) - /datu
 		targetinfo = new /datum/theft_objective/unique/docs_red
 	else if(faction == "blue")
 		targetinfo = new /datum/theft_objective/unique/docs_blue
-	explanation_text = "Do not give up or lose [targetinfo.name]."
+	explanation_text = "Nao disista ou perca [targetinfo.name]."
 	steal_target = targetinfo
 
 /datum/objective/download
 /datum/objective/download/proc/gen_amount_goal()
 	target_amount = rand(10,20)
-	explanation_text = "Download [target_amount] research levels."
+	explanation_text = "Baixando [target_amount] niveis de segurança."
 	return target_amount
 
 
@@ -422,7 +422,7 @@ var/list/potential_theft_objectives = subtypesof(/datum/theft_objective) - /datu
 /datum/objective/capture
 /datum/objective/capture/proc/gen_amount_goal()
 	target_amount = rand(5,10)
-	explanation_text = "Accumulate [target_amount] capture points."
+	explanation_text = "Acumule [target_amount] pontos de captura."
 	return target_amount
 
 
@@ -451,7 +451,7 @@ var/list/potential_theft_objectives = subtypesof(/datum/theft_objective) - /datu
 					n_p++
 		target_amount = min(target_amount, n_p)
 
-	explanation_text = "Absorb [target_amount] compatible genomes."
+	explanation_text = "Absorva [target_amount] genes compativeis."
 	return target_amount
 
 /datum/objective/absorb/check_completion()
@@ -470,9 +470,9 @@ var/list/potential_theft_objectives = subtypesof(/datum/theft_objective) - /datu
 	target = target_ai.mind
 	if(target && target.current)
 		target_real_name = target.current.real_name
-		explanation_text = "Destroy [target_real_name], the AI."
+		explanation_text = "Destrua [target_real_name], a IA."
 	else
-		explanation_text = "Free Objective"
+		explanation_text = "Objetivo livre"
 	return target
 
 /datum/objective/destroy/check_completion()
@@ -486,7 +486,7 @@ var/list/potential_theft_objectives = subtypesof(/datum/theft_objective) - /datu
 /datum/objective/blood/proc/gen_amount_goal(low = 150, high = 400)
 	target_amount = rand(low,high)
 	target_amount = round(round(target_amount/5)*5)
-	explanation_text = "Accumulate at least [target_amount] total units of blood."
+	explanation_text = "Acumule pelo menos [target_amount] unidades de sangue."
 	return target_amount
 
 /datum/objective/blood/check_completion()
@@ -497,7 +497,7 @@ var/list/potential_theft_objectives = subtypesof(/datum/theft_objective) - /datu
 
 // /vg/; Vox Inviolate for humans :V
 /datum/objective/minimize_casualties
-	explanation_text = "Minimise casualties."
+	explanation_text = "Diminua as casualidades."
 /datum/objective/minimize_casualties/check_completion()
 	if(owner.kills.len>5) return 0
 	return 1
@@ -528,9 +528,9 @@ var/list/potential_theft_objectives = subtypesof(/datum/theft_objective) - /datu
 		target = pick(possible_targets)
 
 	if(target && target.current)
-		explanation_text = "The Shoal has a need for [target.current.real_name], the [target.assigned_role]. Take them alive."
+		explanation_text = "O Shoal precisa de [target.current.real_name], o [target.assigned_role]. Caputure ainda vivo."
 	else
-		explanation_text = "Free Objective"
+		explanation_text = "Objetivo livre"
 	return target
 
 /datum/objective/heist/kidnap/check_completion()
@@ -557,37 +557,37 @@ var/list/potential_theft_objectives = subtypesof(/datum/theft_objective) - /datu
 		if(1)
 			target = /obj/structure/particle_accelerator
 			target_amount = 6
-			loot = "a complete particle accelerator"
+			loot = "um acelerador de particulas inteiro"
 		if(2)
 			target = /obj/machinery/the_singularitygen
 			target_amount = 1
-			loot = "a gravitational singularity generator"
+			loot = "um gerador de singularidade gravitacional"
 		if(3)
 			target = /obj/machinery/power/emitter
 			target_amount = 4
-			loot = "four emitters"
+			loot = "quatro emissores"
 		if(4)
 			target = /obj/machinery/nuclearbomb
 			target_amount = 1
-			loot = "a nuclear bomb"
+			loot = "uma bomba nuclear"
 		if(5)
 			target = /obj/item/weapon/gun
 			target_amount = 6
-			loot = "six guns. Tasers and other non-lethal guns are acceptable"
+			loot = "seis armas, Tasers e outras armas nao leitais sao permitidas"
 		if(6)
 			target = /obj/item/weapon/gun/energy
 			target_amount = 4
-			loot = "four energy guns"
+			loot = "quatro armas de ernergia"
 		if(7)
 			target = /obj/item/weapon/gun/energy/laser
 			target_amount = 2
-			loot = "two laser guns"
+			loot = "duas armas laser"
 		if(8)
 			target = /obj/item/weapon/gun/energy/ionrifle
 			target_amount = 1
-			loot = "an ion gun"
+			loot = "uma arma de ion"
 
-	explanation_text = "We are lacking in hardware. Steal or trade [loot]."
+	explanation_text = "Estamos com falta de hardwares. arranje um roubando ou trocando [loot]."
 
 /datum/objective/heist/loot/check_completion()
 	var/total_amount = 0
@@ -694,7 +694,7 @@ var/list/potential_theft_objectives = subtypesof(/datum/theft_objective) - /datu
 
 
 /datum/objective/heist/inviolate_crew
-	explanation_text = "Do not leave any Vox behind, alive or dead."
+	explanation_text = "Nao deixe nenhum Vox para tras, mesmo que esteja morto."
 
 /datum/objective/heist/inviolate_crew/check_completion()
 	var/datum/game_mode/heist/H = ticker.mode
@@ -703,7 +703,7 @@ var/list/potential_theft_objectives = subtypesof(/datum/theft_objective) - /datu
 	return 0
 
 /datum/objective/heist/inviolate_death
-	explanation_text = "Follow the Inviolate. Minimise death and loss of resources."
+	explanation_text = "Siga o Inviolate. Minimize as mortes e a perda de recursos."
 
 /datum/objective/heist/inviolate_death/check_completion()
 	var/vox_allowed_kills = 3 // The number of people the vox can accidently kill. Mostly a counter to people killing themselves if a raider touches them to force fail.
@@ -731,39 +731,39 @@ var/list/potential_theft_objectives = subtypesof(/datum/theft_objective) - /datu
 			target = /obj/item/weapon/stock_parts/cell
 			target_amount = 10
 			target_rating = 3
-			itemname = "ten high-capacity power cells"
+			itemname = "dez celulas de energia de alta capacidade"
 		if(2)
 			target = /obj/item/weapon/stock_parts/manipulator
 			target_amount = 20
-			itemname = "twenty micro manipulators"
+			itemname = "vinte micro manpuladores"
 		if(3)
 			target = /obj/item/weapon/stock_parts/matter_bin
 			target_amount = 20
-			itemname = "twenty matter bins"
+			itemname = "vinte matter bins"
 		if(4)
 			target = /obj/item/weapon/stock_parts/micro_laser
 			target_amount = 15
-			itemname = "fifteen micro-lasers"
+			itemname = "quinze micro-lasers"
 		if(5)
 			target = /obj/item/weapon/stock_parts/capacitor
 			target_amount = 15
-			itemname = "fifteen capacitors"
+			itemname = "quinze capacitores"
 		if(6)
 			target = /obj/item/weapon/stock_parts/subspace/filter
 			target_amount = 4
-			itemname = "four hyperwave filters"
+			itemname = "quatro filtros de hiper ondas"
 		if(7)
 			target = /obj/item/solar_assembly
 			target_amount = 10
-			itemname = "ten solar panel assemblies"
+			itemname = "dez montagens de painel solar"
 		if(8)
 			target = /obj/item/device/flash
 			target_amount = 6
-			itemname = "six flashes"
-	explanation_text = "We are running low on spare parts. Trade for [itemname]."
+			itemname = "seis flashes"
+	explanation_text = "Estamos com poucas peças sobressalentes. Troque por [itemname]."
 
 //wizard
 
 /datum/objective/wizchaos
-	explanation_text = "Wreak havoc upon the station as much you can. Send those wandless Nanotrasen scum a message!"
+	explanation_text = "Faça uma grande estraga na estação o máximo que puder. Envie a os trouxas da Nanotrasen sem varinha uma mensagem!"
 	completed = 1
