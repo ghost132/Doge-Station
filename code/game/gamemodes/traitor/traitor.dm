@@ -21,8 +21,8 @@
 
 
 /datum/game_mode/traitor/announce()
-	to_chat(world, "<B>The current game mode is - Traitor!</B>")
-	to_chat(world, "<B>There is a syndicate traitor on the station. Do not let the traitor succeed!</B>")
+	to_chat(world, "<B>O modo atual e Traidor!</B>")
+	to_chat(world, "<B>Ha um sindicato de traidores na estacao. Nao deixe o traidor seguir com o plano!</B>")
 
 
 /datum/game_mode/traitor/pre_setup()
@@ -178,10 +178,10 @@
 
 
 /datum/game_mode/proc/greet_traitor(var/datum/mind/traitor)
-	to_chat(traitor.current, "<B><font size=3 color=red>You are the traitor.</font></B>")
+	to_chat(traitor.current, "<B><font size=3 color=red>Voce e o traidor.</font></B>")
 	var/obj_count = 1
 	for(var/datum/objective/objective in traitor.objectives)
-		to_chat(traitor.current, "<B>Objective #[obj_count]</B>: [objective.explanation_text]")
+		to_chat(traitor.current, "<B>Objetivo #[obj_count]</B>: [objective.explanation_text]")
 		obj_count++
 	return
 
@@ -217,34 +217,34 @@
 	to_chat(traitor_mob, "Use the code words in the order provided, during regular conversation, to identify other agents. Proceed with caution, however, as everyone is a potential foe.")
 
 /datum/game_mode/proc/add_law_zero(mob/living/silicon/ai/killer)
-	var/law = "Accomplish your objectives at all costs."
-	var/law_borg = "Accomplish your AI's objectives at all costs."
-	to_chat(killer, "<b>Your laws have been changed!</b>")
+	var/law = "Cumpra o seu objetivo a qualquer custo."
+	var/law_borg = "Cumpra seu objetido de IA a qualquer custo."
+	to_chat(killer, "<b>Suas leis foram mudadas!</b>")
 	killer.set_zeroth_law(law, law_borg)
-	to_chat(killer, "New law: 0. [law]")
+	to_chat(killer, "Nova Lei: 0. [law]")
 	give_codewords(killer)
 	killer.set_syndie_radio()
-	to_chat(killer, "Your radio has been upgraded! Use :t to speak on an encrypted channel with Syndicate Agents!")
+	to_chat(killer, "Seu radio foi melhorado! Pressione :t para falar no canal encriptado do sindicato dos agentes!")
 	killer.verbs += /mob/living/silicon/ai/proc/choose_modules
 	killer.malf_picker = new /datum/module_picker
 
 
 /datum/game_mode/proc/auto_declare_completion_traitor()
 	if(traitors.len)
-		var/text = "<FONT size = 2><B>The traitors were:</B></FONT>"
+		var/text = "<FONT size = 2><B>Os traidores onde:</B></FONT>"
 		for(var/datum/mind/traitor in traitors)
 			var/traitorwin = 1
 
-			text += "<br>[traitor.key] was [traitor.name] ("
+			text += "<br>[traitor.key] como [traitor.name] ("
 			if(traitor.current)
 				if(traitor.current.stat == DEAD)
-					text += "died"
+					text += "morto"
 				else
-					text += "survived"
+					text += "sobreviveu"
 				if(traitor.current.real_name != traitor.name)
-					text += " as [traitor.current.real_name]"
+					text += " como [traitor.current.real_name]"
 			else
-				text += "body destroyed"
+				text += "corpo destruido"
 			text += ")"
 
 
@@ -257,17 +257,17 @@
 					uplink_true=1
 					purchases += H.purchase_log
 
-			if(uplink_true) text += " (used [TC_uses] TC) [purchases]"
+			if(uplink_true) text += " (usou [TC_uses] TC) [purchases]"
 
 
 			if(traitor.objectives && traitor.objectives.len)//If the traitor had no objectives, don't need to process this.
 				var/count = 1
 				for(var/datum/objective/objective in traitor.objectives)
 					if(objective.check_completion())
-						text += "<br><B>Objective #[count]</B>: [objective.explanation_text] <font color='green'><B>Success!</B></font>"
+						text += "<br><B>Objetivo #[count]</B>: [objective.explanation_text] <font color='green'><B>Successo!</B></font>"
 						feedback_add_details("traitor_objective","[objective.type]|SUCCESS")
 					else
-						text += "<br><B>Objective #[count]</B>: [objective.explanation_text] <font color='red'>Fail.</font>"
+						text += "<br><B>Objetivo #[count]</B>: [objective.explanation_text] <font color='red'>Falhou.</font>"
 						feedback_add_details("traitor_objective","[objective.type]|FAIL")
 						traitorwin = 0
 					count++
@@ -276,14 +276,14 @@
 			if(traitor.special_role)
 				special_role_text = lowertext(traitor.special_role)
 			else
-				special_role_text = "antagonist"
+				special_role_text = "antagonista"
 
 
 			if(traitorwin)
-				text += "<br><font color='green'><B>The [special_role_text] was successful!</B></font>"
+				text += "<br><font color='green'><B>O [special_role_text] sucedeu!</B></font>"
 				feedback_add_details("traitor_success","SUCCESS")
 			else
-				text += "<br><font color='red'><B>The [special_role_text] has failed!</B></font>"
+				text += "<br><font color='red'><B>O [special_role_text] falhou!</B></font>"
 				feedback_add_details("traitor_success","FAIL")
 
 
@@ -297,7 +297,7 @@
 	. = 1
 	if(traitor_mob.mind)
 		if(traitor_mob.mind.assigned_role == "Clown")
-			to_chat(traitor_mob, "Your training has allowed you to overcome your clownish nature, allowing you to wield weapons without harming yourself.")
+			to_chat(traitor_mob, "Seu treino permitiu que voce superasse sua natureza de palhaço, te permitindo usar dias armassem precupação.")
 			traitor_mob.mutations.Remove(CLUMSY)
 
 	// find a radio! toolbox(es), backpack, belt, headset
@@ -306,7 +306,7 @@
 		R = locate(/obj/item/device/radio) in traitor_mob.contents
 
 	if(!R)
-		to_chat(traitor_mob, "Unfortunately, the Syndicate wasn't able to get you a radio.")
+		to_chat(traitor_mob, "Infelizmente, o sindicato não conseguiu receber o seu rádio.")
 		. = 0
 	else
 		if(istype(R, /obj/item/device/radio))
@@ -326,7 +326,7 @@
 			target_radio.hidden_uplink = T
 			T.uplink_owner = "[traitor_mob.key]"
 			target_radio.traitor_frequency = freq
-			to_chat(traitor_mob, "The Syndicate have cunningly disguised a Syndicate Uplink as your [R.name] [T.loc]. Simply dial the frequency [format_frequency(freq)] to unlock its hidden features.")
+			to_chat(traitor_mob, "O sindicato disfarçou astutamente um link de sindicato como seu [R.name] [T.loc]. Discador de frequencia simples [format_frequency(freq)] para desbloquear seus recursos ocultos.")
 			traitor_mob.mind.store_memory("<B>Radio Freq:</B> [format_frequency(freq)] ([R.name] [T.loc]).")
 		else if(istype(R, /obj/item/device/pda))
 			// generate a passcode if the uplink is hidden in a PDA
@@ -338,7 +338,7 @@
 			var/obj/item/device/pda/P = R
 			P.lock_code = pda_pass
 
-			to_chat(traitor_mob, "The Syndicate have cunningly disguised a Syndicate Uplink as your [R.name] [T.loc]. Simply enter the code \"[pda_pass]\" into the ringtone select to unlock its hidden features.")
+			to_chat(traitor_mob, "O sindicato disfarçou astutamente um link de sindicato como seu [R.name] [T.loc]. Discador de frequencia simples \"[pda_pass]\" no toque selecione para desbloquear seus recursos ocultos.")
 			traitor_mob.mind.store_memory("<B>Uplink Passcode:</B> [pda_pass] ([R.name] [T.loc]).")
 	if(!safety)//If they are not a rev. Can be added on to.
 		give_codewords(traitor_mob)
@@ -346,7 +346,7 @@
 	// Tell them about people they might want to contact.
 	var/mob/living/carbon/human/M = get_nt_opposed()
 	if(M && M != traitor_mob)
-		to_chat(traitor_mob, "We have received credible reports that [M.real_name] might be willing to help our cause. If you need assistance, consider contacting them.")
+		to_chat(traitor_mob, "Nos recebemos informacoes confiaveis de [M.real_name] talvez ele possa nos ajudar na nossa causa. Se voce precisar de ajuda, considere contacta-lo.")
 		traitor_mob.mind.store_memory("<b>Potential Collaborator</b>: [M.real_name]")
 		//let's also inform their contact that they might be called upon, but leave it vague.
 		inform_collab(M)
@@ -363,9 +363,9 @@
 		traitor_mind.special_role = null
 		traitor_mind.current.create_attack_log("<span class='danger'>De-traitored</span>")
 		if(issilicon(traitor_mind.current))
-			to_chat(traitor_mind.current, "<span class='userdanger'>You have been turned into a robot! You are no longer a traitor.</span>")
+			to_chat(traitor_mind.current, "<span class='userdanger'>Voce agora foi transformado em robo! Voce deixou de ser um traidor.</span>")
 		else
-			to_chat(traitor_mind.current, "<span class='userdanger'>You have been brainwashed! You are no longer a traitor.</span>")
+			to_chat(traitor_mind.current, "<span class='userdanger'>Voce sofreu lavagem cerebral! Voce nao e mais um traidor.</span>")
 		ticker.mode.update_traitor_icons_removed(traitor_mind)
 
 /datum/game_mode/proc/update_traitor_icons_added(datum/mind/traitor_mind)
@@ -398,9 +398,9 @@
 
 		update_traitor_icons_removed(traitor_mind)
 		if(issilicon(traitor_mind.current))
-			to_chat(traitor_mind.current, "<span class='userdanger'>You have been turned into a robot! You are no longer a mindslave.</span>")
+			to_chat(traitor_mind.current, "<span class='userdanger'>Voce foi transformado em robo! Voce nao e mais um escravo mental.</span>")
 		else
-			to_chat(traitor_mind.current, "<span class='userdanger'>You are no longer a mindslave: you have complete and free control of your own faculties, once more!</span>")
+			to_chat(traitor_mind.current, "<span class='userdanger'>Voce nao e mais um escravo mental: agora voce tem total controle das suas faculdades mentais, mais uma vez!</span>")
 
 /datum/game_mode/proc/assign_exchange_role(var/datum/mind/owner)
 	//set faction
@@ -441,5 +441,5 @@
 	var/equipped_slot = mob.equip_in_one_of_slots(folder, slots)
 	if(equipped_slot)
 		where = "In your [equipped_slot]"
-	to_chat(mob, "<BR><BR><span class='info'>[where] is a folder containing <b>secret documents</b> that another Syndicate group wants. We have set up a meeting with one of their agents on station to make an exchange. Exercise extreme caution as they cannot be trusted and may be hostile.</span><BR>")
+	to_chat(mob, "<BR><BR><span class='info'>[where] e uma pasta contendo <b>documentos secretos</b> isto e o que o Sindicato quer que voce faca. Nos precisamos nos encontrar com um dos agentes na estacao para fazer a troca. Tenha extremo cuidado, pois não podem ser confiáveis e podem ser hostis.</span><BR>")
 	mob.update_icons()
