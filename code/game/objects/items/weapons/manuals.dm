@@ -887,11 +887,11 @@
 			"}*/
 
 /obj/item/weapon/book/manual/barman_recipes
-	name = "Barman Recipes"
+	name = "Receitas das bebidas"
 	icon_state = "barbook"
-	author = "Sir John Rose"
-	title = "Barman Recipes"
-	/*dat = {"<html>
+	author = "Seu ze da mercearia da esquina"
+	title = "Aprenda a fazer sua pinga"
+	dat = {"<html>
 				<head>
 				<style>
 				h1 {font-size: 18px; margin: 15px 0px 5px;}
@@ -903,8 +903,8 @@
 				</head>
 				<body>
 
-				<h1>Drinks for dummies</h1>
-				Heres a guide for some basic drinks.
+				<h1>Aprenda como fazer as pingas do bar</h1>
+				Aqui um guia para se tornar o fodão das bebidas.
 
 				<h2>Manly Dorf:</h2>
 				Mix ale and beer into a glass.
@@ -933,10 +933,16 @@
 				<h2>Classic Martini:</h2>
 				Mix vermouth and gin into a glass.
 
+				<h2>Caipirinha</h2>
+				Misture 51 com suco de limão
+
+				<h2>Não tente isso</h2>
+				Misture 51 com pedra 90
+
 
 				</body>
 				</html>
-			"}*/
+			"}
 
 
 /obj/item/weapon/book/manual/detective

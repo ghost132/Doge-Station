@@ -244,7 +244,6 @@
 	M.Jitter(5)
 	..()
 
-
 /////////////////////////////////////////////////////////////////cocktail entities//////////////////////////////////////////////
 
 /datum/reagent/consumable/ethanol/bilk
@@ -1222,3 +1221,88 @@
 	drink_icon = "synthignonglass"
 	drink_name = "Glass of Synthignon"
 	drink_desc = "Someone mixed good wine and robot booze. Romantic, but atrocious."
+
+
+
+///////////////////////////////////////Bebidas BR//////////////////////////////////////////////////
+
+/datum/reagent/consumable/ethanol/pedra_90
+	name = "pedra 90"
+	id = "pedra 90"
+	description = "Pense numa bebida que desce rasgando como 15 tesouras de barbeiro."
+	reagent_state = LIQUID
+	color = "#664300"
+	alcohol_perc = 0.4
+	drink_icon = "whiterussianglass"
+	drink_name = "Dose da melhor pinga, pedra 90"
+	drink_desc = "Encontrado em qualquer mercearia de esquina."
+	taste_message = "pedra 90(CARALEO MANO)"
+
+
+/datum/reagent/consumable/ethanol/pedra_90/on_mob_life(mob/living/M)
+	M.bodytemperature += 25
+	M.AdjustDizzy(-5)
+	M.AdjustDrowsy(-3)
+	M.AdjustSleeping(-2)
+	M.emote(pick("sente rasgando a garganta", "se contorce", "faz uma careta", "sente uma leve esquentada no toba"))
+	..()
+
+/datum/reagent/consumable/ethanol/bebida_51
+	name = "51"
+	id = "51"
+	description = "Uma boa ideia"
+	reagent_state = LIQUID
+	color = "#664300"
+	alcohol_perc = 0.4
+	drink_icon = "whiterussianglass"
+	drink_name = "uma dose de 51"
+	drink_desc = "Imagine varias giletes cortando sua garganta ate seu estomago"
+	taste_message = "51(DESCEU RASGANDO)"
+
+/datum/reagent/consumable/ethanol/bebida_51/on_mob_life(mob/living/M)
+	M.bodytemperature += 25
+	M.AdjustDizzy(-5)
+	M.AdjustDrowsy(-3)
+	M.AdjustSleeping(-2)
+	M.emote(pick("sente rasgando a garganta", "se contorce", "faz uma careta", "sente uma leve esquentada no toba"))
+	..()
+
+/datum/reagent/consumable/ethanol/caipirinha
+	name = "Caipirinha"
+	id = "caipirinha"
+	description = "Uma otima bebida para festas"
+	reagent_state = LIQUID
+	color = "#664300"
+	alcohol_perc = 0.6
+	drink_icon = "whiterussianglass"
+	drink_name = "Copo de caipirinha"
+	drink_desc = "Comumente servido em festas ou em qualquer bar de esquina"
+	taste_message = "caipirinha"
+
+/datum/reagent/consumable/ethanol/caipirinha/on_mob_life(mob/living/M)
+	M.AdjustDizzy(3)
+	M.AdjustDrowsy(5)
+	M.AdjustSleeping(1)
+	..()
+
+/datum/reagent/consumable/ethanol/la_muerte
+	name = "La Muerte"
+	id = "lamuerte"
+	description = "Cuidado, essa porra mata"
+	reagent_state = LIQUID
+	color = "#664300"
+	alcohol_perc = 0.6
+	drink_icon = "whiterussianglass"
+	drink_name = "Dose de la muerte"
+	drink_desc = "Comumente servido pelo seu zé da vendinha da esquina"
+	taste_message = "la muerte"
+
+/datum/reagent/consumable/ethanol/la_muerte/on_mob_life(mob/living/M)
+	M.AdjustDizzy(12)
+	M.AdjustDrowsy(9)
+	M.AdjustSleeping(10)
+	M.AdjustHallucinate (15)
+	M.bodytemperature += 35
+	heart_rate_increase = 3
+	M.emote(pick("sente rasgando a garganta", "se contorce", "faz uma careta", "sente uma leve esquentada no toba"))
+	..()

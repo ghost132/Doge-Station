@@ -349,3 +349,11 @@
 		to_chat(user, "<span class='info'>You snuff out the flame on \the [src].</span>")
 		overlays -= fire_overlay
 		active = 0
+
+//dolly guarana
+
+/obj/item/weapon/reagent_containers/food/drinks/garrafa/dolly
+	name = "Dolly"
+	desc = "O melhor"
+	icon_state = "dolly"
+	list_reagents = list("dolly" = 30)
