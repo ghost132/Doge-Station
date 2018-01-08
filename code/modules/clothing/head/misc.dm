@@ -459,7 +459,7 @@
 
 //cinto punisher
 
-obj/item/clothing/belt/cinto_punisher
+/obj/item/clothing/belt/cinto_punisher
 	name = "conto do justiceiro"
 	desc = "se você nao ve balas nele, é porque alguem nao esta mais entre nos"
 	icon_state = "punisher_belt"
