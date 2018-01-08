@@ -7,7 +7,7 @@
 	hitsound_wall = "ricochet"
 
 /obj/item/projectile/bullet/holy_bullet
-	icon = 'icons/obj/projectiles.dmi'
+	icon = 'icons/obj/projectiles.dmi'   //Sprites by Demetreo
 	name = "holy bullet"
 	icon_state = "holy_bullet"
 	damage = 25

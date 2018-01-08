@@ -410,14 +410,17 @@
 /obj/item/weapon/gun/projectile/revolver/holy_revolver
 	name = "holy revolver"
 	desc = "Fazer o que é justo e certo é mais aceitável ao Senhor do que oferecer sacrifícios."
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'icons/obj/weapons.dmi'   //Sprites by Demetreo
 	icon_state = "holy_revolver"
-	item_state = "holy_revolver"
+	lefthand_file = 'icons/mob/inhands/guns_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/guns_righthand.dmi'
+	item_state = "holyrevolver_ih"
 	slot_flags = SLOT_BELT
 	w_class = WEIGHT_CLASS_NORMAL
 	var/reskinned = TRUE
 	force = 10
 	fire_sound = 'sound/weapons/holy_revolver.ogg'
+	fire_delay = 2
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/holy
 
 /obj/item/weapon/gun/projectile/revolver/holy_revolver/chamber_round(var/spin = 1)

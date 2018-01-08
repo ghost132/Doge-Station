@@ -11,7 +11,7 @@
 	is_reflectable = TRUE
 
 /obj/item/projectile/beam/holy_bullet
-	icon = 'icons/obj/projectiles.dmi'
+	icon = 'icons/obj/projectiles.dmi'   //Sprites by Demetreo
 	name = "holy bullet"
 	icon_state = "holy_bullet"
 	damage = 25
