@@ -420,7 +420,7 @@
 	var/reskinned = TRUE
 	force = 10
 	fire_sound = 'sound/weapons/holy_revolver.ogg'
-	fire_delay = 2
+	fire_delay = 4
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/holy
 
 /obj/item/weapon/gun/projectile/revolver/holy_revolver/chamber_round(var/spin = 1)
