@@ -148,7 +148,3 @@ Link: http://youtu.be/zIRo7NJ4uLE
 
 If any producer or label has an issue with me using your work, please contact me so i can remove it!
 
-# Esta-o-HUE-13
-# EstacaoHUE13
-# doguinho-Station
-# Doge-Station
