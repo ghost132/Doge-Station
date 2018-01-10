@@ -1,32 +1,19 @@
-# Beat!Station
-[![Build Status](https://api.travis-ci.org/Beat-Station/Beat-Station.svg?branch=master)](https://travis-ci.org/Beat-Station/Beat-Station)
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/Beat-Station/Beat-Station.svg)](http://isitmaintained.com/project/Beat-Station/Beat-Station "Average time to resolve an issue")
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/Beat-Station/Beat-Station.svg)](http://isitmaintained.com/project/Beat-Station/Beat-Station "Percentage of issues still open")
-[![Krihelimeter](http://www.krihelinator.xyz/badge/Beat-Station/Beat-Station)](http://www.krihelinator.xyz) 
+# ESTAÇÃO HUE 13
 
-[![forthebadge](http://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)](http://forthebadge.com)
-[![forthebadge](http://forthebadge.com/images/badges/contains-technical-debt.svg)](http://forthebadge.com)
-[![forthebadge](http://forthebadge.com/images/badges/fuck-it-ship-it.svg)](http://forthebadge.com)
+[Code](https://github.com/ghost132/Doge-Station) - [Discord](https://discord.gg/4aR4X6F)
 
-[Website](beat.misterio7.com/) - [Code](https://github.com/Beat-Station/Beat-Station) - [Discord](https://discord.gg/JVbQmS3)
+Este code é baseado no [Paradise Station](https://github.com/ParadiseSS13/Paradise) e no [Goon Station](https://github.com/goonstation/goonstation-2016) - Esta sendo modificado para melhorar a diversão dos jogadores brasileiros.
 
-It's based on [Paradise Station](https://github.com/ParadiseSS13/Paradise) and [Goon Station](https://github.com/goonstation/goonstation-2016) - This is the customized code we use at Brazilian Station server on BYOND. I've made some modifications, so i'm uploading the source. Enjoy.
+# Informações
+Este code esta sendo usado no servidor brasileiro Estação HUE 13. Todos sao bem vindos a contribuir.
 
-# Information
-This is a code used in a Brazilian server. Everyone is welcome to contribute though.
-I'm currently using music from Kevin MacLeod and SiriusBeat. Licenses are on the bottom of the file.
+# Pegando o code
+O metodo mais facil de obter o code é baixando o github desktop.  
+Você irá precisar do programa desse link [here](https://desktop.github.com).  
+Quando instalar, você irá clickar em clone escolher a pasta e colocar o link do repositorio.
+https://github.com/ghost132/Doge-Station
 
-# Getting the code
-The more complicated and easier to update method is using git.  
-You'll need to download git or some client from [here](http://git-scm.com/).  
-When that's installed, right click in any folder and click on "Git Bash".  
-When that opens, type in:
-
-    git clone https://github.com/Beat-Station/Beat-Station
-
-(hint: hold down ctrl and press insert to paste into git bash)
-
-This will take a while to download, but it provides an easier method for updating.
+Depois é so esperar baixar os arquivos
 
 ### INSTALLATION
 
