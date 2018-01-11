@@ -406,3 +406,69 @@
 
 	if(desc)
 		to_chat(user, desc)
+
+/obj/item/weapon/gun/projectile/revolver/holy_revolver
+	name = "holy revolver"
+	desc = "Fazer o que é justo e certo é mais aceitável ao Senhor do que oferecer sacrifícios."
+	icon = 'icons/obj/weapons.dmi'   //Sprites by Demetreo
+	icon_state = "holy_revolver"
+	lefthand_file = 'icons/mob/inhands/guns_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/guns_righthand.dmi'
+	item_state = "holyrevolver_ih"
+	slot_flags = SLOT_BELT
+	w_class = WEIGHT_CLASS_NORMAL
+	var/reskinned = TRUE
+	force = 10
+	fire_sound = 'sound/weapons/holy_revolver.ogg'
+	fire_delay = 4
+	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/holy
+
+/obj/item/weapon/gun/projectile/revolver/holy_revolver/chamber_round(var/spin = 1)
+	if(spin)
+		chambered = magazine.get_round(1)
+	else
+		chambered = magazine.stored_ammo[1]
+	return
+
+/obj/item/weapon/gun/projectile/revolver/holy_revolver/shoot_with_empty_chamber(mob/living/user as mob|obj)
+	..()
+	chamber_round(1)
+
+/obj/item/weapon/gun/projectile/revolver/holy_revolver/process_chamber()
+	return ..(0, 1)
+
+/obj/item/weapon/gun/projectile/revolver/holy_revolver/process_fire(atom/target as mob|obj|turf, mob/living/user as mob|obj, message = 1, params, zone_override = "")
+	if(magazine.caliber != initial(magazine.caliber))
+		if(prob(70 - (magazine.ammo_count() * 10)))	//minimum probability of 10, maximum of 60
+			playsound(user, fire_sound, 50, 1)
+			to_chat(user, "<span class='userdanger'>[src] blows up in your face!</span>")
+			user.take_organ_damage(0,20)
+			user.unEquip(src)
+			return 0
+
+	var/chaplain = 0
+	if(user.mind && (user.mind.assigned_role == "Chaplain"))
+		chaplain = 1
+
+
+	if(!(istype(user, /mob/living/carbon/human) || ticker) && ticker.mode.name != "monkey")
+		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		return
+	if(!chaplain)
+		to_chat(user, "<span class='warning'>The revolver sizzles in your hands.</span>")
+		user.take_organ_damage(0,10)
+		return
+
+	..()
+
+/obj/item/weapon/gun/projectile/revolver/holy_revolver/get_ammo(countchambered = 0, countempties = 1)
+	var/boolets = 0 //mature var names for mature people
+	if(chambered && countchambered)
+		boolets++
+	if(magazine)
+		boolets += magazine.ammo_count(countempties)
+	return boolets
+
+/obj/item/weapon/gun/projectile/revolver/holy_revolver/examine(mob/user)
+	..()
+	to_chat(user, "[get_ammo(0,0)] of those are live rounds.")

@@ -10,7 +10,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	var/reskinned = FALSE
 	var/reskin_selectable = TRUE			//set to FALSE if a subtype is meant to not normally be available as a reskin option (fluff ones will get re-added through their list)
-	var/list/fluff_transformations = list() //does it have any special transformations only accessible to it? Should only be subtypes of /obj/item/weapon/nullrod
+	var/list/fluff_transformations = list(/obj/item/weapon/gun/projectile/revolver/holy_revolver) //does it have any special transformations only accessible to it? Should only be subtypes of /obj/item/weapon/nullrod
 
 /obj/item/weapon/nullrod/suicide_act(mob/user)
 	user.visible_message("<span class='suicide'>[user] is killing \himself with \the [src.name]! It looks like \he's trying to get closer to god!</span>")
@@ -32,7 +32,7 @@
 		reskin_holy_weapon(user)
 
 /obj/item/weapon/nullrod/proc/reskin_holy_weapon(mob/M)
-	var/list/holy_weapons_list = typesof(/obj/item/weapon/nullrod)
+	var/list/holy_weapons_list = typesof(/obj/item/weapon/nullrod,/obj/item/weapon/gun/projectile/revolver/holy_revolver)
 	for(var/entry in holy_weapons_list)
 		var/obj/item/weapon/nullrod/variant = entry
 		if(!initial(variant.reskin_selectable))

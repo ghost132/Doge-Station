@@ -61,6 +61,12 @@
 	caliber = "38"
 	max_ammo = 6
 
+/obj/item/ammo_box/magazine/internal/cylinder/holy
+	name = "chaplain revolver cylinder"
+	ammo_type = /obj/item/ammo_casing/holy
+	caliber = "holy"
+	max_ammo = 500
+
 /obj/item/ammo_box/magazine/internal/cylinder/rev762
 	name = "nagant revolver cylinder"
 	ammo_type = /obj/item/ammo_casing/n762

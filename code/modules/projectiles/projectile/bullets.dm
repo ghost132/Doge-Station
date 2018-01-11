@@ -6,6 +6,34 @@
 	flag = "bullet"
 	hitsound_wall = "ricochet"
 
+/obj/item/projectile/bullet/holy_bullet
+	icon = 'icons/obj/projectiles.dmi'   //Sprites by Demetreo
+	name = "holy bullet"
+	icon_state = "holy_bullet"
+	damage = 25
+	damage_type = BRUTE
+
+/obj/item/projectile/bullet/holy_bullet/New()
+	..()
+	create_reagents(100)
+	reagents.set_reacting(FALSE)
+	reagents.add_reagent("holywater", 100)
+
+/obj/item/projectile/bullet/holy_bullet/on_hit(var/atom/target, var/blocked = 0, var/hit_zone)
+	if(iscarbon(target))
+		var/mob/living/carbon/M = target
+		if(blocked != 100)
+			if(M.can_inject(null,0,hit_zone)) // Pass the hit zone to see if it can inject by whether it hit the head or the body.
+				..()
+				reagents.trans_to(M, reagents.total_volume)
+				return 1
+			else
+				blocked = 100
+	..(target, blocked, hit_zone)
+	reagents.set_reacting(TRUE)
+	reagents.handle_reactions()
+	return 1
+
 /obj/item/projectile/bullet/weakbullet //beanbag, heavy stamina damage
 	name = "beanbag slug"
 	damage = 5
