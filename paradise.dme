@@ -2207,6 +2207,7 @@
 #include "code\modules\vr\vr_goggles.dm"
 #include "code\modules\vr\vr_outfits.dm"
 #include "goon\code\datums\browserOutput.dm"
+#include "icons\terra.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
 // END_INCLUDE
