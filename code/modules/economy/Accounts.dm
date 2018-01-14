@@ -60,10 +60,15 @@ var/global/list/all_money_accounts = list()
 /proc/create_account(var/new_owner_name = "Default user", var/starting_funds = 0, var/obj/machinery/computer/account_database/source_db)
 
 	//create a new account
-	var/datum/money_account/M = new()
+	var/global/datum/money_account/M = new()
 	M.owner_name = new_owner_name
 	M.remote_access_pin = rand(1111, 111111)
-	M.money = starting_funds
+	var/DBQuery/moneyDB = dbcon.NewQuery("SELECT dinheiro FROM [format_table_name("player")] WHERE dinheiro = '[M.money]'")
+	moneyDB.Execute()
+	if(moneyDB == null)
+		M.money = 1000
+	else
+		M.money = moneyDB
 
 	//create an entry in the account transaction log for when it was created
 	var/datum/transaction/T = new()

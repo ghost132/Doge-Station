@@ -108,6 +108,9 @@ log transactions
 			to_chat(user, "<span class='info'>You insert [C] into [src].</span>")
 			nanomanager.update_uis(src)
 			C.use(C.amount)
+			var/DBQuery/amountDB = dbcon.NewQuery("ALTER dinheiro FROM [format_table_name("player")] WHERE dinheiro = '[T.amount]'")
+			amountDB.Execute()
+
 	else
 		..()
 
@@ -118,7 +121,7 @@ log transactions
 		to_chat(user, "<span class='warning'>Artificial unit recognized. Artificial units do not currently receive monetary compensation, as per Nanotrasen regulation #1005.</span>")
 		return
 	ui_interact(user)
-	
+
 /obj/machinery/atm/attack_ghost(mob/user)
 	ui_interact(user)
 
@@ -171,6 +174,8 @@ log transactions
 						if(linked_db.charge_to_account(target_account_number, authenticated_account.owner_name, transfer_purpose, machine_id, transfer_amount))
 							to_chat(usr, "[bicon(src)]<span class='info'>Funds transfer successful.</span>")
 							authenticated_account.money -= transfer_amount
+							var/DBQuery/transferDB = dbcon.NewQuery("ALTER dinheiro FROM [format_table_name("player")] WHERE dinheiro = '[authenticated_account.money]'")
+							transferDB.Execute()
 
 							//create an entry in the account transaction log
 							var/datum/transaction/T = new()
@@ -268,6 +273,8 @@ log transactions
 						T.date = current_date_string
 						T.time = worldtime2text()
 						authenticated_account.transaction_log.Add(T)
+						var/DBQuery/withdrawlDB = dbcon.NewQuery("ALTER dinheiro FROM [format_table_name("player")] WHERE dinheiro = '[T.amount]'")
+						withdrawlDB.Execute()
 					else
 						to_chat(usr, "[bicon(src)]<span class='warning'>You don't have enough funds to do that!</span>")
 			if("balance_statement")
