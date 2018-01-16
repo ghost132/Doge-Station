@@ -72,9 +72,6 @@
 /mob/living/carbon/human/skrell/New(var/new_loc)
 	..(new_loc, "Skrell")
 
-/mob/living/carbon/human/tajaran/New(var/new_loc)
-	..(new_loc, "Tajaran")
-
 /mob/living/carbon/human/vulpkanin/New(var/new_loc)
 	..(new_loc, "Vulpkanin")
 
