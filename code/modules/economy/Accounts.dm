@@ -6,7 +6,7 @@ var/global/next_account_number = 0
 var/global/obj/machinery/computer/account_database/centcomm_account_db
 var/global/datum/money_account/vendor_account
 var/global/list/all_money_accounts = list()
-
+var/client/C
 /proc/create_station_account()
 	if(!station_account)
 		next_account_number = rand(111111, 999999)
@@ -60,21 +60,22 @@ var/global/list/all_money_accounts = list()
 /proc/create_account(var/new_owner_name = "Default user", var/starting_funds = 0, var/obj/machinery/computer/account_database/source_db)
 
 	//create a new account
-	var/global/datum/money_account/M = new()
+	var/datum/money_account/M = new()
 	M.owner_name = new_owner_name
 	M.remote_access_pin = rand(1111, 111111)
-	var/DBQuery/moneyDB = dbcon.NewQuery("SELECT dinheiro FROM [format_table_name("player")] WHERE dinheiro = '[M.money]'")
-	moneyDB.Execute()
-	if(moneyDB == null)
-		M.money = 1000
-	else
-		M.money = moneyDB
+	M.money = 0
 
 	//create an entry in the account transaction log for when it was created
 	var/datum/transaction/T = new()
 	T.target_name = new_owner_name
 	T.purpose = "Account creation"
-	T.amount = starting_funds
+	var/DBQuery/moneyDB = dbcon.NewQuery("SELECT dinheiro FROM [format_table_name("player")] WHERE ckey = '[C.ckey]' AND dinheiro = '[M.money]'")
+	if(moneyDB == null)
+		T.amount = 300
+		moneyDB = dbcon.NewQuery("UPDATE `feedback`.`player` SET `dinheiro`= '[T.amount]' WHERE  `ckey`= '[C.ckey]'")
+	else
+		T.amount = 0
+	moneyDB.Execute()
 	if(!source_db)
 		//set a random date, time and location some time over the past few decades
 		T.date = "[num2text(rand(1,31))] [pick("January","February","March","April","May","June","July","August","September","October","November","December")], 25[rand(10,56)]"
