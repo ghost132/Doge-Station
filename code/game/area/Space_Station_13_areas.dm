@@ -55,6 +55,14 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
 	has_gravity = TRUE
 
+/area/terra
+	name = "Terra"
+	icon_state = "terra"
+	luminosity = 1
+	dynamic_lighting = FALSE
+	requires_power = FALSE
+	has_gravity = TRUE
+
 
 //EXTRA
 
