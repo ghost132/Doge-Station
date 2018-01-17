@@ -7920,7 +7920,7 @@
 "cWp" = (/obj/machinery/light,/obj/structure/closet,/turf/simulated/floor/plasteel{dir = 1; icon_state = "warning"},/area/toxins/xenobiology)
 "cWq" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/table/reinforced,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; tag = ""},/obj/machinery/door_control{id = "xenobio6"; name = "Containment Blast Doors"; pixel_x = 0; pixel_y = 4; req_access_txt = "55"},/turf/simulated/floor/plasteel{dir = 5; icon_state = "warning"},/area/toxins/xenobiology)
 "cWr" = (/obj/effect/spawner/window/reinforced,/obj/structure/cable,/obj/structure/sign/biohazard,/turf/simulated/floor/plating,/area/toxins/xenobiology)
-"cWs" = (/obj/machinery/door/airlock/research{name = "Xenobiology Kill Pen"; req_access_txt = "55"},/obj/machinery/atmospherics/pipe/simple/visible,/turf/simulated/floor/plasteel{icon_state = "white"},/area/toxins/xenobiology)
+"cWs" = (/obj/machinery/door/airlock/research{locked = 1; name = "Xenobiology Kill Pen"; req_access_txt = "55"},/obj/machinery/atmospherics/pipe/simple/visible,/turf/simulated/floor/plasteel{icon_state = "white"},/area/toxins/xenobiology)
 "cWt" = (/obj/docking_port/stationary{dir = 2; dwidth = 2; height = 18; id = "skipjack_se"; name = "southeast of SS13"; width = 19},/turf/space,/area/space)
 "cWu" = (/obj/structure/table,/turf/simulated/floor/plating,/area/maintenance/engi_shuttle)
 "cWv" = (/obj/structure/stool/bed/chair{dir = 8},/turf/simulated/floor/plating,/area/maintenance/engi_shuttle)
