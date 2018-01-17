@@ -54,7 +54,7 @@
 			if(newpoll)
 				output += "<p><b><a href='byond://?showpoll=1'>Mostrar Votação dos Jogadores</A> (NEW!)</b></p>"
 			else
-				output += "<p><a href='byond://?showpoll=1'>MostrarVotação dos Jogadores</A></p>"
+				output += "<p><a href='byond://?showpoll=1'>Mostrar Votação dos Jogadores</A></p>"
 
 	output += "</center>"
 
