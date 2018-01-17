@@ -2593,6 +2593,15 @@ area/security/podbay
 /area/awaycontent/a30
 	icon_state = "awaycontent30"
 
+////////////////////////Terra//////////////////////////////////////
+/area/terra
+	name = "Terra"
+	icon_state = "terra"
+	luminosity = 1
+	dynamic_lighting = 0
+	requires_power = 0
+	has_gravity = 1
+
 ////////////////////////VR AREAS///////////////////////////////////
 
 /area/vr

@@ -72,9 +72,6 @@
 /mob/living/carbon/human/skrell/New(var/new_loc)
 	..(new_loc, "Skrell")
 
-/mob/living/carbon/human/tajaran/New(var/new_loc)
-	..(new_loc, "Tajaran")
-
 /mob/living/carbon/human/vulpkanin/New(var/new_loc)
 	..(new_loc, "Vulpkanin")
 
@@ -83,9 +80,6 @@
 
 /mob/living/carbon/human/vox/New(var/new_loc)
 	..(new_loc, "Vox")
-
-/mob/living/carbon/human/voxarmalis/New(var/new_loc)
-	..(new_loc, "Vox Armalis")
 
 /mob/living/carbon/human/skeleton/New(var/new_loc)
 	..(new_loc, "Skeleton")
