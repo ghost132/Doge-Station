@@ -2602,6 +2602,22 @@ area/security/podbay
 	requires_power = 0
 	has_gravity = 1
 
+	ruas
+		name = "Rua"
+		icon_state = "rua"
+		luminosity = 1
+		dynamic_lighting = 0
+		requires_power = 0
+		has_gravity = 1
+
+	complexo_nanostrasen
+		name = "Complexo da nanostrasen"
+		icon_state = "complexo_nanostrasen"
+		luminosity = 1
+		dynamic_lighting = 0
+		requires_power = 0
+		has_gravity = 1
+
 ////////////////////////VR AREAS///////////////////////////////////
 
 /area/vr
