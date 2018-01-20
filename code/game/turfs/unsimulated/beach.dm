@@ -3,7 +3,7 @@
 	icon = 'icons/misc/beach.dmi'
 	var/water_overlay_image = null
 	mouse_opacity = 0
-	
+
 /turf/unsimulated/beach/New()
 	..()
 	if(water_overlay_image)
@@ -13,7 +13,7 @@
 	name = "Sand"
 	icon_state = "desert"
 	mouse_opacity = 1
-	
+
 /turf/unsimulated/beach/sand/New()			//adds some aesthetic randomness to the beach sand
 	icon_state = pick("desert", "desert0", "desert1", "desert2", "desert3", "desert4")
 	..()
@@ -102,3 +102,17 @@
 	opacity = 1
 	explosion_block = 2
 	mouse_opacity = 1
+
+/turf/unsimulated/planeta
+	name = "terra"
+	icon = 'icons/turf/floors.dmi'
+
+/turf/unsimulated/planeta/terra
+	name = "terra"
+	desc = "um pouco de terra"
+	icon_state = "asteroid"
+	turf/baseturf = /turf/unsimulated/planeta/terra
+
+/turf/unsimulated/planeta/terra/New()
+	icon_state = pick("asteroid", "asteroid0", "asteroid5", "asteroid6", "asteroid7", "asteroid8")
+	..()
