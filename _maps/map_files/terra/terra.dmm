@@ -1,4 +1,4 @@
-"a" = (/turf/simulated/floor/plating/airless/asteroid,/area/terra)
+"a" = (/turf/unsimulated/planeta/terra,/area/terra)
 "b" = (/turf/space,/area/space)
 "c" = (/turf/simulated/floor/plating/airless/asteroid,/area/space)
 
