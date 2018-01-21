@@ -13,7 +13,7 @@
 		icon_state = "curva_1"
 
 	curva_2
-		icon = 'icons/terra/curvas.dmi
+		icon = 'icons/terra/curvas.dmi'
 		icon_state = "curva_2"
 
 	asfalto
@@ -34,5 +34,5 @@
 //terrenos
 
 	areia_escura
-		icon = 'icons/terra/terrenos.dmi
+		icon = 'icons/terra/terrenos.dmi'
 		icon_state = "terra_morta"
