@@ -87,7 +87,7 @@
 
 /datum/species/unathi/handle_death(var/mob/living/carbon/human/H)
 	H.stop_tail_wagging(1)
-/*
+
 /datum/species/tajaran
 	name = "Tajaran"
 	name_plural = "Tajaran"
@@ -151,7 +151,7 @@
 
 /datum/species/tajaran/handle_death(var/mob/living/carbon/human/H)
 	H.stop_tail_wagging(1)
-*/
+
 /datum/species/vulpkanin
 	name = "Vulpkanin"
 	name_plural = "Vulpkanin"
@@ -434,7 +434,7 @@
 	H.verbs += /mob/living/carbon/human/proc/leap
 	H.verbs += /mob/living/carbon/human/proc/gut
 	..()
-/*
+
 /datum/species/vox/armalis
 	name = "Vox Armalis"
 	name_plural = "Vox Armalis"
@@ -492,7 +492,7 @@
 
 /datum/species/vox/armalis/handle_reagents() //Skip the Vox oxygen reagent toxicity. Armalis are above such things.
 	return 1
-*/
+
 /datum/species/kidan
 	name = "Kidan"
 	name_plural = "Kidan"
