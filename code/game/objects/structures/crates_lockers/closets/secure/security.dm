@@ -31,6 +31,7 @@
 		new /obj/item/weapon/storage/belt/rapier(src)
 		new /obj/item/weapon/gun/energy/gun(src)
 		new /obj/item/weapon/door_remote/captain(src)
+		new /obj/item/clothing/accessory/storage/webbing(src)
 
 
 
@@ -57,6 +58,7 @@
 		new /obj/item/device/flash(src)
 		new /obj/item/clothing/accessory/petcollar(src)
 		new /obj/item/weapon/door_remote/civillian(src)
+		new /obj/item/clothing/accessory/storage/webbing(src)
 
 /obj/structure/closet/secure_closet/hop2
 	name = "head of personnel's attire"
@@ -121,6 +123,7 @@
 		new /obj/item/taperoll/police(src)
 		new /obj/item/weapon/gun/energy/gun/hos(src)
 		new /obj/item/weapon/door_remote/head_of_security(src)
+		new /obj/item/clothing/accessory/storage/webbing(src)
 
 
 

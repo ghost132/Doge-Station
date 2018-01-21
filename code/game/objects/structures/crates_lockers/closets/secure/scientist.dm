@@ -71,6 +71,7 @@
 		new /obj/item/device/flash(src)
 		new /obj/item/device/laser_pointer(src)
 		new /obj/item/weapon/door_remote/research_director(src)
+		new /obj/item/clothing/accessory/storage/webbing(src)
 
 /obj/structure/closet/secure_closet/research_reagents
 	name = "research chemical storage closet"
