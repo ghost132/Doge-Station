@@ -1764,7 +1764,7 @@
 "aHV" = (/obj/machinery/camera{c_tag = "Fore Port Solar Control"; dir = 1},/obj/structure/cable{icon_state = "0-4"; d2 = 4},/obj/machinery/power/apc{dir = 8; name = "west bump Engineering"; pixel_x = -24; shock_proof = 1},/turf/simulated/floor/plating,/area/maintenance/auxsolarport)
 "aHW" = (/obj/structure/cable{d2 = 8; icon_state = "0-8"},/obj/machinery/power/smes{charge = 0},/turf/simulated/floor/plating,/area/maintenance/auxsolarport)
 "aHX" = (/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/obj/structure/cable{d1 = 2; d2 = 4; icon_state = "2-4"},/turf/simulated/floor/plating,/area/maintenance/auxsolarport)
-"aHY" = (/obj/structure/table/woodentable,/turf/simulated/floor/carpet,/area/magistrateoffice)
+"aHY" = (/obj/structure/table/woodentable,/obj/machinery/computer/secure_data/laptop,/turf/simulated/floor/carpet,/area/magistrateoffice)
 "aHZ" = (/turf/simulated/floor/plasteel{icon_state = "neutral"; dir = 1},/area/crew_quarters/fitness)
 "aIa" = (/obj/effect/decal/cleanable/fungus,/turf/simulated/wall/r_wall,/area/maintenance/auxsolarport)
 "aIb" = (/turf/simulated/wall/r_wall,/area/clownoffice)
