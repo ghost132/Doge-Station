@@ -15,7 +15,7 @@ var/send_emergency_team
 var/ert_request_answered = 0
 
 /client/proc/response_team()
-	set name = "Dispache  da Equipe de Resposta do Centro de Comunicações"
+	set name = "Dispache da Equipe de Resposta do Centro de Comunicações"
 	set category = "Event"
 	set desc = "Envia uma Equipe de Resposta do Centro de Comunicações."
 

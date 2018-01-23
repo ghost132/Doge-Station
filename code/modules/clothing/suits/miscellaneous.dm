@@ -970,9 +970,16 @@
 
 //roupa de pucci ~~chaplain
 
-/obj/item/clothing/suit/pucci
+/obj/item/clothing/suit/bata_pucci
 	name = "bata escura"
-	desc = "Uma Bata Escura.. isso parece familiar.. seus olhos veem uma luz sainda dela"
-	luminosity = 6
-	icon = 'icons/mob/suit.dmi'   //sprites by Demetreo
+	desc = "Uma Bata Escura.. parece familiar.. seus olhos veem um brilho celestial sainda dela"
+	icon = 'icons/mob/suit.dmi'   //Sprites by Demetreo
 	icon_state = "bata_pucci"
+
+//roupa megumin
+
+/obj/item/clothing/suit/roupa_megumin
+	name = "roupa da megumin"
+	desc = "EXPLOSION!!!!"
+	icon = 'icons/mob/suit.dmi'   //Sprite by Demetreo
+	icon_state = "megumin"

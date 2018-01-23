@@ -120,7 +120,7 @@ var/world_topic_spam_protect_time = world.timeofday
 		s["ai"] = config.allow_ai
 		s["host"] = host ? host : null
 		s["jogadores"] = list()
-		s["horario da esta��o"] = worldtime2text()
+		s["horario da estacao"] = worldtime2text()
 		var/player_count = 0
 		var/admin_count = 0
 
@@ -400,7 +400,7 @@ var/world_topic_spam_protect_time = world.timeofday
 	s += "[game_version]"
 	s += "</a>"
 	s += ")"
-	s += "<br>Roleplay muito baixo, servidor Brasileiro<br>"
+	s += "<br>Roleplay medio, servidor Brasileiro<br>"
 
 
 

@@ -55,6 +55,14 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
 	has_gravity = TRUE
 
+/area/terra
+	name = "Terra"
+	icon_state = "terra"
+	luminosity = 1
+	dynamic_lighting = FALSE
+	requires_power = FALSE
+	has_gravity = TRUE
+
 
 //EXTRA
 
@@ -466,6 +474,11 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/crew_quarters/heads/captain
 	name = "Captain's Office"
 	icon_state = "captain"
+
+/area/crew_quarters/heads/captain/station_lockdown_room
+	name = "Station Lockdown Room"
+	icon_state = "station_lockdown_room"
+	music = "signal"
 
 /area/crew_quarters/heads/captain/private
 	name = "Captain's Quarters"

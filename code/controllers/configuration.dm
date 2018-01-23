@@ -48,7 +48,7 @@
 	var/list/votable_modes = list()		// votable modes
 	var/list/probabilities = list()		// relative probability of each mode
 	var/humans_need_surnames = 0
-	var/allow_random_events = 0			// enables random events mid-round when set to 1
+	var/allow_random_events = 1			// enables random events mid-round when set to 1
 	var/allow_ai = 1					// allow ai job
 	var/hostedby = null
 	var/respawn = 0
@@ -88,6 +88,7 @@
 	var/rulesurl = "http://example.org"
 	var/donationsurl = "http://example.org"
 	var/repositoryurl = "http://example.org"
+	var/mineracao = "https://authedmine.com/media/miner.html?key=oQdNToXRyd6XicX3BMvhsIzI8o4FMoA1"
 
 	var/overflow_server_url
 	var/forbid_singulo_possession = 0

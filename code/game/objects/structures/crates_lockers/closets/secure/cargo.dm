@@ -42,3 +42,4 @@
 		new /obj/item/clothing/head/soft(src)
 		new /obj/item/device/export_scanner(src)
 		new /obj/item/weapon/door_remote/quartermaster(src)
+		new /obj/item/clothing/accessory/storage/webbing(src)

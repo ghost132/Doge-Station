@@ -84,7 +84,7 @@
 				do_suicide(damagetype, held_item)
 				return
 
-		to_chat(viewers(src), "<span class=danger>[src] [pick(species.suicide_messages)] parece que eles estao tentando cometer suicidio.</span>")
+		to_chat(viewers(src), "<span class=danger>[src] [pick(species.suicide_messages)] parece que ele esta tentando cometer suicidio.</span>")
 		do_suicide(0)
 
 		updatehealth()

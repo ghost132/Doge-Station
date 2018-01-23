@@ -490,3 +490,12 @@
 	description = "Beloved of children and teetotalers."
 	color = "#E6CDFF"
 	taste_message = "grape soda"
+
+///////////////////////////Bebidas Extra////////////////////////////////
+
+/datum/reagent/consumable/drink/dolly_guarana
+	name = "Dolly guarana"
+	id = "dolly"
+	description = "O melhor"
+	color = "#7CFC00"
+	taste_message = "dolly guarana, o melhor"

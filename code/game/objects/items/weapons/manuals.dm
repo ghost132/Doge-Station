@@ -26,13 +26,13 @@
 		"}*/
 
 /obj/item/weapon/book/manual/engineering_particle_accelerator
-	name = "Particle Accelerator User's Guide"
+	name = "Guia do acelerador de particulas"
 	icon_state ="bookParticleAccelerator"
-	author = "Engineering Encyclopedia"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
-	title = "Particle Accelerator User's Guide"
+	author = "O engenhiro armengueiro"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
+	title = "Guia do acelerador de particulas"
 //big pile of shit below.
 
-	/*dat = {"<html>
+	dat = {"<html>
 				<head>
 				<style>
 				h1 {font-size: 18px; margin: 15px 0px 5px;}
@@ -44,38 +44,38 @@
 				</head>
 				<body>
 
-				<h3>Experienced user's guide</h3>
+				<h3>Guia para novatos na area/h3>
 
 				<h4>Setting up</h4>
 
 				<ol>
-					<li><b>Wrench</b> all pieces to the floor</li>
-					<li>Add <b>wires</b> to all the pieces</li>
-					<li>Close all the panels with your <b>screwdriver</b></li>
+					<li><b>Parafuse</b> todas as peças no chão, usando a chave inglesa</li>
+					<li>Adicione <b>cabos</b> a todas as peças(mesmo as que você nao consegue ver cabeado)</li>
+					<li>Feche todos os paineis usando uma <b>chave de fenda</b> ou uma <b> furadeira</b></li>
 				</ol>
 
-				<h4>Use</h4>
+				<h5>Apose parafusar, cabear, e fechar todos os paineis, siga as seguintes instruções</h5>
 
 				<ol>
-					<li>Open the control panel</li>
-					<li>Set the speed to 2</li>
-					<li>Start firing at the singularity generator</li>
-					<li><font color='red'><b>When the singularity reaches a large enough size so it starts moving on it's own set the speed down to 0, but don't shut it off</b></font></li>
-					<li>Remember to wear a radiation suit when working with this machine... we did tell you that at the start, right?</li>
+					<li>Abra o painel de controle, no computador</li>
+					<li>Coloque a velocidade do acelerador de particulas em 2</li>
+					<li>Ligue o motor do acelerador de particulas</li>
+					<li><font color='red'><b>Qunado a singularidade atingir um tamanho grande o suficiente para começar a se mover sozinho, abaixe a velocidade do acelerador de particulas para 0, mas não desligue</b></font></li>
+					<li>Lembre-se de vestir uma <b>roupa com isolamento radioativo</b></li>
 				</ol>
 
 				</body>
-				</html>"}*/
+				</html>"}
 
 
 /obj/item/weapon/book/manual/supermatter_engine
-	name = "Supermatter Engine User's Guide"
+	name = "Guia para ligar o SuperMatter"
 	icon_state = "bookParticleAccelerator"   //TEMP FIXME
-	author = "Waleed Asad"
-	title = "Supermatter Engine User's Guide"
+	author = "Alahu Al Kbhar"
+	title = "SuperMatter para iniciantes"
 
-	dat = {"Engineering notes on single-stage Supermatter engine,</br>
-			-Waleed Asad</br>
+	dat = {"Guia para você não explodir a estação com o SuperMatter,</br>
+			-Alahu Al Kbhar</br>
 
 			A word of caution, do not enter the engine room, for any reason, without radiation protection and mesons on. The status of the engine may be unpredictable even when you believe it is .off.. This is an important level of personal protection.</br></br>
 
@@ -887,11 +887,11 @@
 			"}*/
 
 /obj/item/weapon/book/manual/barman_recipes
-	name = "Barman Recipes"
+	name = "Receitas das bebidas"
 	icon_state = "barbook"
-	author = "Sir John Rose"
-	title = "Barman Recipes"
-	/*dat = {"<html>
+	author = "Seu ze da mercearia da esquina"
+	title = "Aprenda a fazer sua pinga"
+	dat = {"<html>
 				<head>
 				<style>
 				h1 {font-size: 18px; margin: 15px 0px 5px;}
@@ -903,8 +903,8 @@
 				</head>
 				<body>
 
-				<h1>Drinks for dummies</h1>
-				Heres a guide for some basic drinks.
+				<h1>Aprenda como fazer as pingas do bar</h1>
+				Aqui um guia para se tornar o fodão das bebidas.
 
 				<h2>Manly Dorf:</h2>
 				Mix ale and beer into a glass.
@@ -933,10 +933,16 @@
 				<h2>Classic Martini:</h2>
 				Mix vermouth and gin into a glass.
 
+				<h2>Caipirinha</h2>
+				Misture 51 com suco de limão
+
+				<h2>Não tente isso</h2>
+				Misture 51 com pedra 90
+
 
 				</body>
 				</html>
-			"}*/
+			"}
 
 
 /obj/item/weapon/book/manual/detective

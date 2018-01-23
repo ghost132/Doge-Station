@@ -1052,6 +1052,11 @@ var/list/ghostteleportlocs = list()
 	name = "\improper Captain's Office"
 	icon_state = "captain"
 
+/area/crew_quarters/captain/station_lockdown_room
+	name = "\improper Station Lockdown Room"
+	icon_state = "station_lockdown_room"
+	music = "signal"
+
 /area/crew_quarters/captain/bedroom
 	name = "\improper Captain's Bedroom"
 	icon_state = "captain"
@@ -2588,6 +2593,31 @@ area/security/podbay
 /area/awaycontent/a30
 	icon_state = "awaycontent30"
 
+////////////////////////Terra//////////////////////////////////////
+/area/terra
+	name = "Terra"
+	icon_state = "terra"
+	luminosity = 1
+	dynamic_lighting = 0
+	requires_power = 0
+	has_gravity = 1
+
+	ruas
+		name = "Rua"
+		icon_state = "rua"
+		luminosity = 1
+		dynamic_lighting = 0
+		requires_power = 0
+		has_gravity = 1
+
+	complexo_nanostrasen
+		name = "Complexo da nanostrasen"
+		icon_state = "complexo_nanostrasen"
+		luminosity = 1
+		dynamic_lighting = 0
+		requires_power = 0
+		has_gravity = 1
+
 ////////////////////////VR AREAS///////////////////////////////////
 
 /area/vr
@@ -2672,3 +2702,10 @@ var/list/the_station_areas = list (
 	/area/turret_protected/ai_upload_foyer,
 	/area/turret_protected/ai,
 )
+
+
+////////////////////////Areas da zoação///////////////////////////////////////////////////
+
+area/boate
+	name = "boate espacial"
+	icon_state = "boate"

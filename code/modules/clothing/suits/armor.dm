@@ -469,6 +469,7 @@
 	desc = "ele não vai acertar"
 	icon = 'icons/mob/suit.dmi'
 	icon_state = "stormtrooper"
+	armor = list(melee = 30, bullet = 10, laser = 30, energy = 30, bomb = 5, bio = 0, rad = 0)
 
 //storm trooper capitão
 
@@ -477,6 +478,7 @@
 	desc = "pra mandar nos trouxas"
 	icon = 'icons/mob/suit.dmi'
 	icon_state = "stormtrooper_cpt"
+	armor = list(melee = 30, bullet = 10, laser = 30, energy = 30, bomb = 5, bio = 0, rad = 0)
 
 //storm trooper piloto
 
@@ -485,25 +487,22 @@
 	desc = "relaxa, ele não vai acertar o asteroide"
 	icon = 'icons/mob/suit.dmi'
 	icon_state = "stormtrooper_pilot"
+	armor = list(melee = 30, bullet = 10, laser = 30, energy = 30, bomb = 5, bio = 0, rad = 0)
 
 //roupa do DOOM
 
-/obj/item/clothing/suit/armor/DOOM
+/obj/item/clothing/suit/armor/roupa_DOOM
 	name = "roupa do DOOM"
 	desc = "MALDITOS ALIENS!!!!"
+	icon = 'icons/mob/suit.dmi'
 	icon_state = "doom_armor"
+	armor = list(melee = 30, bullet = 30, laser = 30, energy = 30, bomb = 20, bio = 0, rad = 0)
 
 //calça do DOOM
 
-/obj/item/clothing/suit/armor/DOOM
-	name = "roupa do DOOM"
+/obj/item/clothing/suit/armor/calca_DOOM
+	name = "calça do DOOM"
 	desc = "MALDITOS ALIENS!!!!"
-	icon = 'icons/obj/clothing/uniforms.dmi'
-	icon_state = "doom_armor"
-
-//capacete DOOM
-
-/obj/item/clothing/suit/armor/DOOM
-	name = "roupa do DOOM"
-	desc = "MALDITOS ALIENS!!!!"
-	icon_state = "doom_helmet"
+	icon = 'icons/mob/suit.dmi'
+	icon_state = "doom_pants"
+	armor = list(melee = 10, bullet = 15, laser = 5, energy = 20, bomb = 5, bio = 0, rad = 0)

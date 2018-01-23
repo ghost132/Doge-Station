@@ -22,7 +22,28 @@
 		new /obj/item/clothing/mask/gas(src)
 		new /obj/item/clothing/shoes/sandal/white(src)
 
+/obj/structure/closet/secure_closet/roboticist
+	name = "roboticist's locker"
+	req_access = list(access_robotics)
+	icon_state = "secureres1"
+	icon_closed = "secureres"
+	icon_locked = "secureres1"
+	icon_opened = "secureresopen"
+	icon_broken = "secureresbroken"
+	icon_off = "secureresoff"
 
+/obj/structure/closet/secure_closet/roboticist/New()
+	..()
+	new /obj/item/weapon/storage/backpack(src)
+	new /obj/item/weapon/storage/backpack(src)
+	new /obj/item/weapon/storage/backpack/satchel_norm(src)
+	new /obj/item/weapon/storage/backpack/satchel_norm(src)
+	new /obj/item/weapon/storage/backpack/duffel(src)
+	new /obj/item/weapon/storage/backpack/duffel(src)
+	new /obj/item/clothing/suit/storage/labcoat(src)
+	new /obj/item/clothing/suit/storage/labcoat(src)
+	new /obj/item/device/radio/headset/headset_sci(src)
+	new /obj/item/device/radio/headset/headset_sci(src)
 
 /obj/structure/closet/secure_closet/RD
 	name = "research director's locker"
@@ -50,6 +71,7 @@
 		new /obj/item/device/flash(src)
 		new /obj/item/device/laser_pointer(src)
 		new /obj/item/weapon/door_remote/research_director(src)
+		new /obj/item/clothing/accessory/storage/webbing(src)
 
 /obj/structure/closet/secure_closet/research_reagents
 	name = "research chemical storage closet"

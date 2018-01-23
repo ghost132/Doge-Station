@@ -30,4 +30,4 @@
 	new /obj/item/clothing/gloves/ring/silver(src)
 	new /obj/item/clothing/gloves/ring/gold(src)
 	new /obj/item/clothing/gloves/ring/gold(src)
-	new /obj/item/clothing/suit/pucci(src)
+	new /obj/item/clothing/suit/bata_pucci(src)

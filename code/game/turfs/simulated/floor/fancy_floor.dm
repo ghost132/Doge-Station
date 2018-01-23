@@ -159,3 +159,26 @@
 /turf/simulated/floor/fakespace/New()
 	..()
 	icon_state = "[rand(0,25)]"
+
+
+/turf/simulated/floor/carpet/arcade
+	icon = 'icons/goonstation/turf/floor.dmi'
+	icon_state = "arcade"
+	floor_tile = /obj/item/stack/tile/arcade_carpet
+	smooth = SMOOTH_FALSE
+
+/turf/simulated/floor/escada_baixo
+	icon = 'icons/obj/escadas.dmi'
+	icon_state = "escadas_baixo"
+	footstep_sounds = list(
+		"human" = list('sound/effects/footstep/wood_all.ogg'), //@RonaldVanWonderen of Freesound.org
+		"xeno"  = list('sound/effects/footstep/wood_all.ogg')  //@RonaldVanWonderen of Freesound.org
+	)
+
+/turf/simulated/floor/escada_cima
+	icon_state = "escadas_cima"
+	icon = 'icons/obj/escadas.dmi'
+	footstep_sounds = list(
+		"human" = list('sound/effects/footstep/wood_all.ogg'), //@RonaldVanWonderen of Freesound.org
+		"xeno"  = list('sound/effects/footstep/wood_all.ogg')  //@RonaldVanWonderen of Freesound.org
+	)

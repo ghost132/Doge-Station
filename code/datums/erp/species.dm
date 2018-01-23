@@ -12,16 +12,16 @@
 	anus = 1
 
 /datum/species/unathi
-	genitals = 1
-	anus = 1
+	genitals = 0
+	anus = 0
 
 /datum/species/tajaran
-	genitals = 1
-	anus = 1
+	genitals = 0
+	anus = 0
 
 /datum/species/vulpkanin
-	genitals = 1
-	anus = 1
+	genitals = 0
+	anus = 0
 
 /datum/species/monkey
 	genitals = 1

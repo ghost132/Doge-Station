@@ -852,3 +852,23 @@
 	result_amount = 15
 	mix_message = "The eggs nog together. Pretend that \"nog\" is a verb."
 	mix_sound = 'sound/goonstation/misc/drinkfizz.ogg'
+
+/////////////////////////////BEBIDAS HUE BR///////////////////////////////////
+
+/datum/chemical_reaction/caipirinha
+	name = "Caipirinha"
+	id = "caipirinha"
+	result = "caipirinha"
+	required_reagents = list("51" = 10, "lemonjuice" = 10)
+	result_amount = 5
+	mix_message = "caipirinha, pronta para a sua festa (coisa de pobre)"
+	mix_sound = 'sound/goonstation/misc/drinkfizz.ogg'
+
+/datum/chemical_reaction/la_muerte
+	name = "La Muerte"
+	id = "lamuerte"
+	result = "lamuerte"
+	required_reagents = list("51" = 10, "pedra 90" = 10)
+	result_amount = 1
+	mix_message = "voce preparou uma dose de la muerte (essa poha vai te matar)"
+	mix_sound = 'sound/goonstation/misc/drinkfizz.ogg'

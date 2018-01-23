@@ -3,6 +3,11 @@
 	caliber = "357"
 	projectile_type = /obj/item/projectile/bullet
 
+/obj/item/ammo_casing/holy
+	desc = "Balas de prata mergulhadas em agua benta."
+	caliber = "holy"
+	projectile_type = /obj/item/projectile/bullet/holy_bullet
+
 /obj/item/ammo_casing/rubber9mm
 	desc = "A 9mm rubber bullet casing."
 	caliber = "9mm"
