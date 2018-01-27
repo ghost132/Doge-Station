@@ -9,8 +9,6 @@
 	var/obj/structure/ladder/down = null	//the ladder below this one
 	var/obj/structure/ladder/up = null		//the ladder above this one
 	var/use_verb = "climbs"
-	var/list/climbsounds = list('sound/effects/ladder.ogg','sound/effects/ladder2.ogg','sound/effects/ladder3.ogg','sound/effects/ladder4.ogg')
-	var/climb_time = 2
 
 /obj/structure/ladder/New()
 	spawn(8)
