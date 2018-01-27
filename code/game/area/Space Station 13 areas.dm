@@ -2601,7 +2601,6 @@ area/security/podbay
 	dynamic_lighting = 0
 	requires_power = 0
 	has_gravity = 1
-	var/base_turf = /turf/unsimulated/planeta/terra
 
 	ruas
 		name = "Rua"
