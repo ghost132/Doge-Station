@@ -103,7 +103,7 @@ along with the bot/relay script itself.
 
 ### LICENSE
 
-Beat!Station is licensed under the GNU Affero General Public License version 3.
+Doge-Station is licensed under the GNU Affero General Public License version 3.
 As of 5th January 2015 any new contributions are licensed under the AGPL as well,
 if you wish to submit code under the GPL v3 then commits and files must be marked as such
 in comments. If you wish to use our code in a closed source manner you may use anything
